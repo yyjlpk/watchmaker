@@ -1,845 +1,20 @@
 <!DOCTYPE html>
-<html lang="ko"><head><script data-bard-client-injected="true">(function(firebaseConfig, initialAuthToken, appId) {
-        window.__firebase_config = firebaseConfig;
-        window.__initial_auth_token = initialAuthToken;
-        window.__app_id = appId;
-            })("\n{\n  \"apiKey\": \"AIzaSyCqyCcs2R2e7AegGjvFAwG98wlamtbHvZY\",\n  \"authDomain\": \"bard-frontend.firebaseapp.com\",\n  \"projectId\": \"bard-frontend\",\n  \"storageBucket\": \"bard-frontend.firebasestorage.app\",\n  \"messagingSenderId\": \"175205271074\",\n  \"appId\": \"1:175205271074:web:2b7bd4d34d33bf38e6ec7b\"\n}\n","eyJhbGciOiJSUzI1NiIsImtpZCI6IjExNjRiNzdiNDMzZDdhMDAyMWI4NjE4YjhjYTU3ZTMyZGI5MWUxMTMiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1mYnN2Y0BiYXJkLWZyb250ZW5kLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6Ly9pZGVudGl0eXRvb2xraXQuZ29vZ2xlYXBpcy5jb20vZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJ1aWQiOiIwODQ1MDEzMTg4ODAwOTgwMjQ0NiIsImlzcyI6ImZpcmViYXNlLWFkbWluc2RrLWZic3ZjQGJhcmQtZnJvbnRlbmQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJjbGFpbXMiOnsiYXBwSWQiOiJjX2E4NmMxODM3NWZlZTVhMWZfYW1hemZpdC13YXRjaGZhY2Utc3R1ZGlvLmh0bWwtNjczIn0sImV4cCI6MTc5NTM5MjQxMCwiaWF0IjoxNzk1Mzg4ODEwLCJhbGciOiJSUzI1NiJ9.Z6dq9LXsYrHYpy_MjRzOxp42ZdB1MN2PYLUqC3PrAan1I_SA3R8pSetGpb-Uc2DcXxU6ViofhLEp8manu3kNmxVO1sZ5LQEXb25TheeX1Tf_Xk4PFfzb1rpLOkwaw-FrTCU09XM6eNt9_OTsDVmjwxTLB8AoiScIurHzqpbe7D04T_7E8CgcJwCnd5fyKs-oUApn6RvXRtFm4Emz0IS_To-xMlnhaPFjWTz-jPfUU91A8LrB9W7PHHCbTb1tSzqSZl2MkfA-VudPWxs5xSqanMbLmzreWdoEK2rVoHYU_OZ7M7FrpR2niWQ5rbk8T2fVptisiBJ_YxlKMHeyWALXPQ","c_a86c18375fee5a1f_amazfit-watchface-studio.html-673")</script><script data-bard-client-injected="true">
-  document.addEventListener('input', (event) => {
-    if (event.target && (event.target.isContentEditable || event.target.hasAttribute('contenteditable'))) {
-      const clonedDoc = document.cloneNode(true);
-      const injectedScripts = clonedDoc.querySelectorAll('[data-bard-client-injected="true"]');
-      injectedScripts.forEach(el => el.remove());
-      window.parent.postMessage({
-        type: 'inlineEdit',
-        html: '<!DOCTYPE html>\n' + clonedDoc.documentElement.outerHTML
-      }, '*');
-    }
-  });
-</script><script data-bard-client-injected="true">(function(){'use strict';window.addEventListener("message",a=>{a.data&&a.data.type==="SUPPLEMENTAL_DATA_UPDATE"&&window.dispatchEvent(new CustomEvent("supplementaldataupdate",{detail:a.data.data}))});}).call(this);
-</script><script data-bard-client-injected="true">(function(){'use strict';var k=typeof Object.defineProperties=="function"?Object.defineProperty:function(a,b,d){if(a==Array.prototype||a==Object.prototype)return a;a[b]=d.value;return a};function m(a){a=["object"==typeof globalThis&&globalThis,a,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var b=0;b<a.length;++b){var d=a[b];if(d&&d.Math==Math)return d}throw Error("Cannot find global object");}var q=m(this);
-function r(a,b){if(b)a:{var d=q;a=a.split(".");for(var c=0;c<a.length-1;c++){var e=a[c];if(!(e in d))break a;d=d[e]}a=a[a.length-1];c=d[a];b=b(c);b!=c&&b!=null&&k(d,a,{configurable:!0,writable:!0,value:b})}}function t(a){function b(c){return a.next(c)}function d(c){return a.throw(c)}return new Promise(function(c,e){function f(g){g.done?c(g.value):Promise.resolve(g.value).then(b,d).then(f,e)}f(a.next())})}function u(a){return t(a())}
-r("Object.values",function(a){return a?a:function(b){var d=[],c;for(c in b)Object.prototype.hasOwnProperty.call(b,c)&&d.push(b[c]);return d}});r("Array.prototype.includes",function(a){return a?a:function(b,d){var c=this;c instanceof String&&(c=String(c));var e=c.length;d=d||0;for(d<0&&(d=Math.max(d+e,0));d<e;d++){var f=c[d];if(f===b||Object.is(f,b))return!0}return!1}});/*
-
- MIT License
-
- Copyright (c) 2017-2023 W.Y.
-
- Permission is hereby granted, free of charge, to any person obtaining a copy
- of this software and associated documentation files (the "Software"), to deal
- in the Software without restriction, including without limitation the rights
- to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- copies of the Software, and to permit persons to whom the Software is
- furnished to do so, subject to the following conditions:
-
- The above copyright notice and this permission notice shall be included in
- all copies or substantial portions of the Software.
-
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- SOFTWARE.
-
-*/
-function v(a,b){var d=a.style;b.backgroundColor&&(d.backgroundColor=b.backgroundColor);b.width&&(d.width=`${b.width}px`);b.height&&(d.height=`${b.height}px`);var c=b.style;c!=null&&Object.keys(c).forEach(e=>{d[e]=c[e]})};var aa=(()=>{var a=0;return()=>{a+=1;return`u${`0000${(Math.random()*1679616<<0).toString(36)}`.slice(-4)}${a}`}})();function w(a){var b=[];for(let d=0,c=a.length;d<c;d++)b.push(a[d]);return b}let y=null;function z(a={}){return y?y:a.u?y=a.u:y=w(window.getComputedStyle(document.documentElement))}function A(a,b){return(a=(a.ownerDocument.defaultView||window).getComputedStyle(a).getPropertyValue(b))?parseFloat(a.replace("px","")):0}
-function B(a,b={}){var d;if(!(d=b.width)){d=A(a,"border-left-width");var c=A(a,"border-right-width");d=a.clientWidth+d+c}(b=b.height)||(b=A(a,"border-top-width"),c=A(a,"border-bottom-width"),b=a.clientHeight+b+c);return{width:d,height:b}}function C(a){return new Promise((b,d)=>{var c=new Image;c.onload=()=>{c.decode().then(()=>{requestAnimationFrame(()=>b(c))})};c.onerror=d;c.crossOrigin="anonymous";c.decoding="async";c.src=a})}
-function ba(a){return u(function*(){return Promise.resolve().then(()=>(new XMLSerializer).serializeToString(a)).then(encodeURIComponent).then(b=>`data:image/svg+xml;charset=utf-8,${b}`)})}
-function ca(a,b,d){return u(function*(){var c=document.createElementNS("http://www.w3.org/2000/svg","svg"),e=document.createElementNS("http://www.w3.org/2000/svg","foreignObject");c.setAttribute("width",`${b}`);c.setAttribute("height",`${d}`);c.setAttribute("viewBox",`0 0 ${b} ${d}`);e.setAttribute("width","100%");e.setAttribute("height","100%");e.setAttribute("x","0");e.setAttribute("y","0");e.setAttribute("externalResourcesRequired","true");c.appendChild(e);e.appendChild(a);return ba(c)})}
-var D=(a,b)=>{if(a instanceof b)return!0;a=Object.getPrototypeOf(a);return a===null?!1:a.constructor.name===b.name||D(a,b)};function da(a,b){return z(b).map(d=>{var c=a.getPropertyValue(d),e=a.getPropertyPriority(d);return`${d}: ${c}${e?" !important":""};`}).join(" ")}
-function E(a,b,d,c){a=window.getComputedStyle(a,d);var e=a.getPropertyValue("content");if(e!==""&&e!=="none"){var f=aa();try{b.className=`${b.className} ${f}`}catch(h){return}e=document.createElement("style");var g=e.appendChild;d=`.${f}:${d}`;a.cssText?(c=a.getPropertyValue("content"),c=`${a.cssText} content: '${c.replace(/'|"/g,"")}';`):c=da(a,c);g.call(e,document.createTextNode(`${d}{${c}}`));b.appendChild(e)}};function F(a){return a.search(/^(data:)/)!==-1}function G(a,b,d){return u(function*(){var c=yield fetch(a,b);if(c.status===404)throw Error(`Resource "${c.url}" not found`);var e=yield c.blob();return new Promise((f,g)=>{var h=new FileReader;h.onerror=g;h.onloadend=()=>{try{f(d({v:c,result:h.result}))}catch(l){g(l)}};h.readAsDataURL(e)})})}const H={};function ea(a,b,d){var c=a.replace(/\?.*/,"");d&&(c=a);/ttf|otf|eot|woff2?/i.test(c)&&(c=c.replace(/.*\//,""));return b?`[${b}]${c}`:c}
-function I(a,b,d){return u(function*(){var c=ea(a,b,d.F);if(H[c]!=null)return H[c];d.B&&(a+=(/\?/.test(a)?"&":"?")+(new Date).getTime());try{let f=yield G(a,d.l,({v:g,result:h})=>{b||(b=g.headers.get("Content-Type")||"");return h.split(/,/)[1]});var e=`data:${b};base64,${f}`}catch(f){e=d.o||""}return H[c]=e})};const J={R:"application/font-woff",S:"application/font-woff",O:"application/font-truetype",C:"application/vnd.ms-fontobject",J:"image/png",H:"image/jpeg",G:"image/jpeg",D:"image/gif",N:"image/tiff",M:"image/svg+xml",P:"image/webp"};function K(a){return(a=/\.([^./]*?)$/g.exec(a))?a[1]:""};function fa(a){return u(function*(){var b=a.toDataURL();return b==="data:,"?a.cloneNode(!1):C(b)})}function ha(a,b){return u(function*(){if(a.currentSrc){var d=document.createElement("canvas");let c=d.getContext("2d");d.width=a.clientWidth;d.height=a.clientHeight;c==null||c.drawImage(a,0,0,d.width,d.height);d=d.toDataURL();return C(d)}d=a.poster;d=yield I(d,J[K(d).toLowerCase()]||"",b);return C(d)})}
-function ia(a,b){return u(function*(){try{let d;if(a==null?0:(d=a.contentDocument)==null?0:d.body)return yield L(a.contentDocument.body,b,!0)}catch(d){}return a.cloneNode(!1)})}function ja(a,b){return u(function*(){return D(a,HTMLCanvasElement)?fa(a):D(a,HTMLVideoElement)?ha(a,b):D(a,HTMLIFrameElement)?ia(a,b):a.cloneNode(a.tagName!=null&&a.tagName.toUpperCase()==="SVG")})}
-function ka(a,b,d){return u(function*(){if(b.tagName!=null&&b.tagName.toUpperCase()==="SVG")return b;var c=[];if(a.tagName!=null&&a.tagName.toUpperCase()==="SLOT"&&a.assignedNodes)c=w(a.assignedNodes());else{let e;if(D(a,HTMLIFrameElement)&&((e=a.contentDocument)==null?0:e.body))c=w(a.contentDocument.body.childNodes);else{let f;c=w(((f=a.shadowRoot)!=null?f:a).childNodes)}}if(c.length===0||D(a,HTMLVideoElement))return b;yield c.reduce((e,f)=>e.then(()=>L(f,d)).then(g=>{g&&b.appendChild(g)}),Promise.resolve());
-return b})}function la(a,b,d){var c=b.style;if(c){var e=window.getComputedStyle(a);e.cssText?(c.cssText=e.cssText,c.transformOrigin=e.transformOrigin):z(d).forEach(f=>{var g=e.getPropertyValue(f);f==="font-size"&&g.endsWith("px")&&(g=`${Math.floor(parseFloat(g.substring(0,g.length-2)))-.1}px`);D(a,HTMLIFrameElement)&&f==="display"&&g==="inline"&&(g="block");f==="d"&&b.getAttribute("d")&&(g=`path(${b.getAttribute("d")})`);c.setProperty(f,g,e.getPropertyPriority(f))})}}
-function ma(a,b){D(a,HTMLSelectElement)&&(b=Array.from(b.children).find(d=>a.value===d.getAttribute("value")))&&b.setAttribute("selected","")}
-function na(a,b){return u(function*(){var d=a.querySelectorAll?a.querySelectorAll("use"):[];if(d.length===0)return a;var c={};for(var e=0;e<d.length;e++){var f=d[e].getAttribute("xlink:href");if(f){let g=document.querySelector(f);a.querySelector(f)||!g||c[f]||(c[f]=yield L(g,b,!0))}}d=Object.values(c);if(d.length){c=document.createElementNS("http://www.w3.org/1999/xhtml","svg");c.setAttribute("xmlns","http://www.w3.org/1999/xhtml");c.style.position="absolute";c.style.width="0";c.style.height="0";
-c.style.overflow="hidden";c.style.display="none";e=document.createElementNS("http://www.w3.org/1999/xhtml","defs");c.appendChild(e);for(f=0;f<d.length;f++)e.appendChild(d[f]);a.appendChild(c)}return a})}
-function L(a,b,d){return u(function*(){return d||!b.filter||b.filter(a)?Promise.resolve(a).then(c=>ja(c,b)).then(c=>ka(a,c,b)).then(c=>{D(c,Element)&&(la(a,c,b),E(a,c,":before",b),E(a,c,":after",b),D(a,HTMLTextAreaElement)&&(c.textContent=a.value),D(a,HTMLInputElement)&&c.setAttribute("value",a.value),ma(a,c));return c}).then(c=>na(c,b)):null})};const M=/url\((['"]?)([^'"]+?)\1\)/g,oa=/url\([^)]+\)\s*format\((["']?)([^"']+)\1\)/g,pa=/src:\s*(?:url\([^)]+\)\s*format\([^)]+\)[,;]\s*)+/g;function qa(a){var b=[];a.replace(M,(d,c,e)=>{b.push(e);return d});return b.filter(d=>!F(d))}
-function ra(a,b,d,c){return u(function*(){try{let e=d?(new URL(b,d||void 0)).toString():b,f;f=yield I(e,J[K(b).toLowerCase()]||"",c);return a.replace(new RegExp(`(url\\(['"]?)(${b.replace(/([.*+?^${}()|\[\]\/\\])/g,"\\$1")})(['"]?\\))`,"g"),`$1${f}$3`)}catch(e){}return a})}function sa(a,{K:b}){return b?a.replace(pa,d=>{for(;;){let [c,,e]=oa.exec(d)||[];if(!e)return"";if(e===b)return`src: ${c};`}}):a}
-function N(a,b,d){return u(function*(){if(a.search(M)===-1)return a;var c=sa(a,d);return qa(c).reduce((e,f)=>e.then(g=>ra(g,f,b,d)),Promise.resolve(c))})};function O(a,b,d){return u(function*(){var c,e=(c=b.style)==null?void 0:c.getPropertyValue(a);return e?(c=yield N(e,null,d),b.style.setProperty(a,c,b.style.getPropertyPriority(a)),!0):!1})}function ta(a,b){return u(function*(){(yield O("background",a,b))||(yield O("background-image",a,b));(yield O("mask",a,b))||(yield O("-webkit-mask",a,b))||(yield O("mask-image",a,b))||(yield O("-webkit-mask-image",a,b))})}
-function ua(a,b){return u(function*(){var d=D(a,HTMLImageElement);if(d&&!F(a.src)||D(a,SVGImageElement)&&!F(a.href.baseVal)){var c=d?a.src:a.href.baseVal,e=yield I(c,J[K(c).toLowerCase()]||"",b);yield new Promise((f,g)=>{a.onload=f;a.onerror=b.h?(...h)=>{try{f(b.h(...h))}catch(l){g(l)}}:g;a.decode&&(a.decode=f);a.loading==="lazy"&&(a.loading="eager");d?(a.srcset="",a.src=e):a.href.baseVal=e})}})}
-function va(a,b){return u(function*(){var d=w(a.childNodes).map(c=>P(c,b));yield Promise.all(d).then(()=>a)})}function P(a,b){return u(function*(){D(a,Element)&&(yield ta(a,b),yield ua(a,b),yield va(a,b))})};const Q={};function R(a){return u(function*(){var b=Q[a];if(b!=null)return b;b=yield(yield fetch(a)).text();b={url:a,cssText:b};return Q[a]=b})}function S(a,b){return u(function*(){var d=a.cssText,c=/url\(["']?([^"')]+)["']?\)/g,e=(d.match(/url\([^)]+\)/g)||[]).map(f=>u(function*(){var g=f.replace(c,"$1");g.startsWith("https://")||(g=(new URL(g,a.url)).href);return G(g,b.l,({result:h})=>{d=d.replace(f,`url(${h})`);return[f,h]})}));return Promise.all(e).then(()=>d)})}
-function T(a){if(a==null)return[];var b=[];a=a.replace(/(\/\*[\s\S]*?\*\/)/gi,"");for(var d=RegExp("((@.*?keyframes [\\s\\S]*?){([\\s\\S]*?}\\s*?)})","gi");;){var c=d.exec(a);if(c===null)break;b.push(c[0])}a=a.replace(d,"");d=/@import[\s\S]*?url\([^)]*\)[\s\S]*?;/gi;for(c=RegExp("((\\s*?(?:\\/\\*[\\s\\S]*?\\*\\/)?\\s*?@media[\\s\\S]*?){([\\s\\S]*?)}\\s*?})|(([\\s\\S]*?){([\\s\\S]*?)})","gi");;){let e=d.exec(a);if(e===null)if(e=c.exec(a),e===null)break;else d.lastIndex=c.lastIndex;else c.lastIndex=
-d.lastIndex;b.push(e[0])}return b}
-function wa(a,b){return u(function*(){var d=[],c=[];a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach((f,g)=>{if(f.type===CSSRule.IMPORT_RULE){let h=g+1;f=R(f.href).then(l=>S(l,b)).then(l=>T(l).forEach(p=>{try{e.insertRule(p,p.startsWith("@import")?h+=1:e.cssRules.length)}catch(x){}})).catch(()=>{});c.push(f)}})}catch(f){let g=a.find(h=>h.href==null)||document.styleSheets[0];e.href!=null&&c.push(R(e.href).then(h=>S(h,b)).then(h=>T(h).forEach(l=>{g.insertRule(l,g.cssRules.length)})).catch(()=>
-{}))}});return Promise.all(c).then(()=>{a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach(f=>{d.push(f)})}catch(f){}});return d})})}function xa(a){return a.filter(b=>b.type===CSSRule.FONT_FACE_RULE).filter(b=>b.style.getPropertyValue("src").search(M)!==-1)}function ya(a,b){return u(function*(){if(a.ownerDocument==null)throw Error("Provided element is not within a Document");var d=yield wa(w(a.ownerDocument.styleSheets),b);return xa(d)})}
-function za(a){function b(c){(c.style.fontFamily||getComputedStyle(c).fontFamily).split(",").forEach(e=>{d.add(e.trim().replace(/["']/g,""))});Array.from(c.children).forEach(e=>{e instanceof HTMLElement&&b(e)})}var d=new Set;b(a);return d}function Aa(a,b){return u(function*(){var d=yield ya(a,b),c=za(a);return(yield Promise.all(d.filter(e=>c.has(e.style.fontFamily.trim().replace(/["']/g,""))).map(e=>N(e.cssText,e.parentStyleSheet?e.parentStyleSheet.href:null,b)))).join("\n")})}
-function Ba(a,b){return u(function*(){var d=b.m!=null?b.m:b.A?null:yield Aa(a,b);if(d){let c=document.createElement("style");c.appendChild(document.createTextNode(d));a.firstChild?a.insertBefore(c,a.firstChild):a.appendChild(c)}})};function Ca(a,b={}){return u(function*(){var {width:d,height:c}=B(a,b),e=yield L(a,b,!0);yield Ba(e,b);yield P(e,b);v(e,b);return yield ca(e,d,c)})}
-function Da(a,b={}){return u(function*(){var {width:d,height:c}=B(a,b),e=yield Ca(a,b);e=yield C(e);var f=document.createElement("canvas"),g=f.getContext("2d"),h=b.I||window.devicePixelRatio||1,l=b.j||d,p=b.i||c;f.width=l*h;f.height=p*h;!b.L&&(f.width>16384||f.height>16384)&&(f.width>16384&&f.height>16384?f.width>f.height?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=16384):f.width>16384?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=16384));
-f.style.width=`${l}`;f.style.height=`${p}`;b.backgroundColor&&(g.fillStyle=b.backgroundColor,g.fillRect(0,0,f.width,f.height));g.drawImage(e,0,0,f.width,f.height);return f})}function Ea(a,b={}){return u(function*(){return(yield Da(a,b)).toDataURL()})};const Fa=["gemini.google.com","corp.google.com","proxy.googlers.com"];function V(a){a=Number(a.replace(/px$/,""));return Number.isFinite(a)?a:0}function W(){return document.body.querySelectorAll('[class*="animate"]').length>0}function X(a,b){var d=document.createElement("canvas");d.width=a;d.height=b;return d.toDataURL("image/png")}const Y=X(1,1);
-function Z(a,b){return u(function*(){var d=Math.max(b?b.width:a.offsetWidth,1),c=Math.max(b?b.height:a.offsetHeight,1),e=HTMLCanvasElement.prototype.toDataURL;b&&(HTMLCanvasElement.prototype.toDataURL=function(f,g){var h;if(h=this.isConnected&&a.contains(this)){{let n=this.getBoundingClientRect();if(n.width===0||n.height===0)h=!1;else if(window.getComputedStyle(this).position==="fixed")h=n.bottom>0&&n.top<b.height&&n.right>0&&n.left<b.width;else{h=a.getBoundingClientRect();var l=n.top-h.top,p=n.left-
-h.left,x=n.right-h.left;h=n.bottom-h.top>b.scrollTop&&l<b.scrollTop+b.height&&x>b.scrollLeft&&p<b.scrollLeft+b.width}}h=!h}return h?"data:,":e.call(this,f,g)});try{let f=window.getComputedStyle(a),g=b?`${V(f.marginTop)-b.scrollTop}px`:void 0,h=b?`${V(f.marginLeft)-b.scrollLeft}px`:void 0,l=`${Math.max(a.offsetWidth,d)}px`,p,x=`${Math.max(a.offsetHeight,c+((p=b==null?void 0:b.scrollTop)!=null?p:0))}px`;return yield Ea(a,Object.assign({},{width:d,height:c,j:d,i:c},b?{style:{width:l,height:x,marginTop:g,
-marginLeft:h,marginBlockStart:g,marginInlineStart:h}}:{},{A:!0,filter:n=>{if(n.tagName==="IMG"){let U=n.getAttribute("src");if(!U||U.trim()===""||n.style.display==="none")return!1}return!0},o:Y,h:()=>Y}))}catch(f){return X(d,c)}finally{HTMLCanvasElement.prototype.toDataURL=e}})}
-function Ga(){return u(function*(){var a=document.body.offsetWidth,b=document.body.offsetHeight,d=document.body.cloneNode(!0);d.querySelectorAll('[class*="animate"]').forEach(c=>{c.classList.remove(...Array.from(c.classList).filter(e=>e.startsWith("animate")))});d.style.width=`${a}px`;d.style.height=`${b}px`;return d})}
-function Ha(a){return u(function*(){var b={width:window.innerWidth||document.documentElement.clientWidth||document.body.offsetWidth,height:window.innerHeight||document.documentElement.clientHeight||document.body.offsetHeight,scrollTop:window.scrollY||document.documentElement.scrollTop||document.body.scrollTop||0,scrollLeft:window.scrollX||document.documentElement.scrollLeft||document.body.scrollLeft||0},d=document.body;if(W()){let c=yield Ga();d=c;document.body.appendChild(c)}b=yield Z(d,b);W()&&
-document.body.removeChild(d);window.parent.postMessage({type:"SEND_SCREENSHOT",image:b,topOffset:0},a.origin)})}function Ia(a){return u(function*(){var b={type:"SEND_SCREENSHOT_FOR_DATA_VISUALIZATION",image:yield Z(document.body),topOffset:0};window.parent.postMessage(b,a.origin)})}window.addEventListener("message",a=>u(function*(){if(Fa.some(d=>a.origin.includes(d))){var b=a.data;b&&(b.type==="MAKE_SCREENSHOT"&&(yield Ha(a)),b.type==="MAKE_SCREENSHOT_FOR_DATA_VISUALIZATION"&&(yield Ia(a)))}}));
-})();</script><script data-bard-client-injected="true">(function() {
-  // Ensure this script is executed only once
-  if (window.firebaseAuthBridgeScriptLoaded) {
-    return;
-  }
-  window.firebaseAuthBridgeScriptLoaded = true;
-
-  let nextTokenPromiseId = 0;
-
-  // Stores { resolve, reject } for ongoing token requests
-  const pendingTokenPromises = {};
-
-  // Listen for messages from the Host Application
-  window.addEventListener('message', function(event) {
-
-    const messageData = event.data;
-
-  if (messageData && messageData.type === 'RESOLVE_NEW_FIREBASE_TOKEN') {
-      const { success, token, error, promiseId } = messageData ?? {};
-      if (pendingTokenPromises[promiseId]) {
-        if (success) {
-          pendingTokenPromises[promiseId].resolve(token);
-        } else {
-          pendingTokenPromises[promiseId].reject(new Error(error || 'Token refresh failed from host.'));
-        }
-        delete pendingTokenPromises[promiseId];
-      }
-    }
-  });
-
-  // Expose a function for the Generated App to request a new Firebase token
-  window.requestNewFirebaseToken = function() {
-    const currentPromiseId = nextTokenPromiseId++;
-    const promise = new Promise((resolve, reject) => {
-      pendingTokenPromises[currentPromiseId] = { resolve, reject };
-    });
-    if (window.parent && window.parent !== window) {
-      window.parent.postMessage({
-        type: 'REQUEST_NEW_FIREBASE_TOKEN',
-        promiseId: currentPromiseId
-      }, '*');
-    } else {
-      pendingTokenPromises[currentPromiseId].reject(new Error('No parent window to request token from.'));
-      delete pendingTokenPromises[currentPromiseId];
-    }
-    return promise;
-  };
-})();</script><script data-bard-client-injected="true">
-let realOriginalGetUserMedia = null;
-if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-  realOriginalGetUserMedia = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
-}
-
-(function() {
-  if (navigator.mediaDevices && navigator.mediaDevices.__proto__) {
-    try {
-      Object.defineProperty(navigator.mediaDevices.__proto__, 'getUserMedia', {
-        get: function() {
-          return undefined; // Or throw an error
-        },
-        configurable: false
-      });
-    } catch (error) {
-      console.error("Error defining prototype getter:", error);
-    }
-  }
-})();
-
-(function() {
-  const pendingMediaResolvers = {};
-  let nextMediaPromiseId = 0;
-
-  function requestMediaPermissions(constraints) {
-    const mediaPromiseId = nextMediaPromiseId++;
-    const promise = new Promise((resolve, reject) => {
-      pendingMediaResolvers[mediaPromiseId] = (granted) => {
-        delete pendingMediaResolvers[mediaPromiseId];
-        resolve(granted);
-      };
-    });
-
-    window.parent.postMessage({
-      type: 'requestMediaPermission',
-      constraints: constraints,
-      promiseId: mediaPromiseId,
-    }, '*');
-
-    return promise;
-  }
-
-  let originalGetUserMedia = realOriginalGetUserMedia;
-
-  function interceptGetUserMedia() {
-    if (navigator.mediaDevices) {
-      Object.defineProperty(navigator.mediaDevices, 'getUserMedia', {
-        value: function(constraints) {
-          return requestMediaPermissions(constraints).then((granted) => {
-            if (granted) {
-              if (originalGetUserMedia) {
-                return originalGetUserMedia(constraints);
-              } else {
-                throw new Error("Original getUserMedia not available.");
-              }
-            } else {
-              throw new DOMException('Permission denied', 'NotAllowedError');
-            }
-          });
-        },
-        writable: false,
-        configurable: false
-      });
-    }
-  }
-
-  interceptGetUserMedia();
-
-  const observer = new MutationObserver(function(mutationsList, observer) {
-    for (const mutation of mutationsList) {
-      if (mutation.type === 'reconfigured' && mutation.name === 'getUserMedia' && mutation.object === navigator.mediaDevices) {
-        interceptGetUserMedia();
-      } else if (mutation.type === 'attributes' && mutation.attributeName === 'getUserMedia' && mutation.target === navigator.mediaDevices) {
-        interceptGetUserMedia();
-      } else if (mutation.type === 'childList' && mutation.addedNodes) {
-        mutation.addedNodes.forEach(node => {
-          if (node === navigator.mediaDevices) {
-            interceptGetUserMedia();
-          }
-        });
-      }
-    }
-  });
-
-  function interceptSpeechRecognition() {
-    if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
-      return;
-    }
-
-    const OriginalSpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-
-    const SpeechRecognitionWrapper = function(...args) {
-      const recognizer = new OriginalSpeechRecognition(...args);
-      const originalStart = recognizer.start.bind(recognizer);
-
-      recognizer.start = function() {
-        requestMediaPermissions({ audio: true }).then(granted => {
-          if (granted) {
-            originalStart();
-          } else {
-            const errorEvent = new SpeechRecognitionErrorEvent('error');
-            errorEvent.error = 'not-allowed'; // This is the standard error for permission denial.
-            recognizer.dispatchEvent(errorEvent);
-          }
-        });
-      };
-
-      return recognizer;
-    };
-
-    SpeechRecognitionWrapper.prototype = OriginalSpeechRecognition.prototype;
-    SpeechRecognitionWrapper.prototype.constructor = SpeechRecognitionWrapper;
-
-    if (window.SpeechRecognition) {
-      window.SpeechRecognition = SpeechRecognitionWrapper;
-    }
-    if (window.webkitSpeechRecognition) {
-      window.webkitSpeechRecognition = SpeechRecognitionWrapper;
-    }
-  }
-
-  interceptSpeechRecognition();
-
-  window.addEventListener('message', function(event) {
-    if (event.data) {
-      if (event.data.type === 'resolveMediaPermission') {
-        const { promiseId, granted } = event.data;
-        if (pendingMediaResolvers[promiseId]) {
-          pendingMediaResolvers[promiseId](granted);
-        }
-      }
-    }
-  });
-
-})();</script><script ws-interception-config="{&quot;parentOrigin&quot;:&quot;https://gemini.google.com&quot;,&quot;proxiedDomains&quot;:[]}" data-bard-client-injected="true">(function(){'use strict';var u=typeof Object.defineProperties=="function"?Object.defineProperty:function(b,d,e){if(b==Array.prototype||b==Object.prototype)return b;b[d]=e.value;return b};function v(b){b=["object"==typeof globalThis&&globalThis,b,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var d=0;d<b.length;++d){var e=b[d];if(e&&e.Math==Math)return e}throw Error("Cannot find global object");}var w=v(this);
-function y(b,d){if(d)a:{var e=w;b=b.split(".");for(var h=0;h<b.length-1;h++){var k=b[h];if(!(k in e))break a;e=e[k]}b=b[b.length-1];h=e[b];d=d(h);d!=h&&d!=null&&u(e,b,{configurable:!0,writable:!0,value:d})}}function z(b){function d(h){return b.next(h)}function e(h){return b.throw(h)}return new Promise(function(h,k){function m(n){n.done?h(n.value):Promise.resolve(n.value).then(d,e).then(m,k)}m(b.next())})}y("globalThis",function(b){return b||w});/*
-
- Copyright The Closure Library Authors.
- SPDX-License-Identifier: Apache-2.0
-*/
-function A(b,d){function e(){}e.prototype=d.prototype;b.i=d.prototype;b.prototype=new e;b.prototype.constructor=b;b.h=function(h,k,m){for(var n=Array(arguments.length-2),p=2;p<arguments.length;p++)n[p-2]=arguments[p];return d.prototype[k].apply(h,n)}};function B(b,d,e="*"){function h(a){if(typeof a==="string")return F.encode(a).buffer;if(a instanceof ArrayBuffer)return a.slice(0);if(ArrayBuffer.isView(a))return a.buffer.slice(a.byteOffset,a.byteOffset+a.byteLength);throw Error("Invalid data type");}function k(a){a=h(a);var f={type:"send",data:new Uint8Array(a)},g;(g=r)==null||g.postMessage(f,[a])}function m(){if(!r)throw Error("Data port not captured yet.");r.onmessage=a=>{if(a.data.type==="message"){a=new MessageEvent("message",{data:G.decode(a.data.data)});
-let f;(f=c.onmessage)==null||f.call(c,a);c.dispatchEvent(a)}}}function n(){if(!t)throw Error("Control port not captured yet.");t.onmessage=a=>{switch(a.data.type){case "open":l=1;var f=new Event("open"),g;(g=c.onopen)==null||g.call(c,f);c.dispatchEvent(f);q.forEach(H=>{k(H)});q=[];break;case "close":g=a.data;l=3;g=new CloseEvent("close",{code:g.code,reason:g.reason,wasClean:g.wasClean});(f=c.onclose)==null||f.call(c,g);c.dispatchEvent(g);break;case "error":l=3;f=new Event("error");let x;(x=c.onerror)==
-null||x.call(c,f);c.dispatchEvent(f)}}}function p(a){return z(function*(){var f=new MessageChannel;t=f.port1;var g=new MessageChannel;r=g.port1;n();m();window.parent.postMessage({type:"websocket_open",portOrdering:["control","data"],url:b,protocols:a||[],connectionId:I},e,[f.port2,g.port2])}())}var c=Reflect.construct(EventTarget,[],new.target);c.CONNECTING=0;c.OPEN=1;c.CLOSING=2;c.CLOSED=3;c.url=b;c.binaryType="arraybuffer";c.protocol="";c.extensions="";var l=0,t=null,r=null,q=[],F=new TextEncoder,
-G=new TextDecoder;c.onopen=null;c.onmessage=null;c.onclose=null;c.onerror=null;Object.defineProperty(c,"readyState",{get:()=>l,enumerable:!0,configurable:!0});Object.defineProperty(c,"bufferedAmount",{get:()=>{var a=0;q.forEach(f=>{a+=typeof f==="string"?f.length:f.byteLength});return a},enumerable:!0,configurable:!0});var I=function(){var a;return((a=globalThis.crypto)==null?0:a.randomUUID)?globalThis.crypto.randomUUID():"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,f=>{var g=Math.random()*
-16|0;return(f==="x"?g:g&3|8).toString(16)})}();c.send=a=>{if(l===1)a instanceof Blob?a.arrayBuffer().then(f=>{k(f)}):k(a);else if(l===0)if(typeof a==="string")q.push(a);else if(a instanceof ArrayBuffer||ArrayBuffer.isView(a))q.push(h(a));else throw Error("Sending Blob is not supported before the connection is open.");else console.debug("WebSocket send called in CLOSING or CLOSED state; ignored.")};c.close=(a=1E3,f="")=>{if(l!==2&&l!==3){l=2;a={type:"close",code:a,reason:f,wasClean:a===1E3};var g;
-(g=t)==null||g.postMessage(a)}};Promise.resolve().then(()=>p(d));return c}A(B,EventTarget);var C=document.currentScript,D=C==null?void 0:C.getAttribute("ws-interception-config");if(!D)throw Error("WebSocket Interceptor: Missing ws-interception-config attribute in the script tag.");var E=JSON.parse(D);if(!E.parentOrigin||typeof E.parentOrigin!=="string")throw Error("WebSocket Interceptor: Invalid parentOrigin in ws-interception-config");
-(function(b){var d=Object.getOwnPropertyDescriptor(window,"WebSocket");if(!d||d.writable||d.configurable)d=Object.assign(function(e,h){try{let k=(new URL(e)).hostname;if(b.proxiedDomains.some(m=>k===m||k.endsWith(`.${m}`)))return new B(e,h,b.parentOrigin)}catch(k){throw window.parent.postMessage({type:"websocket_blocked",url:e,reason:"blocked_invalid_url"},b.parentOrigin),new DOMException(`WebSocket connection to '${e}' is not allowed in Canvas.`,"SecurityError");}window.parent.postMessage({type:"websocket_blocked",
-url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMException(`WebSocket connection to '${e}' is not allowed in Canvas.`,"SecurityError");},{CONNECTING:0,OPEN:1,CLOSING:2,CLOSED:3}),Object.defineProperty(window,"WebSocket",{value:d,writable:!1,configurable:!1})})({proxiedDomains:E.proxiedDomains||[],parentOrigin:E.parentOrigin});}).call(this);
-</script><script data-bard-client-injected="true">((function(modelInformation) {
-  const originalFetch = window.fetch;
-  // TODO: b/421908508 - Move these out of the script and match all generative AI model calls.
-  let googleLlmBaseApiUrls = [
-    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':streamGenerateContent',
-    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':generateContent',
-    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predict',
-    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predictLongRunning',
-    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageEditModelName + ':generateContent',
-    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageTransformModelName + ':generateContent',
-    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predict',
-    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predictLongRunning',
-    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.ttsModelName + ':generateContent',
-  ];
-  modelInformation.deprecatedTextModelNames.forEach((modelName) => {
-    googleLlmBaseApiUrls.push(
-      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
-      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
-    );
-  });
-  modelInformation.deprecatedImageModelNames.forEach((modelName) => {
-    googleLlmBaseApiUrls.push(
-      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predict',
-      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predictLongRunning',
-      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
-      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
-    );
-  });
-  modelInformation.deprecatedGenerateImageModelNames.forEach((modelName) => {
-    googleLlmBaseApiUrls.push(
-      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
-      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
-    );
-  });
-  modelInformation.deprecatedImageTransformModelNames.forEach((modelName) => {
-    googleLlmBaseApiUrls.push(
-      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
-      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
-    );
-  });
-
-  const pendingFetchResolvers = {};
-  let nextPromiseId = 0;
-
-  function handleStringInput(input, optionsArgument) {
-    const actualUrl = input;
-    const fetchCallArgs = [actualUrl, optionsArgument];
-    const effectiveOptions = optionsArgument || {};
-    const bodyForApiKeyCheck = effectiveOptions.body;
-    const bodyForPostMessage = effectiveOptions.body;
-    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
-  }
-
-  function handleRequestInput(input, optionsArgument) {
-    const actualUrl = input.url;
-    const fetchCallArgs = [input, optionsArgument];
-    const effectiveOptions = { method: input.method, headers: new Headers(input.headers) };
-    let bodyForApiKeyCheck;
-    let bodyForPostMessage;
-
-    if (optionsArgument) {
-      if (optionsArgument.method) effectiveOptions.method = optionsArgument.method;
-      if (optionsArgument.headers) effectiveOptions.headers = new Headers(optionsArgument.headers);
-      if ('body' in optionsArgument) {
-        bodyForApiKeyCheck = optionsArgument.body;
-        bodyForPostMessage = optionsArgument.body;
-      } else {
-        bodyForApiKeyCheck = undefined;
-        bodyForPostMessage = input.body;
-      }
-    } else {
-      bodyForApiKeyCheck = undefined;
-      bodyForPostMessage = input.body;
-    }
-    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
-  }
-
-  window.fetch = function(input, optionsArgument) {
-    let actualUrl;
-    let fetchCallArgs;
-    let effectiveOptions = {};
-    let bodyForApiKeyCheck;
-    let bodyForPostMessage;
-
-    if (typeof input === 'string') {
-      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleStringInput(input, optionsArgument));
-    } else if (input instanceof Request) {
-      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleRequestInput(input, optionsArgument));
-    } else {
-      return originalFetch.apply(window, [input, optionsArgument]);
-    }
-
-    effectiveOptions.method = effectiveOptions.method || 'GET';
-    if (!effectiveOptions.headers) {
-      effectiveOptions.headers = new Headers();
-    }
-
-
-    if (typeof actualUrl === 'string' && googleLlmBaseApiUrls.some((url) => actualUrl.startsWith(url))) {
-      let apiKeyIsNull = true;
-
-      const regex = new RegExp("models/([^:]+)");
-      const modelNameMatch = actualUrl.match(regex);
-      const modelName = modelNameMatch ? modelNameMatch[1] : 'unspecified';
-
-
-      try {
-        const urlObject = new URL(actualUrl);  // Use URL object for robust parsing
-        const apiKeyParam = urlObject.searchParams.get('key');
-        if (apiKeyParam) {
-          apiKeyIsNull = false;
-        }
-      } catch (e) {
-        // Continue checks even if URL parsing fails
-      }
-
-      if (apiKeyIsNull && effectiveOptions.headers) {
-        const h = new Headers(effectiveOptions.headers);
-        const apiKeyHeaderValue = h.get('X-API-Key') || h.get('x-api-key');
-        if (apiKeyHeaderValue) {
-          apiKeyIsNull = false;
-          return originalFetch.apply(window, fetchCallArgs);
-        }
-      }
-
-      if (apiKeyIsNull && effectiveOptions.method && ['POST', 'PUT', 'PATCH'].includes(effectiveOptions.method.toUpperCase()) && typeof bodyForApiKeyCheck === 'string') {
-        try {
-          const bodyData = JSON.parse(bodyForApiKeyCheck);
-          if (bodyData && bodyData.apiKey) {
-            apiKeyIsNull = false;
-            return originalFetch.apply(window, fetchCallArgs);
-          }
-        } catch (e) {
-          // Ignore JSON parsing errors
-        }
-      }
-
-      if(apiKeyIsNull) {
-        const promiseId = nextPromiseId++;
-        const promise = new Promise((resolve) => {
-          pendingFetchResolvers[promiseId] = (resolvedResponse) => {
-            delete pendingFetchResolvers[promiseId];
-            resolve(resolvedResponse);
-          };
-        });
-
-        let serializedBodyForPostMessage;
-        if (typeof bodyForPostMessage === 'string' || bodyForPostMessage == null) {
-            serializedBodyForPostMessage = bodyForPostMessage;
-        } else if (bodyForPostMessage instanceof ReadableStream) {
-            serializedBodyForPostMessage = null;
-        } else {
-            try {
-                serializedBodyForPostMessage = JSON.stringify(bodyForPostMessage);
-            } catch (e) {
-                serializedBodyForPostMessage = null;
-            }
-        }
-
-        const messageOptions = {
-            method: effectiveOptions.method,
-            headers: Object.fromEntries(new Headers(effectiveOptions.headers).entries()),
-            body: serializedBodyForPostMessage
-        };
-
-        window.parent.postMessage({
-          type: 'requestFetch',
-          url: actualUrl,
-          modelName: modelName,
-          options: messageOptions,
-          promiseId: promiseId,
-        }, '*');
-
-        return promise;
-      }
-      return originalFetch.apply(window, fetchCallArgs);
-    }
-    return originalFetch.apply(window, fetchCallArgs);
-  };
-
-  window.addEventListener('message', function(event) {
-    if (event.data && event.data.type === 'resolveFetch') {
-      const { promiseId, response } = event.data;
-      if (pendingFetchResolvers[promiseId]) {
-        try {
-          const reconstructedResponse = new Response(response.body, {
-            status: response.status,
-            statusText: response.statusText,
-            headers: new Headers(response.headers),
-          });
-          pendingFetchResolvers[promiseId](reconstructedResponse);
-        } catch (error) {
-          pendingFetchResolvers[promiseId](new Response(null, { status: 500, statusText: "Interceptor Response Reconstruction Error" }));
-        }
-      }
-    }
-  });
-
-}))({"textModelName":"gemini-3-flash-preview","imageModelName":"imagen-4.0-generate-001","imageEditModelName":"gemini-3.1-flash-image","imageTransformModelName":"gemini-3-pro-image","videoModelName":"veo-2.0-generate-001","ttsModelName":"gemini-2.5-flash-preview-tts","deprecatedTextModelNames":["gemini-2.0-flash","gemini-2.5-flash","gemini-2.5-flash-preview-04-17","gemini-2.5-flash-preview-05-20","gemini-2.5-flash-preview-09-2025"],"deprecatedImageModelNames":["imagen-3.0-generate-001","imagen-3.0-generate-002"],"deprecatedGenerateImageModelNames":["gemini-2.5-flash-image-preview","gemini-2.5-flash-image","gemini-3.1-flash-image-preview"],"deprecatedImageTransformModelNames":["gemini-3-pro-image-preview-11-2025"]})</script><script data-bard-client-injected="true">(function() {
-  const OVERLAY_SELECTOR =
-    'dialog[open], [role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [role="combobox"]';
-
-  function isVisibleOverlay(element) {
-    if (element.closest('[hidden], [aria-hidden="true"], [inert]')) {
-      return false;
-    }
-    if (window.getComputedStyle(element).visibility === 'hidden') {
-      return false;
-    }
-    for (let cur = element; cur; cur = cur.parentElement) {
-      if (window.getComputedStyle(cur).display === 'none') {
-        return false;
-      }
-    }
-    return true;
-  }
-
-  function hasOpenOverlay() {
-    const candidates = document.querySelectorAll(OVERLAY_SELECTOR);
-    for (let i = 0; i < candidates.length; i++) {
-      if (isVisibleOverlay(candidates[i])) {
-        return true;
-      }
-    }
-    try {
-      if (document.querySelector('[popover]:popover-open')) {
-        return true;
-      }
-    } catch (e) {
-      // Ignore engines that do not support :popover-open.
-    }
-    return false;
-  }
-
-  function isNonEmptySearchInput(target) {
-    return (
-      Boolean(target) &&
-      target.tagName === 'INPUT' &&
-      typeof target.type === 'string' &&
-      target.type.toLowerCase() === 'search' &&
-      typeof target.value === 'string' &&
-      target.value.length > 0
-    );
-  }
-
-  function shouldIgnoreEscape(event) {
-    return (
-      event.key !== 'Escape' ||
-      event.altKey ||
-      event.ctrlKey ||
-      event.metaKey ||
-      event.shiftKey ||
-      event.isComposing ||
-      event.repeat ||
-      event.keyCode === 229 ||
-      isNonEmptySearchInput(event.target)
-    );
-  }
-
-  let shouldIgnoreCaptureState = false;
-
-  window.addEventListener(
-    'keydown',
-    function(event) {
-      if (event.key === 'Escape') {
-        shouldIgnoreCaptureState =
-          hasOpenOverlay() || isNonEmptySearchInput(event.target);
-      }
-    },
-    {capture: true},
-  );
-
-  window.addEventListener('keydown', function(event) {
-    if (
-      shouldIgnoreEscape(event) ||
-      event.defaultPrevented ||
-      shouldIgnoreCaptureState
-    ) {
-      return;
-    }
-    const wasBlockedOnCapture = shouldIgnoreCaptureState;
-    queueMicrotask(function() {
-      if (event.defaultPrevented || wasBlockedOnCapture) {
-        return;
-      }
-      if (window.parent && window.parent !== window) {
-        window.parent.postMessage({'type': 'escapeKey'}, '*');
-      }
-    });
-  });
-})();</script><script data-bard-client-injected="true">(function() {
-  function normalizeSlug(str) {
-    try {
-      return str
-        .trim()
-        .toLowerCase()
-        .replace(/[^p{L}p{N}s_-]/gu, '')
-        .replace(/s+/g, '-');
-    } catch (e) {
-      return str
-        .trim()
-        .toLowerCase()
-        .replace(/[^a-z0-9s_-]/g, '')
-        .replace(/s+/g, '-');
-    }
-  }
-
-  function findTargetElement(hash) {
-    if (!hash || hash === '#') {
-      return null;
-    }
-    const rawId = hash.startsWith('#') ? hash.slice(1) : hash;
-    let decodedId = rawId;
-    try {
-      decodedId = decodeURIComponent(rawId);
-    } catch (e) {
-      // Ignore URI malformed errors.
-    }
-
-    // 1. Direct ID match (raw and decoded).
-    let target = document.getElementById(rawId) || document.getElementById(decodedId);
-    if (target) {
-      return target;
-    }
-
-    // 2. Name attribute match (<a name="...">).
-    try {
-      if (typeof CSS !== 'undefined' && CSS.escape) {
-        target =
-          document.querySelector('[name="' + CSS.escape(rawId) + '"]') ||
-          document.querySelector('[name="' + CSS.escape(decodedId) + '"]');
-      } else {
-        const namedElements = document.getElementsByName(rawId);
-        if (namedElements && namedElements.length > 0) {
-          return namedElements[0];
-        }
-      }
-    } catch (e) {
-      // Ignore querySelector syntax errors.
-    }
-    if (target) {
-      return target;
-    }
-
-    // 3. Match heading text by slug (for Markdown TOCs where headings lack explicit IDs).
-    const targetSlug = normalizeSlug(decodedId);
-    if (targetSlug) {
-      for (const heading of document.querySelectorAll('h1, h2, h3, h4, h5, h6')) {
-        if (normalizeSlug(heading.textContent || '') === targetSlug) {
-          return heading;
-        }
-      }
-    }
-
-    return null;
-  }
-
-  document.addEventListener('click', function(event) {
-    const target = event.target;
-    const anchor = target && typeof target.closest === 'function' ? target.closest('a') : null;
-    if (!anchor) {
-      return;
-    }
-
-    const href = anchor.getAttribute('href');
-    if (
-      !href ||
-      href.trim().toLowerCase().startsWith('javascript:') ||
-      anchor.hasAttribute('download')
-    ) {
-      return;
-    }
-
-    // Check if the link is an in-page hash / anchor link.
-    if (href.startsWith('#')) {
-      event.preventDefault();
-      const targetElement = findTargetElement(href);
-      if (targetElement) {
-        targetElement.scrollIntoView({behavior: 'smooth', block: 'start'});
-      }
-      return;
-    }
-
-    // Check if the URL has the same origin/pathname but with a hash.
-    try {
-      const url = new URL(anchor.href, window.location.href);
-      if (
-        url.hash &&
-        url.origin === window.location.origin &&
-        url.pathname === window.location.pathname
-      ) {
-        event.preventDefault();
-        const targetElement = findTargetElement(url.hash);
-        if (targetElement) {
-          targetElement.scrollIntoView({behavior: 'smooth', block: 'start'});
-        }
-        return;
-      }
-    } catch (e) {
-      // Fall through if URL parsing fails.
-    }
-
-    // For all external or full navigation links, prevent iframe-level navigation
-    // (which breaks in AGSA WebView or sandboxed iframes) and ensure they open
-    // safely in a new tab/window.
-    if (anchor.target !== '_blank') {
-      event.preventDefault();
-      window.open(anchor.href, '_blank', 'noopener,noreferrer');
-    }
-  }, {capture: true});
-})();</script><script data-bard-client-injected="true">(function(){'use strict';function a(){window.parent.postMessage({type:"interaction"},"*")}window.addEventListener("click",a,{capture:!0,passive:!0});window.addEventListener("touchstart",a,{capture:!0,passive:!0});window.addEventListener("keydown",a,{capture:!0,passive:!0});}).call(this);
-</script><script data-bard-client-injected="true">(function() {
-  const originalConsoleLog = console.log;
-  const originalConsoleError = console.error;
-
-    /**
-   * Normalizes an error event or a promise rejection reason into a structured error object.
-   * @param {*} errorEventOrReason The error object or reason.
-   * @return {object} Structured error data { message, name, stack }.
-   */
-  function getErrorObject(errorEventOrReason) {
-    if (errorEventOrReason instanceof Error) {
-      return {
-        message: errorEventOrReason.message,
-        name: errorEventOrReason.name,
-        stack: errorEventOrReason.stack,
-      };
-    }
-    // Fallback for non-Error objects.
-    try {
-      return {
-        message: JSON.stringify(errorEventOrReason),
-        name: 'UnknownErrorType',
-        stack: null,
-      };
-    } catch (e) {
-      return {
-        message: String(errorEventOrReason),
-        name: 'UnknownErrorTypeNonStringifiable',
-        stack: null,
-      };
-    }
-  }
-
-  /**
-   * Converts an array of arguments (from log/error) into a single string.
-   * Handles Error objects specially to include their message and stack.
-   * @param {Array<*>} args - Arguments passed to console methods.
-   * @return {string} A string representation of the arguments.
-   */
-  function stringifyArgs(args) {
-    return args
-      .map((arg) => {
-        if (arg instanceof Error) {
-          const {message, stack} = arg;
-          return `Error: ${message}${stack ? ('\nStack: ' + stack) : ''}`;
-        }
-        if (typeof arg === 'object' && arg !== null) {
-          try {
-            return JSON.stringify(arg);
-          } catch (error) {
-            return '[Circular Object]';
-          }
-        } else {
-          return String(arg);
-        }
-      })
-      .join(' ');
-  }
-
-  console.log = function(...args) {
-    const logString = stringifyArgs(args);
-    window.parent.postMessage({ type: 'log', message: logString }, '*');
-    originalConsoleLog.apply(console, args);
-  };
-
-  console.error = function(...args) {
-    let errorData;
-    if (args.length > 0 && args[0] instanceof Error) {
-      const err = args[0];
-      // If the first arg is an Error, capture its details.
-      errorData = {
-        type: 'error',
-        source: 'CONSOLE_ERROR',
-        ...getErrorObject(err),
-        rawArgsString: stringifyArgs(args.slice(1)),
-        timestamp: new Date().toISOString(),
-      };
-    } else {
-      // If not an Error object, treat all args as a general error message.
-      errorData = {
-        type: 'error',
-        source: 'CONSOLE_ERROR',
-        message: stringifyArgs(args),
-        name: 'ConsoleLoggedError',
-        stack: null,
-        timestamp: new Date().toISOString(),
-      };
-    }
-    window.parent.postMessage(errorData, '*');
-    originalConsoleError.apply(console, args);
-  };
-
-  // Listen for global unhandled synchronous errors.
-  window.addEventListener('error', function(event) {
-    const errorDetails = event.error ? getErrorObject(event.error) : {
-      message: event.message,
-      name: 'GlobalError',
-      stack: null,
-      filename: event.filename,
-      lineno: event.lineno,
-      colno: event.colno,
-    };
-
-    window.parent.postMessage({
-      type: 'error',
-      source: 'global',
-      ...errorDetails,
-      message: errorDetails.message || event.message,
-      timestamp: new Date().toISOString(),
-    }, '*');
-  });
-
-  // Listen for unhandled promise rejections (asynchronous errors).
-  window.addEventListener('unhandledrejection', function(event) {
-    const errorDetails = getErrorObject(event.reason);
-
-    window.parent.postMessage({
-      type: 'error',
-      source: 'unhandledrejection',
-      ...errorDetails,
-      message: errorDetails.message || 'Unhandled Promise Rejection',
-      timestamp: new Date().toISOString(),
-    }, '*');
-  });
-
-})();</script>
+<html lang="ko"><head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0f172a">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="워치메이커">
   <title>내 맘대로 워치페이스 만들기 — 어메이즈핏 모바일 앱</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- JSZip CDN (ZIP 파일 불러오기 & 저장용) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" crossorigin="anonymous"></script>
-  <!-- QRCode.js CDN (앱 내 즉시 QR 코드 생성용) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" crossorigin="anonymous"></script>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  <script defer src="./vendor/jszip.min.js"></script>
   <!-- 친근하고 가독성 좋은 Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Jua&amp;family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Orbitron:wght@600;800&amp;display=swap" rel="stylesheet">
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Noto Sans KR"', 'sans-serif'],
-            cute: ['"Jua"', '"Noto Sans KR"', 'sans-serif'],
-            lcd: ['"Orbitron"', 'monospace']
-          }
-        }
-      }
-    };
-  </script>
 
   <style>
     * { box-sizing: border-box; }
@@ -927,8 +102,16 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
     .safe-bottom {
       padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
     }
+    #phoneAppModal { width: min(28rem, calc(100% - 2rem)); border: 1px solid #334155; border-radius: 1.5rem; background: #0f172a; }
+    #phoneAppModal::backdrop { background: rgb(0 0 0 / 75%); }
+    #previewAccessDialog { width: min(28rem, calc(100% - 2rem)); border: 1px solid #334155; border-radius: 1.5rem; background: #0f172a; color: white; }
+    #previewAccessDialog::backdrop { background: rgb(0 0 0 / 75%); }
+    #installQrImage { width: min(100%, 19rem); height: auto; margin: .5rem auto; background: white; }
+    button:disabled { cursor: default; opacity: .55; }
+    [hidden] { display: none !important; }
   </style>
-<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:"Noto Sans KR", sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.sticky{position:sticky}.inset-0{inset:0px}.inset-x-0{left:0px;right:0px}.bottom-0{bottom:0px}.bottom-20{bottom:5rem}.left-1\/2{left:50%}.left-4{left:1rem}.right-4{right:1rem}.top-0{top:0px}.z-30{z-index:30}.z-40{z-index:40}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-1\.5{margin-bottom:0.375rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mt-0\.5{margin-top:0.125rem}.mt-5{margin-top:1.25rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-28{height:7rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-7{height:1.75rem}.h-8{height:2rem}.h-9{height:2.25rem}.h-\[264px\]{height:264px}.h-full{height:100%}.h-10{height:2.5rem}.max-h-60{max-height:15rem}.max-h-\[80vh\]{max-height:80vh}.max-h-\[90vh\]{max-height:90vh}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-28{width:7rem}.w-4{width:1rem}.w-5{width:1.25rem}.w-7{width:1.75rem}.w-8{width:2rem}.w-9{width:2.25rem}.w-\[264px\]{width:264px}.w-\[calc\(100\%-2rem\)\]{width:calc(100% - 2rem)}.w-full{width:100%}.min-w-0{min-width:0px}.max-w-6xl{max-width:72rem}.max-w-\[380px\]{max-width:380px}.max-w-md{max-width:28rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-grab{cursor:grab}.cursor-pointer{cursor:pointer}.touch-none{touch-action:none}.select-none{-webkit-user-select:none;user-select:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-start{justify-content:flex-start}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-0\.5{gap:0.125rem}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-5{gap:1.25rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-2\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.625rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-3\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.875rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.875rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-0{border-width:0px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-amber-400\/40{border-color:rgb(251 191 36 / 0.4)}.border-emerald-400\/35{border-color:rgb(52 211 153 / 0.35)}.border-emerald-400\/40{border-color:rgb(52 211 153 / 0.4)}.border-emerald-400\/50{border-color:rgb(52 211 153 / 0.5)}.border-emerald-400\/70{border-color:rgb(52 211 153 / 0.7)}.border-sky-400{--tw-border-opacity:1;border-color:rgb(56 189 248 / var(--tw-border-opacity, 1))}.border-sky-400\/30{border-color:rgb(56 189 248 / 0.3)}.border-sky-400\/40{border-color:rgb(56 189 248 / 0.4)}.border-sky-500\/30{border-color:rgb(14 165 233 / 0.3)}.border-sky-500\/40{border-color:rgb(14 165 233 / 0.4)}.border-slate-700{--tw-border-opacity:1;border-color:rgb(51 65 85 / var(--tw-border-opacity, 1))}.border-slate-700\/50{border-color:rgb(51 65 85 / 0.5)}.border-slate-700\/60{border-color:rgb(51 65 85 / 0.6)}.border-slate-700\/70{border-color:rgb(51 65 85 / 0.7)}.border-slate-800{--tw-border-opacity:1;border-color:rgb(30 41 59 / var(--tw-border-opacity, 1))}.border-slate-600{--tw-border-opacity:1;border-color:rgb(71 85 105 / var(--tw-border-opacity, 1))}.bg-amber-400{--tw-bg-opacity:1;background-color:rgb(251 191 36 / var(--tw-bg-opacity, 1))}.bg-black\/75{background-color:rgb(0 0 0 / 0.75)}.bg-emerald-500{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.bg-emerald-500\/10{background-color:rgb(16 185 129 / 0.1)}.bg-emerald-500\/15{background-color:rgb(16 185 129 / 0.15)}.bg-emerald-500\/20{background-color:rgb(16 185 129 / 0.2)}.bg-indigo-500{--tw-bg-opacity:1;background-color:rgb(99 102 241 / var(--tw-bg-opacity, 1))}.bg-rose-500\/20{background-color:rgb(244 63 94 / 0.2)}.bg-sky-500{--tw-bg-opacity:1;background-color:rgb(14 165 233 / var(--tw-bg-opacity, 1))}.bg-sky-500\/15{background-color:rgb(14 165 233 / 0.15)}.bg-sky-500\/20{background-color:rgb(14 165 233 / 0.2)}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.bg-slate-800\/40{background-color:rgb(30 41 59 / 0.4)}.bg-slate-800\/50{background-color:rgb(30 41 59 / 0.5)}.bg-slate-800\/60{background-color:rgb(30 41 59 / 0.6)}.bg-slate-800\/70{background-color:rgb(30 41 59 / 0.7)}.bg-slate-800\/90{background-color:rgb(30 41 59 / 0.9)}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-slate-900\/80{background-color:rgb(15 23 42 / 0.8)}.bg-slate-900\/85{background-color:rgb(15 23 42 / 0.85)}.bg-slate-900\/90{background-color:rgb(15 23 42 / 0.9)}.bg-slate-900\/95{background-color:rgb(15 23 42 / 0.95)}.bg-slate-950{--tw-bg-opacity:1;background-color:rgb(2 6 23 / var(--tw-bg-opacity, 1))}.bg-slate-950\/60{background-color:rgb(2 6 23 / 0.6)}.bg-slate-950\/90{background-color:rgb(2 6 23 / 0.9)}.bg-slate-950\/95{background-color:rgb(2 6 23 / 0.95)}.bg-transparent{background-color:transparent}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-sky-400{--tw-bg-opacity:1;background-color:rgb(56 189 248 / var(--tw-bg-opacity, 1))}.bg-slate-700{--tw-bg-opacity:1;background-color:rgb(51 65 85 / var(--tw-bg-opacity, 1))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-emerald-500{--tw-gradient-from:#10b981 var(--tw-gradient-from-position);--tw-gradient-to:rgb(16 185 129 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-emerald-500\/15{--tw-gradient-from:rgb(16 185 129 / 0.15) var(--tw-gradient-from-position);--tw-gradient-to:rgb(16 185 129 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-sky-400{--tw-gradient-from:#38bdf8 var(--tw-gradient-from-position);--tw-gradient-to:rgb(56 189 248 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-sky-500{--tw-gradient-from:#0ea5e9 var(--tw-gradient-from-position);--tw-gradient-to:rgb(14 165 233 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-sky-500\/15{--tw-gradient-from:rgb(14 165 233 / 0.15) var(--tw-gradient-from-position);--tw-gradient-to:rgb(14 165 233 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-sky-500\/10{--tw-gradient-to:rgb(14 165 233 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), rgb(14 165 233 / 0.1) var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-indigo-500{--tw-gradient-to:#6366f1 var(--tw-gradient-to-position)}.to-indigo-500\/15{--tw-gradient-to:rgb(99 102 241 / 0.15) var(--tw-gradient-to-position)}.to-sky-500{--tw-gradient-to:#0ea5e9 var(--tw-gradient-to-position)}.p-0{padding:0px}.p-2{padding:0.5rem}.p-2\.5{padding:0.625rem}.p-3{padding:0.75rem}.p-3\.5{padding:0.875rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-28{padding-bottom:7rem}.pr-1{padding-right:0.25rem}.pt-1{padding-top:0.25rem}.pt-2{padding-top:0.5rem}.pt-4{padding-top:1rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-0.025em}.text-amber-300{--tw-text-opacity:1;color:rgb(252 211 77 / var(--tw-text-opacity, 1))}.text-amber-300\/90{color:rgb(252 211 77 / 0.9)}.text-emerald-300{--tw-text-opacity:1;color:rgb(110 231 183 / var(--tw-text-opacity, 1))}.text-indigo-300{--tw-text-opacity:1;color:rgb(165 180 252 / var(--tw-text-opacity, 1))}.text-rose-300{--tw-text-opacity:1;color:rgb(253 164 175 / var(--tw-text-opacity, 1))}.text-sky-200{--tw-text-opacity:1;color:rgb(186 230 253 / var(--tw-text-opacity, 1))}.text-sky-300{--tw-text-opacity:1;color:rgb(125 211 252 / var(--tw-text-opacity, 1))}.text-sky-400{--tw-text-opacity:1;color:rgb(56 189 248 / var(--tw-text-opacity, 1))}.text-slate-100{--tw-text-opacity:1;color:rgb(241 245 249 / var(--tw-text-opacity, 1))}.text-slate-200{--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity, 1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-950{--tw-text-opacity:1;color:rgb(2 6 23 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.accent-sky-400{accent-color:#38bdf8}.opacity-70{opacity:0.7}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-emerald-500\/25{--tw-shadow-color:rgb(16 185 129 / 0.25);--tw-shadow:var(--tw-shadow-colored)}.shadow-sky-500\/20{--tw-shadow-color:rgb(14 165 233 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.shadow-sky-500\/25{--tw-shadow-color:rgb(14 165 233 / 0.25);--tw-shadow:var(--tw-shadow-colored)}.backdrop-blur-lg{--tw-backdrop-blur:blur(16px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:scale-\[1\.01\]:hover{--tw-scale-x:1.01;--tw-scale-y:1.01;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-sky-400:hover{--tw-border-opacity:1;border-color:rgb(56 189 248 / var(--tw-border-opacity, 1))}.hover\:border-slate-500:hover{--tw-border-opacity:1;border-color:rgb(100 116 139 / var(--tw-border-opacity, 1))}.hover\:bg-amber-300:hover{--tw-bg-opacity:1;background-color:rgb(252 211 77 / var(--tw-bg-opacity, 1))}.hover\:bg-emerald-400:hover{--tw-bg-opacity:1;background-color:rgb(52 211 153 / var(--tw-bg-opacity, 1))}.hover\:bg-emerald-500\/25:hover{background-color:rgb(16 185 129 / 0.25)}.hover\:bg-emerald-500\/30:hover{background-color:rgb(16 185 129 / 0.3)}.hover\:bg-indigo-400:hover{--tw-bg-opacity:1;background-color:rgb(129 140 248 / var(--tw-bg-opacity, 1))}.hover\:bg-rose-500\/30:hover{background-color:rgb(244 63 94 / 0.3)}.hover\:bg-sky-400:hover{--tw-bg-opacity:1;background-color:rgb(56 189 248 / var(--tw-bg-opacity, 1))}.hover\:bg-sky-500\/30:hover{background-color:rgb(14 165 233 / 0.3)}.hover\:bg-slate-700:hover{--tw-bg-opacity:1;background-color:rgb(51 65 85 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-800:hover{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-800\/70:hover{background-color:rgb(30 41 59 / 0.7)}.hover\:from-emerald-400:hover{--tw-gradient-from:#34d399 var(--tw-gradient-from-position);--tw-gradient-to:rgb(52 211 153 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.hover\:from-sky-400:hover{--tw-gradient-from:#38bdf8 var(--tw-gradient-from-position);--tw-gradient-to:rgb(56 189 248 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.hover\:to-indigo-400:hover{--tw-gradient-to:#818cf8 var(--tw-gradient-to-position)}.hover\:to-sky-400:hover{--tw-gradient-to:#38bdf8 var(--tw-gradient-to-position)}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:opacity-100:hover{opacity:1}.focus\:border-sky-400:focus{--tw-border-opacity:1;border-color:rgb(56 189 248 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}@media (min-width: 640px){.sm\:left-auto{left:auto}.sm\:inline{display:inline}.sm\:hidden{display:none}.sm\:h-10{height:2.5rem}.sm\:h-32{height:8rem}.sm\:h-\[360px\]{height:360px}.sm\:w-10{width:2.5rem}.sm\:w-32{width:8rem}.sm\:w-\[360px\]{width:360px}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.sm\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.sm\:grid-cols-5{grid-template-columns:repeat(5, minmax(0, 1fr))}.sm\:grid-cols-6{grid-template-columns:repeat(6, minmax(0, 1fr))}.sm\:grid-cols-8{grid-template-columns:repeat(8, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}.sm\:gap-2{gap:0.5rem}.sm\:p-5{padding:1.25rem}.sm\:p-6{padding:1.5rem}.sm\:px-3{padding-left:0.75rem;padding-right:0.75rem}.sm\:px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.sm\:px-4{padding-left:1rem;padding-right:1rem}.sm\:py-3{padding-top:0.75rem;padding-bottom:0.75rem}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}.sm\:text-xs{font-size:0.75rem;line-height:1rem}}@media (min-width: 1024px){.lg\:sticky{position:sticky}.lg\:bottom-5{bottom:1.25rem}.lg\:bottom-6{bottom:1.5rem}.lg\:top-24{top:6rem}.lg\:col-span-5{grid-column:span 5 / span 5}.lg\:col-span-7{grid-column:span 7 / span 7}.lg\:grid{display:grid}.lg\:hidden{display:none}.lg\:grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.lg\:gap-6{gap:1.5rem}.lg\:py-6{padding-top:1.5rem;padding-bottom:1.5rem}}</style><link rel="manifest" href="./manifest.json"><link rel="apple-touch-icon" href="./icon-192.png"><script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('./sw.js').catch(() => {}); }); }</script></head>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:"Noto Sans KR", sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.sticky{position:sticky}.inset-0{inset:0px}.inset-x-0{left:0px;right:0px}.bottom-0{bottom:0px}.bottom-20{bottom:5rem}.left-1\/2{left:50%}.left-4{left:1rem}.right-4{right:1rem}.top-0{top:0px}.z-30{z-index:30}.z-40{z-index:40}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-1\.5{margin-bottom:0.375rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mt-0\.5{margin-top:0.125rem}.mt-5{margin-top:1.25rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-28{height:7rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-7{height:1.75rem}.h-8{height:2rem}.h-9{height:2.25rem}.h-\[264px\]{height:264px}.h-full{height:100%}.h-10{height:2.5rem}.max-h-60{max-height:15rem}.max-h-\[80vh\]{max-height:80vh}.max-h-\[90vh\]{max-height:90vh}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-28{width:7rem}.w-4{width:1rem}.w-5{width:1.25rem}.w-7{width:1.75rem}.w-8{width:2rem}.w-9{width:2.25rem}.w-\[264px\]{width:264px}.w-\[calc\(100\%-2rem\)\]{width:calc(100% - 2rem)}.w-full{width:100%}.min-w-0{min-width:0px}.max-w-6xl{max-width:72rem}.max-w-\[380px\]{max-width:380px}.max-w-md{max-width:28rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-grab{cursor:grab}.cursor-pointer{cursor:pointer}.touch-none{touch-action:none}.select-none{-webkit-user-select:none;user-select:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-start{justify-content:flex-start}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-0\.5{gap:0.125rem}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-5{gap:1.25rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-2\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.625rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-3\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.875rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.875rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-0{border-width:0px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-amber-400\/40{border-color:rgb(251 191 36 / 0.4)}.border-emerald-400\/35{border-color:rgb(52 211 153 / 0.35)}.border-emerald-400\/40{border-color:rgb(52 211 153 / 0.4)}.border-emerald-400\/50{border-color:rgb(52 211 153 / 0.5)}.border-emerald-400\/70{border-color:rgb(52 211 153 / 0.7)}.border-sky-400{--tw-border-opacity:1;border-color:rgb(56 189 248 / var(--tw-border-opacity, 1))}.border-sky-400\/30{border-color:rgb(56 189 248 / 0.3)}.border-sky-400\/40{border-color:rgb(56 189 248 / 0.4)}.border-sky-500\/30{border-color:rgb(14 165 233 / 0.3)}.border-sky-500\/40{border-color:rgb(14 165 233 / 0.4)}.border-slate-700{--tw-border-opacity:1;border-color:rgb(51 65 85 / var(--tw-border-opacity, 1))}.border-slate-700\/50{border-color:rgb(51 65 85 / 0.5)}.border-slate-700\/60{border-color:rgb(51 65 85 / 0.6)}.border-slate-700\/70{border-color:rgb(51 65 85 / 0.7)}.border-slate-800{--tw-border-opacity:1;border-color:rgb(30 41 59 / var(--tw-border-opacity, 1))}.border-slate-600{--tw-border-opacity:1;border-color:rgb(71 85 105 / var(--tw-border-opacity, 1))}.bg-amber-400{--tw-bg-opacity:1;background-color:rgb(251 191 36 / var(--tw-bg-opacity, 1))}.bg-black\/75{background-color:rgb(0 0 0 / 0.75)}.bg-emerald-500{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.bg-emerald-500\/10{background-color:rgb(16 185 129 / 0.1)}.bg-emerald-500\/15{background-color:rgb(16 185 129 / 0.15)}.bg-emerald-500\/20{background-color:rgb(16 185 129 / 0.2)}.bg-indigo-500{--tw-bg-opacity:1;background-color:rgb(99 102 241 / var(--tw-bg-opacity, 1))}.bg-rose-500\/20{background-color:rgb(244 63 94 / 0.2)}.bg-sky-500{--tw-bg-opacity:1;background-color:rgb(14 165 233 / var(--tw-bg-opacity, 1))}.bg-sky-500\/15{background-color:rgb(14 165 233 / 0.15)}.bg-sky-500\/20{background-color:rgb(14 165 233 / 0.2)}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.bg-slate-800\/40{background-color:rgb(30 41 59 / 0.4)}.bg-slate-800\/50{background-color:rgb(30 41 59 / 0.5)}.bg-slate-800\/60{background-color:rgb(30 41 59 / 0.6)}.bg-slate-800\/70{background-color:rgb(30 41 59 / 0.7)}.bg-slate-800\/90{background-color:rgb(30 41 59 / 0.9)}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-slate-900\/80{background-color:rgb(15 23 42 / 0.8)}.bg-slate-900\/85{background-color:rgb(15 23 42 / 0.85)}.bg-slate-900\/90{background-color:rgb(15 23 42 / 0.9)}.bg-slate-900\/95{background-color:rgb(15 23 42 / 0.95)}.bg-slate-950{--tw-bg-opacity:1;background-color:rgb(2 6 23 / var(--tw-bg-opacity, 1))}.bg-slate-950\/60{background-color:rgb(2 6 23 / 0.6)}.bg-slate-950\/90{background-color:rgb(2 6 23 / 0.9)}.bg-slate-950\/95{background-color:rgb(2 6 23 / 0.95)}.bg-transparent{background-color:transparent}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-sky-400{--tw-bg-opacity:1;background-color:rgb(56 189 248 / var(--tw-bg-opacity, 1))}.bg-slate-700{--tw-bg-opacity:1;background-color:rgb(51 65 85 / var(--tw-bg-opacity, 1))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-emerald-500{--tw-gradient-from:#10b981 var(--tw-gradient-from-position);--tw-gradient-to:rgb(16 185 129 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-emerald-500\/15{--tw-gradient-from:rgb(16 185 129 / 0.15) var(--tw-gradient-from-position);--tw-gradient-to:rgb(16 185 129 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-sky-400{--tw-gradient-from:#38bdf8 var(--tw-gradient-from-position);--tw-gradient-to:rgb(56 189 248 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-sky-500{--tw-gradient-from:#0ea5e9 var(--tw-gradient-from-position);--tw-gradient-to:rgb(14 165 233 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-sky-500\/15{--tw-gradient-from:rgb(14 165 233 / 0.15) var(--tw-gradient-from-position);--tw-gradient-to:rgb(14 165 233 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-sky-500\/10{--tw-gradient-to:rgb(14 165 233 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), rgb(14 165 233 / 0.1) var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-indigo-500{--tw-gradient-to:#6366f1 var(--tw-gradient-to-position)}.to-indigo-500\/15{--tw-gradient-to:rgb(99 102 241 / 0.15) var(--tw-gradient-to-position)}.to-sky-500{--tw-gradient-to:#0ea5e9 var(--tw-gradient-to-position)}.p-0{padding:0px}.p-2{padding:0.5rem}.p-2\.5{padding:0.625rem}.p-3{padding:0.75rem}.p-3\.5{padding:0.875rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-28{padding-bottom:7rem}.pr-1{padding-right:0.25rem}.pt-1{padding-top:0.25rem}.pt-2{padding-top:0.5rem}.pt-4{padding-top:1rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-0.025em}.text-amber-300{--tw-text-opacity:1;color:rgb(252 211 77 / var(--tw-text-opacity, 1))}.text-amber-300\/90{color:rgb(252 211 77 / 0.9)}.text-emerald-300{--tw-text-opacity:1;color:rgb(110 231 183 / var(--tw-text-opacity, 1))}.text-indigo-300{--tw-text-opacity:1;color:rgb(165 180 252 / var(--tw-text-opacity, 1))}.text-rose-300{--tw-text-opacity:1;color:rgb(253 164 175 / var(--tw-text-opacity, 1))}.text-sky-200{--tw-text-opacity:1;color:rgb(186 230 253 / var(--tw-text-opacity, 1))}.text-sky-300{--tw-text-opacity:1;color:rgb(125 211 252 / var(--tw-text-opacity, 1))}.text-sky-400{--tw-text-opacity:1;color:rgb(56 189 248 / var(--tw-text-opacity, 1))}.text-slate-100{--tw-text-opacity:1;color:rgb(241 245 249 / var(--tw-text-opacity, 1))}.text-slate-200{--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity, 1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-950{--tw-text-opacity:1;color:rgb(2 6 23 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.accent-sky-400{accent-color:#38bdf8}.opacity-70{opacity:0.7}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-emerald-500\/25{--tw-shadow-color:rgb(16 185 129 / 0.25);--tw-shadow:var(--tw-shadow-colored)}.shadow-sky-500\/20{--tw-shadow-color:rgb(14 165 233 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.shadow-sky-500\/25{--tw-shadow-color:rgb(14 165 233 / 0.25);--tw-shadow:var(--tw-shadow-colored)}.backdrop-blur-lg{--tw-backdrop-blur:blur(16px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:scale-\[1\.01\]:hover{--tw-scale-x:1.01;--tw-scale-y:1.01;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-sky-400:hover{--tw-border-opacity:1;border-color:rgb(56 189 248 / var(--tw-border-opacity, 1))}.hover\:border-slate-500:hover{--tw-border-opacity:1;border-color:rgb(100 116 139 / var(--tw-border-opacity, 1))}.hover\:bg-amber-300:hover{--tw-bg-opacity:1;background-color:rgb(252 211 77 / var(--tw-bg-opacity, 1))}.hover\:bg-emerald-400:hover{--tw-bg-opacity:1;background-color:rgb(52 211 153 / var(--tw-bg-opacity, 1))}.hover\:bg-emerald-500\/25:hover{background-color:rgb(16 185 129 / 0.25)}.hover\:bg-emerald-500\/30:hover{background-color:rgb(16 185 129 / 0.3)}.hover\:bg-indigo-400:hover{--tw-bg-opacity:1;background-color:rgb(129 140 248 / var(--tw-bg-opacity, 1))}.hover\:bg-rose-500\/30:hover{background-color:rgb(244 63 94 / 0.3)}.hover\:bg-sky-400:hover{--tw-bg-opacity:1;background-color:rgb(56 189 248 / var(--tw-bg-opacity, 1))}.hover\:bg-sky-500\/30:hover{background-color:rgb(14 165 233 / 0.3)}.hover\:bg-slate-700:hover{--tw-bg-opacity:1;background-color:rgb(51 65 85 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-800:hover{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-800\/70:hover{background-color:rgb(30 41 59 / 0.7)}.hover\:from-emerald-400:hover{--tw-gradient-from:#34d399 var(--tw-gradient-from-position);--tw-gradient-to:rgb(52 211 153 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.hover\:from-sky-400:hover{--tw-gradient-from:#38bdf8 var(--tw-gradient-from-position);--tw-gradient-to:rgb(56 189 248 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.hover\:to-indigo-400:hover{--tw-gradient-to:#818cf8 var(--tw-gradient-to-position)}.hover\:to-sky-400:hover{--tw-gradient-to:#38bdf8 var(--tw-gradient-to-position)}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:opacity-100:hover{opacity:1}.focus\:border-sky-400:focus{--tw-border-opacity:1;border-color:rgb(56 189 248 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}@media (min-width: 640px){.sm\:left-auto{left:auto}.sm\:inline{display:inline}.sm\:hidden{display:none}.sm\:h-10{height:2.5rem}.sm\:h-32{height:8rem}.sm\:h-\[360px\]{height:360px}.sm\:w-10{width:2.5rem}.sm\:w-32{width:8rem}.sm\:w-\[360px\]{width:360px}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.sm\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.sm\:grid-cols-5{grid-template-columns:repeat(5, minmax(0, 1fr))}.sm\:grid-cols-6{grid-template-columns:repeat(6, minmax(0, 1fr))}.sm\:grid-cols-8{grid-template-columns:repeat(8, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}.sm\:gap-2{gap:0.5rem}.sm\:p-5{padding:1.25rem}.sm\:p-6{padding:1.5rem}.sm\:px-3{padding-left:0.75rem;padding-right:0.75rem}.sm\:px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.sm\:px-4{padding-left:1rem;padding-right:1rem}.sm\:py-3{padding-top:0.75rem;padding-bottom:0.75rem}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}.sm\:text-xs{font-size:0.75rem;line-height:1rem}}@media (min-width: 1024px){.lg\:sticky{position:sticky}.lg\:bottom-5{bottom:1.25rem}.lg\:bottom-6{bottom:1.5rem}.lg\:top-24{top:6rem}.lg\:col-span-5{grid-column:span 5 / span 5}.lg\:col-span-7{grid-column:span 7 / span 7}.lg\:grid{display:grid}.lg\:hidden{display:none}.lg\:grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.lg\:gap-6{gap:1.5rem}.lg\:py-6{padding-top:1.5rem;padding-bottom:1.5rem}}</style>
+</head>
 <body class="min-h-screen flex flex-col">
 
   <!-- =======================================================================
@@ -1347,18 +530,18 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
              =============================================================== -->
         <div id="step-panel-4" class="step-panel hidden space-y-5">
           <div>
-            <h2 class="text-base font-extrabold text-white mb-1">🎁 와! 나만의 워치페이스가 완성됐어요!</h2>
-            <p class="text-xs text-slate-400">이름을 정하고 아래 파란 버튼을 누르면 어메이즈핏용 ZIP 파일이 저장돼요.</p>
+            <h2 class="text-base font-extrabold text-white mb-1">워치페이스 저장 및 설치</h2>
+            <p class="text-xs text-slate-400">연결된 워치 모델을 선택한 뒤 적용 방법을 고르세요.</p>
           </div>
 
           <!-- 워치페이스 이름 입력 -->
           <div class="p-4 rounded-2xl bg-slate-800/50 border border-slate-700/70 space-y-3">
             <div>
-              <label class="block text-xs font-bold text-slate-300 mb-1.5">🏷️ 내 워치페이스 이름</label>
+              <label for="watchNameInput" class="block text-xs font-bold text-slate-300 mb-1.5">내 워치페이스 이름</label>
               <input type="text" id="watchNameInput" value="나만의_워치페이스" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm font-bold text-white focus:outline-none focus:border-sky-400">
             </div>
             <div>
-              <label class="block text-xs font-bold text-slate-300 mb-1.5">⌚ 내 어메이즈핏 시계 모델</label>
+              <label for="watchDeviceSelect" class="block text-xs font-bold text-slate-300 mb-1.5">어메이즈핏 모델</label>
               <select id="watchDeviceSelect" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm font-bold text-sky-200 focus:outline-none focus:border-sky-400">
                 <optgroup label="🏔️ T-Rex 시리즈">
                   <option value="trex3pro48" selected="">Amazfit T-Rex 3 Pro 48mm (480×480)</option>
@@ -1397,100 +580,58 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             </div>
           </div>
 
-          <!-- ===============================================================
-               🔥 핵심 기능: 이 앱에서 바로 TGA 변환 & QR 코드 즉시 생성!
-               =============================================================== -->
-          <div class="p-4 sm:p-5 rounded-3xl bg-gradient-to-br from-emerald-500/15 via-sky-500/10 to-indigo-500/15 border-2 border-emerald-400/50 space-y-4">
-            <div class="flex items-center justify-between gap-2 flex-wrap">
-              <div>
-                <h3 class="text-sm sm:text-base font-extrabold text-white flex items-center gap-1.5">
-                  <span>⚡</span><span>이 앱에서 바로 QR 코드 만들기</span>
-                </h3>
-                <p class="text-[11px] text-slate-300 mt-0.5">전용 TGA-32 자동 변환 → .zpk 생성 → QR 코드 즉시 출력!</p>
-              </div>
-              <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/35">PC·다른 앱 불필요</span>
-            </div>
-
-            <!-- 바로 QR 생성 큰 버튼 -->
-            <button id="btnGenerateDirectQr" class="w-full py-4 px-4 rounded-2xl text-base font-extrabold bg-gradient-to-r from-emerald-500 to-sky-500 hover:from-emerald-400 hover:to-sky-400 text-slate-950 shadow-lg shadow-emerald-500/25 transition-all cursor-pointer flex items-center justify-center gap-2">
-              <span>📱</span>
-              <span>지금 바로 QR 코드 만들기</span>
-            </button>
-
-            <!-- 생성된 QR 코드 표시 영역 -->
-            <div id="directQrResultBox" class="hidden p-4 rounded-2xl bg-slate-950/90 border border-sky-400/40 space-y-3.5 text-center">
-              <div class="flex items-center justify-center gap-2 flex-wrap">
-                <span class="text-xs font-extrabold text-emerald-300">✅ QR 코드 완성!</span>
-                <span id="qrProtocolBadge" class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-sky-500/20 text-sky-300">watchface:// (최신 Zepp 10.8+)</span>
-              </div>
-
-              <!-- 흰 배경 QR 박스 -->
-              <div class="inline-flex flex-col items-center p-3.5 rounded-2xl bg-white shadow-xl mx-auto">
-                <div id="directQrCanvasBox" class="flex items-center justify-center"></div>
-              </div>
-
-              <!-- 프로토콜 전환 (Zepp 최신 vs 구버전 호환) & QR 이미지 저장 -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                <button id="btnSaveQrImage" class="py-2.5 px-3 rounded-xl text-xs font-extrabold bg-sky-500 hover:bg-sky-400 text-slate-950 transition-colors">
-                  📷 QR 사진으로 저장 (앨범에서 스캔)
-                </button>
-                <button id="btnSwitchQrProtocol" class="py-2.5 px-3 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors">
-                  🔄 링크 형식 바꾸기 (zpkd1://)
-                </button>
-              </div>
-
-              <div class="text-left p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-[11px] text-slate-300 space-y-1 leading-relaxed">
-                <p class="font-bold text-sky-300">📲 폰 1대로 바로 적용하는 법:</p>
-                <p>1. 위 <b>[📷 QR 사진으로 저장]</b>을 눌러 내 폰 갤러리에 저장하세요.</p>
-                <p>2. <b>Zepp 앱 → 기기 → 개발자 모드 → + 스캔 → 우측 상단 앨범</b>에서 방금 저장한 QR을 고르면 끝!</p>
-                <p class="text-amber-300/90">※ "미리보기 패키지만 지원" 메시지가 뜨면 위 <b>[링크 형식 바꾸기]</b>를 눌러 다시 스캔해 보세요.</p>
-              </div>
-            </div>
-
-            <!-- 네트워크 차단 시 수동 링크 → QR 변환 백업 영역 -->
-            <div id="directQrFallbackBox" class="hidden p-3.5 rounded-2xl bg-slate-900/90 border border-amber-400/40 space-y-2.5">
-              <p class="text-xs font-extrabold text-amber-300">⚠️ 자동 임시 업로드가 차단되어 .zpk 파일을 먼저 저장했어요!</p>
-              <p class="text-[11px] text-slate-300 leading-relaxed">
-                저장된 <code class="text-sky-300">.zpk</code> 파일을 <a href="https://tmpfiles.org" target="_blank" class="underline text-sky-300 font-bold" rel="noopener noreferrer">tmpfiles.org</a> 또는 <a href="https://catbox.moe" target="_blank" class="underline text-sky-300 font-bold" rel="noopener noreferrer">catbox.moe</a>에 올린 뒤 링크를 아래에 붙여넣으면 QR이 바로 나와요!
-              </p>
-              <div class="flex gap-2">
-                <input type="text" id="manualZpkUrlInput" placeholder="https://...watchface.zpk 링크 붙여넣기" class="flex-1 min-w-0 bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-sky-400">
-                <button id="btnManualUrlToQr" class="px-3.5 py-2 rounded-xl text-xs font-extrabold bg-amber-400 hover:bg-amber-300 text-slate-950 shrink-0">QR 생성</button>
-              </div>
-            </div>
-
-            <!-- .zpk 파일만 바로 저장하기 보조 버튼 -->
-            <div class="flex items-center justify-between gap-2 pt-1 border-t border-slate-700/50 flex-wrap">
-              <span class="text-[11px] text-slate-400">전용 TGA-32가 적용된 .zpk 파일만 따로 받을 수도 있어요</span>
-              <button id="btnDownloadZpkOnly" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-slate-700 transition-colors">
-                📦 .zpk 파일만 받기
-              </button>
-            </div>
+          <div class="p-4 sm:p-5 rounded-3xl bg-slate-800/60 border border-slate-700 space-y-3">
+            <h3 class="text-base font-extrabold text-white">배경만 바꾸기</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">배경 PNG에는 사진, 색상, 무늬와 테두리가 들어갑니다. 시간과 위젯은 Zepp에서 선택한 스타일을 따릅니다.</p>
+            <button id="btnDownloadBackground" type="button" class="w-full py-3 px-4 rounded-2xl text-sm font-extrabold bg-emerald-500 hover:bg-emerald-400 text-slate-950">배경 PNG 저장</button>
+            <p class="text-xs text-slate-300 leading-relaxed">Zepp에서 연결된 기기의 <b>워치페이스 → 사진 워치페이스</b> 또는 <b>배경 사용자 지정</b>을 열고, 저장한 PNG를 앨범에서 골라 동기화하세요. PNG가 파일 앱에 저장됐다면 공유 메뉴에서 사진에 추가하세요. 메뉴 이름과 지원 여부는 기기에 따라 다릅니다.</p>
           </div>
 
-          <!-- 기타 방식 (PC Zeus CLI / 그림 파일 모음) 접기/펼치기 -->
-          <details class="rounded-2xl bg-slate-800/40 border border-slate-700/70 overflow-hidden">
-            <summary class="px-4 py-3 text-xs sm:text-sm font-bold text-slate-300 cursor-pointer hover:bg-slate-800/70 select-none flex items-center justify-between">
-              <span>🛠️ 다른 설치 방법 보기 (PC 원클릭 Zeus CLI / 그림만 받기)</span>
-              <span class="text-xs text-sky-400">펼치기 ▾</span>
-            </summary>
-            <div class="p-4 pt-2 space-y-3 border-t border-slate-700/60">
-              <p class="text-[11px] text-slate-400 leading-relaxed">
-                만약 공식 Zepp 서버 미리보기(Zeus CLI)로 설치하거나, <b>watchface.zepp.com</b> 웹 에디터에 그림만 올리고 싶다면 아래 버튼을 쓰세요.
-              </p>
-              <button id="btnMainDownload" class="w-full py-3 px-4 rounded-2xl text-xs sm:text-sm font-extrabold bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-400 hover:to-indigo-400 text-white shadow-md transition-all cursor-pointer">
-                🚀 PC 원클릭 QR (Zeus CLI 프로젝트 ZIP 받기)
-              </button>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                <button id="btnCopyZeusCmd" class="py-2.5 px-3 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-sky-200 border border-slate-700 transition-all cursor-pointer">
-                  📋 Zeus 한 줄 명령어 복사
-                </button>
-                <button id="btnDownloadAssetsOnly" class="py-2.5 px-3 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-slate-700 transition-all cursor-pointer">
-                  🖼️ 에디터용 그림(PNG)만 받기
-                </button>
-              </div>
+          <div class="p-4 sm:p-5 rounded-3xl bg-slate-800/60 border border-slate-700 space-y-3">
+            <h3 class="text-base font-extrabold text-white">위젯까지 바꾸기 · Zepp 개발자 모드</h3>
+            <p id="installDeviceStatus" class="text-xs text-sky-300" role="status"></p>
+            <button id="btnCloudPreview" type="button" disabled class="w-full py-3 px-4 rounded-2xl text-sm font-extrabold bg-emerald-500 hover:bg-emerald-400 text-slate-950">Zepp 설치 QR 만들기</button>
+            <p id="cloudPreviewStatus" class="text-xs text-slate-300 leading-relaxed" role="status">QR 발급 서비스 확인 중</p>
+            <div id="cloudPreviewResult" hidden class="p-3 rounded-2xl bg-slate-900 border border-slate-700 space-y-2">
+              <img id="installQrImage" alt="Zepp 설치 QR">
+              <a id="btnSaveInstallQr" download="zepp-install.png" class="block w-full py-3 px-4 rounded-2xl text-center text-sm font-extrabold bg-sky-500 text-slate-950">QR 이미지 저장</a>
+              <p class="text-xs text-slate-300 leading-relaxed">Zepp → 기기 → 일반 → 개발자 모드 → + → 스캔 → 열기 / 선택에서 저장한 이미지를 고르세요. 갤러리에 바로 안 보이면 다운로드 폴더나 화면 캡처를 이용하세요.</p>
             </div>
-          </details>
+            <details class="p-3 rounded-2xl bg-slate-900 border border-slate-700">
+              <summary class="cursor-pointer text-sm font-bold text-white">폰에서 QR 발급하기 · GitHub Codespaces</summary>
+              <div class="pt-2 space-y-3">
+                <p class="text-xs text-slate-300 leading-relaxed">편집한 시간 배치와 위젯을 ZIP으로 저장하고, 폰 브라우저에서 연 Codespaces 터미널에서 공식 Zeus CLI로 QR을 발급합니다.</p>
+                <button id="btnMobilePreviewDownload" type="button" class="w-full py-3 px-4 rounded-2xl text-sm font-extrabold bg-sky-500 hover:bg-sky-400 text-slate-950">모바일 QR 발급용 프로젝트 저장</button>
+                <ol class="text-xs text-slate-300 leading-relaxed space-y-2">
+                  <li>1. GitHub Codespaces를 브라우저에서 열고, Explorer의 작업 폴더 메뉴에서 <b>Upload…</b>로 <code>watchface-preview.zip</code>을 올립니다. 다운로드 이름에 <code>(1)</code>이 붙었다면 파일 이름을 맞춰 주세요.</li>
+                  <li>2. 터미널을 해당 폴더에서 열고 아래 명령을 실행합니다. 처음이라면 로그인 명령부터 실행하고, CLI 안내에 따라 폰의 Zepp 앱과 같은 계정으로 로그인하세요.</li>
+                  <li>3. QR 발급 명령을 실행하고 터미널에 나온 QR을 여백까지 캡처합니다. 폰의 Zepp에서 <b>기기 → 일반 → 개발자 모드 → + → 스캔</b>을 열고 <b>열기 / 선택</b>이 보이면 앨범에서 캡처를 고릅니다.</li>
+                </ol>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <button id="btnCopyZeusLogin" type="button" class="py-2.5 px-3 rounded-xl text-xs font-bold bg-slate-800 text-sky-200 border border-slate-700">최초 로그인 명령 복사</button>
+                  <button id="btnCopyMobilePreview" type="button" class="py-2.5 px-3 rounded-xl text-xs font-bold bg-slate-800 text-sky-200 border border-slate-700">QR 발급 명령 복사</button>
+                  <a href="https://github.com/codespaces" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-xl text-center text-xs font-bold bg-slate-800 text-sky-200 border border-slate-700">GitHub Codespaces 열기</a>
+                  <a href="https://docs.zepp.com/docs/guides/tools/zepp-app/" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-xl text-center text-xs font-bold bg-slate-800 text-sky-200 border border-slate-700">개발자 모드 켜기</a>
+                </div>
+                <p class="text-[11px] text-slate-400 leading-relaxed">Zepp 스캔 화면의 앨범 메뉴는 앱 버전에 따라 다를 수 있습니다. QR 발급에 실패하면 터미널 메시지에서 로그인 상태와 선택한 워치 모델을 확인하세요.</p>
+              </div>
+            </details>
+            <details class="p-3 rounded-2xl bg-slate-900 border border-slate-700">
+              <summary class="cursor-pointer text-xs font-bold text-slate-200">PC에서 Zeus CLI 사용</summary>
+              <div class="pt-2 space-y-2">
+                <p class="text-xs text-slate-300 leading-relaxed">ZIP을 풀고 터미널에서 <code>zeus preview</code>를 실행합니다.</p>
+                <button id="btnMainDownload" type="button" class="w-full py-2.5 px-3 rounded-xl text-xs font-bold bg-slate-800 text-sky-200 border border-slate-700">Zeus 프로젝트 ZIP 저장</button>
+              </div>
+            </details>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <a href="https://docs.zepp.com/docs/guides/tools/cli/" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-xl text-center text-xs font-bold bg-slate-800 text-sky-200 border border-slate-700">Zeus 설치 안내</a>
+              <a href="https://docs.github.com/en/codespaces/quickstart" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-xl text-center text-xs font-bold bg-slate-800 text-sky-200 border border-slate-700">Codespaces 사용 안내</a>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <button id="btnDownloadAssetsOnly" type="button" class="py-2.5 px-3 rounded-xl text-xs font-bold bg-slate-800 text-emerald-300 border border-slate-700">Watchface Maker용 PNG 모음 저장</button>
+              <a href="https://watchface.zepp.com/" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-xl text-center text-xs font-bold bg-slate-800 text-sky-200 border border-slate-700">Watchface Maker 열기</a>
+            </div>
+          </div>
 
           <!-- 불러온 ZIP 파일 이미지 보기 (ZIP을 올렸을 때만 표시됨) -->
           <div id="importedZipSection" class="hidden p-4 rounded-2xl bg-slate-800/60 border border-sky-500/30 space-y-3">
@@ -1537,67 +678,36 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
     </div>
   </nav>
 
-  <!-- =======================================================================
-       📱 스마트폰 앱으로 설치하기 안내 모달
-       ======================================================================= -->
-  <div id="phoneAppModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 hidden">
-    <div class="bg-slate-900 border border-slate-700 rounded-3xl max-w-md w-full p-5 space-y-4 shadow-2xl max-h-[90vh] overflow-y-auto">
-      <div class="flex items-center justify-between">
-        <h3 class="text-base font-extrabold text-white flex items-center gap-2">
-          <span>📱</span><span>폰에서 진짜 앱처럼 쓰기 (30초 완성)</span>
-        </h3>
-        <button id="btnClosePhoneModal" class="w-8 h-8 rounded-full bg-slate-800 text-slate-300 hover:text-white font-bold">✕</button>
+  <dialog id="phoneAppModal" aria-labelledby="phoneAppTitle">
+    <form method="dialog" class="p-5 space-y-4">
+      <h2 id="phoneAppTitle" class="text-base font-extrabold text-white">홈 화면에 워치메이커 추가</h2>
+      <p class="text-sm text-slate-300">iPhone Safari에서 공유 → 홈 화면에 추가를 선택하세요.</p>
+      <p class="text-sm text-slate-300">Android Chrome에서 메뉴 → 홈 화면에 추가 또는 앱 설치를 선택하세요.</p>
+      <button class="w-full py-3 rounded-2xl text-sm font-extrabold bg-slate-800 text-white">닫기</button>
+    </form>
+  </dialog>
+
+  <dialog id="previewAccessDialog" aria-labelledby="previewAccessTitle">
+    <form id="previewAccessForm" method="dialog" class="p-5 space-y-3">
+      <h2 id="previewAccessTitle" class="text-base font-extrabold text-white">QR 발급 접속 코드 입력</h2>
+      <p class="text-xs text-slate-300">접속 코드를 입력하면 이 브라우저에서 30일 동안 다시 물어보지 않습니다.</p>
+      <label for="previewAccessKey" class="block text-xs font-bold text-slate-300">접속 코드</label>
+      <input id="previewAccessKey" type="password" required minlength="24" autocomplete="off" class="w-full rounded-xl px-3 py-2 bg-slate-800 text-white border border-slate-700">
+      <div class="flex gap-2">
+        <button type="button" id="btnCancelPreviewAccess" class="flex-1 py-2 rounded-xl bg-slate-800 text-slate-200 text-sm font-bold">취소</button>
+        <button type="submit" class="flex-1 py-2 rounded-xl bg-sky-500 text-slate-950 text-sm font-bold">QR 만들기</button>
       </div>
+    </form>
+  </dialog>
 
-      <div class="space-y-3 text-xs text-slate-300 leading-relaxed">
-        <!-- 1단계: 자동 패키지 생성 -->
-        <div class="p-3.5 rounded-2xl bg-gradient-to-br from-sky-500/15 to-indigo-500/15 border border-sky-400/40 space-y-2.5">
-          <p class="font-extrabold text-sky-300">1️⃣ 앱 파일 자동 만들기 (복사·메모장 필요 없음!)</p>
-          <p class="text-slate-200">버튼만 누르면 <code class="text-sky-300">index.html</code> + 앱 아이콘 + 오프라인 실행 파일까지 한 번에 묶어 저장해 드려요.</p>
-          <button id="btnExportPwaBundle" class="w-full py-3 px-4 rounded-2xl text-sm font-extrabold bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-400 hover:to-indigo-400 text-white shadow-lg shadow-sky-500/20 transition-all cursor-pointer" disabled="">⏳ 폰 앱 패키지 만드는 중...</button>
-          <button id="btnCopyIndexHtml" class="w-full py-2.5 px-4 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-sky-200 border border-slate-700 transition-colors cursor-pointer">
-            📋 ZIP 저장이 막힐 때: index.html 코드만 바로 복사
-          </button>
-        </div>
-
-        <!-- 2단계: Netlify Drop 바로 열기 -->
-        <div class="p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-400/35 space-y-2.5">
-          <p class="font-extrabold text-emerald-300">2️⃣ 무료 웹 주소 만들기 (5초)</p>
-          <p class="text-slate-200">방금 받은 ZIP의 <b>압축을 푼 폴더</b>를 아래 사이트 점선 칸에 끌어다 놓으면 나만의 앱 주소가 바로 생겨요.</p>
-          <a href="https://app.netlify.com/drop" target="_blank" rel="noopener noreferrer" class="block w-full py-2.5 px-4 rounded-xl text-center text-xs font-extrabold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition-colors">
-            🚀 Netlify Drop 바로 열기 ↗
-          </a>
-        </div>
-
-        <!-- 3단계: 생긴 주소로 폰 카메라용 QR 만들기 -->
-        <div class="p-3.5 rounded-2xl bg-slate-800/70 border border-slate-700 space-y-2.5">
-          <p class="font-extrabold text-amber-300">3️⃣ 폰으로 바로 열고 홈 화면에 추가하기</p>
-          <p class="text-slate-300">생긴 <code class="text-sky-300">https://...</code> 주소를 아래에 붙여넣으면 폰 카메라로 바로 찍어 열 수 있는 QR을 만들어 드려요.</p>
-          <div class="flex gap-2">
-            <input type="text" id="pwaSiteUrlInput" placeholder="https://내주소.netlify.app 붙여넣기" class="flex-1 min-w-0 bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-sky-400">
-            <button id="btnMakeSiteQr" class="px-3.5 py-2 rounded-xl text-xs font-extrabold bg-amber-400 hover:bg-amber-300 text-slate-950 shrink-0 cursor-pointer">QR 띄우기</button>
-          </div>
-          <div id="pwaSiteQrWrap" class="hidden pt-2 flex flex-col items-center gap-2">
-            <div id="pwaSiteQrBox" class="p-2.5 bg-white rounded-2xl"></div>
-            <p class="text-[11px] text-slate-300 text-center">📱 폰 카메라로 찍어 연 뒤 <b>[홈 화면에 추가]</b>를 누르면 앱 완성!</p>
-          </div>
-        </div>
-      </div>
-
-      <button id="btnConfirmPhoneModal" class="w-full py-3 rounded-2xl text-sm font-extrabold bg-slate-800 hover:bg-slate-700 text-white transition-colors cursor-pointer">
-        닫기
-      </button>
-    </div>
-  </div>
-
-  <!-- 직접 다운로드 백업 바 (브라우저/미리보기 창에서 직접 저장이 막힐 때 링크·QR로 즉시 우회 다운로드) -->
+  <!-- 수동 다운로드 및 모바일 공유 -->
   <div id="downloadReadyBar" class="hidden fixed bottom-20 lg:bottom-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-md p-3.5 rounded-2xl bg-slate-900/95 border-2 border-emerald-400/70 shadow-2xl backdrop-blur-md space-y-2.5 max-h-[80vh] overflow-y-auto">
     <div class="flex items-center justify-between gap-2">
       <div class="min-w-0">
         <p class="text-xs font-extrabold text-emerald-300">📦 파일이 준비됐어요!</p>
-        <p id="downloadReadyName" class="text-[11px] text-slate-300 truncate">watchface.zip</p>
+          <p id="downloadReadyName" class="text-[11px] text-slate-300 truncate"></p>
       </div>
-      <button id="btnCloseDownloadBar" class="w-7 h-7 rounded-full bg-slate-800 text-slate-300 hover:text-white text-xs font-bold shrink-0 cursor-pointer">✕</button>
+        <button id="btnCloseDownloadBar" aria-label="다운로드 안내 닫기" class="w-7 h-7 rounded-full bg-slate-800 text-slate-300 hover:text-white text-xs font-bold shrink-0 cursor-pointer">✕</button>
     </div>
     <div class="flex items-center gap-2">
       <a id="directDownloadLink" href="#" download="watchface.zip" class="flex-1 py-2.5 px-3 rounded-xl text-center text-xs font-extrabold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition-colors">
@@ -1607,34 +717,10 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
         📤 공유/저장
       </button>
     </div>
-    <!-- 미리보기 창(샌드박스) 다운로드 차단 우회 영역 -->
-    <div class="pt-2 border-t border-slate-800 space-y-2">
-      <p class="text-[11px] text-amber-300/90 leading-snug">
-        💡 미리보기 창 보안 때문에 위 버튼이 무반응일 수 있어요! 아래 버튼으로 <b>링크·QR</b>을 만들면 바로 받을 수 있어요.
-      </p>
-      <button id="btnCloudDownloadFallback" class="w-full py-2.5 px-3 rounded-xl text-xs font-extrabold bg-amber-400 hover:bg-amber-300 text-slate-950 transition-colors cursor-pointer">
-        ☁️ 저장 안 될 때: 다운로드 링크 · QR 만들기
-      </button>
-      <div id="cloudDownloadResult" class="hidden p-2.5 rounded-xl bg-slate-950/90 border border-sky-400/40 space-y-2">
-        <div class="flex items-center gap-1.5">
-          <input type="text" id="cloudDownloadUrlInput" readonly="" class="flex-1 min-w-0 bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-[11px] text-sky-200 focus:outline-none">
-          <button id="btnCopyCloudUrl" class="px-2.5 py-1.5 rounded-lg text-[11px] font-extrabold bg-sky-500 hover:bg-sky-400 text-slate-950 shrink-0 cursor-pointer">📋 복사</button>
-        </div>
-        <div class="flex items-center justify-between gap-2">
-          <a id="cloudOpenNewTabLink" href="#" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 px-3 rounded-lg text-center text-xs font-extrabold bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-400/40">
-            🔗 새 창에서 바로 받기 ↗
-          </a>
-        </div>
-        <div class="flex flex-col items-center pt-1 gap-1">
-          <div id="cloudDownloadQrBox" class="p-2 bg-white rounded-xl"></div>
-          <span class="text-[10px] text-slate-400">📱 폰 카메라로 찍어도 바로 다운로드돼요!</span>
-        </div>
-      </div>
-    </div>
   </div>
 
   <!-- 알림 말풍선(토스트) 영역 -->
-  <div id="toastBox" class="fixed bottom-20 lg:bottom-5 right-4 left-4 sm:left-auto z-50 flex flex-col gap-2 pointer-events-none"></div>
+  <div role="status" id="toastBox" class="fixed bottom-20 lg:bottom-5 right-4 left-4 sm:left-auto z-50 flex flex-col gap-2 pointer-events-none"></div>
 
   <script>
     /* =========================================================================
@@ -1822,33 +908,6 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
       } catch (e) {
         return false;
       }
-    }
-
-    // 동적 PWA 매니페스트 & 홈 화면 아이콘 등록 (단일 파일에서도 앱처럼 설치 지원)
-    function setupPwaManifest() {
-      try {
-        const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192"><rect width="192" height="192" rx="44" fill="#0f172a"/><circle cx="96" cy="96" r="66" fill="#1e293b" stroke="#38bdf8" stroke-width="10"/><text x="96" y="108" font-size="44" font-family="sans-serif" font-weight="800" fill="#ffffff" text-anchor="middle">10:09</text></svg>`;
-        const iconUrl = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(iconSvg);
-        const manifest = {
-          name: '내 맘대로 워치페이스 만들기',
-          short_name: '워치메이커',
-          start_url: '.',
-          display: 'standalone',
-          background_color: '#0f172a',
-          theme_color: '#0f172a',
-          icons: [{ src: iconUrl, sizes: '192x192', type: 'image/svg+xml' }]
-        };
-        const blob = new Blob([JSON.stringify(manifest)], { type: 'application/manifest+json' });
-        const link = document.createElement('link');
-        link.rel = 'manifest';
-        link.href = URL.createObjectURL(blob);
-        document.head.appendChild(link);
-
-        const appleIcon = document.createElement('link');
-        appleIcon.rel = 'apple-touch-icon';
-        appleIcon.href = iconUrl;
-        document.head.appendChild(appleIcon);
-      } catch (e) {}
     }
 
     const watchCanvas = document.getElementById('watchCanvas');
@@ -2727,30 +1786,48 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
     }
 
     async function handleZipUpload(file) {
+      const imgs = [];
       try {
         const zip = await JSZip.loadAsync(file);
-        const imgs = [];
         const entries = Object.values(zip.files).filter(f => !f.dir && /\.(png|jpg|jpeg|webp)$/i.test(f.name));
         for (const entry of entries.slice(0, 40)) {
           const blob = await entry.async('blob');
           const url = URL.createObjectURL(blob);
           imgs.push({ name: entry.name.split('/').pop(), url });
         }
+        STATE.importedImages.forEach(item => URL.revokeObjectURL(item.url));
         STATE.importedImages = imgs;
         const sec = document.getElementById('importedZipSection');
         const grid = document.getElementById('importedZipGrid');
         grid.innerHTML = '';
         if (imgs.length === 0) {
+          sec.classList.add('hidden');
           showToast('ZIP 안에서 일반 PNG 그림을 찾지 못했어요 (전용 TGA 형식일 수 있어요).');
           return;
         }
         imgs.forEach(item => {
           const card = document.createElement('button');
           card.className = 'p-1.5 rounded-xl bg-slate-900 border border-slate-700 hover:border-sky-400 flex flex-col items-center gap-1';
-          card.innerHTML = `<img src="${item.url}" class="w-14 h-14 object-contain checkerboard rounded-lg" /><span class="text-[10px] text-slate-300 truncate w-full text-center">${item.name}</span>`;
+          const thumbnail = new Image();
+          thumbnail.src = item.url;
+          thumbnail.alt = '';
+          thumbnail.className = 'checkerboard rounded-lg';
+          thumbnail.style.width = '3.5rem';
+          thumbnail.style.height = '3.5rem';
+          thumbnail.style.objectFit = 'contain';
+          const label = document.createElement('span');
+          label.className = 'text-[10px] text-slate-300 truncate w-full text-center';
+          label.textContent = item.name;
+          card.append(thumbnail, label);
           card.addEventListener('click', () => {
             const img = new Image();
-            img.onload = () => { STATE.bgPhoto = img; document.getElementById('btnRemoveBgPhoto').classList.remove('hidden'); showToast(`${item.name}을 배경으로 적용했어요!`); };
+            img.onload = () => {
+              STATE.bgPhoto = img;
+              document.getElementById('btnRemoveBgPhoto').classList.remove('hidden');
+              updateStep4Previews();
+              showToast(`${item.name}을 배경으로 적용했어요!`);
+            };
+            img.onerror = () => showToast('브라우저에서 이 배경 이미지를 열 수 없어요.');
             img.src = item.url;
           });
           grid.appendChild(card);
@@ -2759,6 +1836,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
         goToStep(4);
         showToast(`${file.name}에서 그림 ${imgs.length}개를 불러왔어요!`);
       } catch (err) {
+        if (STATE.importedImages !== imgs) imgs.forEach(item => URL.revokeObjectURL(item.url));
         console.error(err);
         showToast('ZIP 파일을 여는 중 오류가 발생했어요.');
       }
@@ -2792,8 +1870,9 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
         targetKey: 't-rex-3',
         displayName: 'Amazfit T-Rex 3',
         platforms: [
-          { name: 't-rex-3', deviceSource: 8716545 },
-          { name: 't-rex-3-w', deviceSource: 8716547 }
+          { name: "t-rex-3-8716544", deviceSource: 8716544 },
+          { name: "t-rex-3-8716545", deviceSource: 8716545 },
+          { name: "t-rex-3-8716547", deviceSource: 8716547 }
         ],
         designWidth: 480
       },
@@ -2801,8 +1880,8 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
         targetKey: 't-rex-ultra',
         displayName: 'Amazfit T-Rex Ultra',
         platforms: [
-          { name: 't-rex-ultra', deviceSource: 8061185 },
-          { name: 't-rex-ultra-w', deviceSource: 8061187 }
+          { name: "t-rex-ultra-6553856", deviceSource: 6553856 },
+          { name: "t-rex-ultra-6553857", deviceSource: 6553857 }
         ],
         designWidth: 454
       },
@@ -2819,8 +1898,9 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
         targetKey: 'balance-2',
         displayName: 'Amazfit Balance 2',
         platforms: [
-          { name: 'balance-2', deviceSource: 10223873 },
-          { name: 'balance-2-w', deviceSource: 10223875 }
+          { name: "balance-2-9568512", deviceSource: 9568512 },
+          { name: "balance-2-9568513", deviceSource: 9568513 },
+          { name: "balance-2-9568515", deviceSource: 9568515 }
         ],
         designWidth: 480
       },
@@ -2828,8 +1908,9 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
         targetKey: 'balance',
         displayName: 'Amazfit Balance',
         platforms: [
-          { name: 'balance', deviceSource: 8519937 },
-          { name: 'balance-w', deviceSource: 8519939 }
+          { name: "balance-8519936", deviceSource: 8519936 },
+          { name: "balance-8519937", deviceSource: 8519937 },
+          { name: "balance-8519939", deviceSource: 8519939 }
         ],
         designWidth: 480
       },
@@ -2837,8 +1918,14 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
         targetKey: 'active-2-round',
         displayName: 'Amazfit Active 2 (Round)',
         platforms: [
-          { name: 'active-2-round', deviceSource: 10092801 },
-          { name: 'active-2-round-w', deviceSource: 10092803 }
+          { name: "active-2-round-8913152", deviceSource: 8913152 },
+          { name: "active-2-round-8913153", deviceSource: 8913153 },
+          { name: "active-2-round-8913155", deviceSource: 8913155 },
+          { name: "active-2-round-8913159", deviceSource: 8913159 },
+          { name: "active-2-round-10092800", deviceSource: 10092800 },
+          { name: "active-2-round-10092801", deviceSource: 10092801 },
+          { name: "active-2-round-10092803", deviceSource: 10092803 },
+          { name: "active-2-round-10092807", deviceSource: 10092807 }
         ],
         designWidth: 466
       },
@@ -2846,12 +1933,14 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
         targetKey: 'gtr-4',
         displayName: 'Amazfit GTR 4',
         platforms: [
-          { name: 'gtr-4', deviceSource: 7930113 },
-          { name: 'gtr-4-w', deviceSource: 7930115 }
+          { name: "gtr-4-7930112", deviceSource: 7930112 },
+          { name: "gtr-4-7930113", deviceSource: 7930113 },
+          { name: "gtr-4-7864577", deviceSource: 7864577 }
         ],
         designWidth: 466
       },
       gtr3pro: {
+        photoOnly: true,
         targetKey: 'gtr-3-pro',
         displayName: 'Amazfit GTR 3 Pro',
         platforms: [
@@ -2861,6 +1950,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
         designWidth: 480
       },
       gtr3: {
+        photoOnly: true,
         targetKey: 'gtr-3',
         displayName: 'Amazfit GTR 3',
         platforms: [
@@ -2873,8 +1963,8 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
         targetKey: 'gtr-mini',
         displayName: 'Amazfit GTR Mini',
         platforms: [
-          { name: 'gtr-mini', deviceSource: 8257793 },
-          { name: 'gtr-mini-w', deviceSource: 8257795 }
+          { name: "gtr-mini-250", deviceSource: 250 },
+          { name: "gtr-mini-251", deviceSource: 251 }
         ],
         designWidth: 416
       },
@@ -2882,8 +1972,8 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
         targetKey: 'cheetah-pro',
         displayName: 'Amazfit Cheetah Pro',
         platforms: [
-          { name: 'cheetah-pro', deviceSource: 8192257 },
-          { name: 'cheetah-pro-w', deviceSource: 8192259 }
+          { name: "cheetah-pro-8126720", deviceSource: 8126720 },
+          { name: "cheetah-pro-8126721", deviceSource: 8126721 }
         ],
         designWidth: 480
       },
@@ -2891,8 +1981,8 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
         targetKey: 'cheetah-round',
         displayName: 'Amazfit Cheetah (Round)',
         platforms: [
-          { name: 'cheetah-round', deviceSource: 8126721 },
-          { name: 'cheetah-round-w', deviceSource: 8126723 }
+          { name: "cheetah-round-8192256", deviceSource: 8192256 },
+          { name: "cheetah-round-8192257", deviceSource: 8192257 }
         ],
         designWidth: 454
       },
@@ -3148,236 +2238,26 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
 
     let LAST_DOWNLOAD_URL = null;
     let LAST_DOWNLOAD_FILE = null;
-    let LAST_DOWNLOAD_BLOB = null;
-    let LAST_DOWNLOAD_NAME = 'watchface.zip';
-    let CURRENT_QR_PROTOCOL = 'watchface'; // 'watchface' (최신 Zepp 10.8+) | 'zpkd1' (구버전)
-    let CURRENT_DIRECT_URL = '';
-
-    // 캔버스를 어메이즈핏(Zepp OS) 전용 TGA-32 (SOMH 64바이트 헤더, 16px 가로 정렬) 바이너리로 변환
-    function canvasToZeppTga32(canvas) {
-      const w = canvas.width;
-      const h = canvas.height;
-      const strideW = Math.ceil(w / 16) * 16;
-      const ctx = canvas.getContext('2d');
-      const rgba = ctx.getImageData(0, 0, w, h).data;
-
-      const headerSize = 64;
-      const buf = new Uint8Array(headerSize + strideW * h * 4);
-      const view = new DataView(buf.buffer);
-
-      // 표준 TGA 헤더 (18바이트) + SOMH 확장 헤더 (46바이트) = 64바이트
-      buf[0] = 46; // ID length
-      buf[1] = 0;  // No color map
-      buf[2] = 2;  // Uncompressed True-Color
-      view.setUint16(12, strideW, true);
-      view.setUint16(14, h, true);
-      buf[16] = 32;   // 32-bit BGRA
-      buf[17] = 0x28; // Top-left origin + 8-bit alpha
-
-      // SOMH 매직 시그니처 및 원본 해상도
-      buf[18] = 0x53; buf[19] = 0x4F; buf[20] = 0x4D; buf[21] = 0x48; // 'SOMH'
-      view.setUint16(22, w, true);
-      view.setUint16(24, h, true);
-
-      // 픽셀 데이터 기록 (RGBA -> BGRA)
-      let offset = headerSize;
-      for (let y = 0; y < h; y++) {
-        for (let x = 0; x < strideW; x++) {
-          if (x < w) {
-            const idx = (y * w + x) * 4;
-            buf[offset++] = rgba[idx + 2]; // B
-            buf[offset++] = rgba[idx + 1]; // G
-            buf[offset++] = rgba[idx];     // R
-            buf[offset++] = rgba[idx + 3]; // A
-          } else {
-            buf[offset++] = 0; buf[offset++] = 0; buf[offset++] = 0; buf[offset++] = 0;
-          }
-        }
-      }
-      return buf;
-    }
-
-    // 브라우저 내에서 직접 어메이즈핏 설치용 .zpk(TGA-32 변환 포함) 패키지 생성
-    async function buildDirectZpkBlob() {
-      if (typeof JSZip === 'undefined') {
-        throw new Error('JSZip 라이브러리가 로드되지 않았습니다.');
-      }
-      const dev = DEVICE_PROFILES[STATE.deviceKey] || DEVICE_PROFILES.trex3pro48;
-      const targetSize = dev.designWidth;
-      const dw = STATE.widgets.find(w => w.id === 'date');
-      const dig = STATE.widgets.find(w => w.id === 'digital');
-      const ana = STATE.widgets.find(w => w.id === 'analog');
-      const M = getExportMetrics(targetSize);
-
-      const deviceZip = new JSZip();
-      const assetsFolder = deviceZip.folder('assets');
-
-      const makeSized = (fn) => {
-        const c = document.createElement('canvas');
-        c.width = targetSize; c.height = targetSize;
-        fn(c.getContext('2d'));
-        return c;
-      };
-
-      // 주요 이미지를 Zepp OS 전용 TGA-32 바이너리(.png 확장자)로 변환하여 저장
-      assetsFolder.file('preview.png', canvasToZeppTga32(makeSized(ctx => drawWatch(ctx, targetSize, { isAod: false, forExport: true }))));
-      assetsFolder.file('background.png', canvasToZeppTga32(makeSized(ctx => drawBackground(ctx, targetSize, false))));
-      assetsFolder.file('aod-background.png', canvasToZeppTga32(makeSized(ctx => drawBackground(ctx, targetSize, true))));
-
-      for (let i = 0; i < 10; i++) {
-        assetsFolder.file(`main-${i}.png`, canvasToZeppTga32(renderCharPng(String(i), dig?.color || '#ffffff', M.mainW, M.mainH, M.mainFs)));
-        assetsFolder.file(`sec-${i}.png`, canvasToZeppTga32(renderCharPng(String(i), '#38bdf8', M.secW, M.secH, M.secFs)));
-        assetsFolder.file(`date-${i}.png`, canvasToZeppTga32(renderCharPng(String(i), dw?.color || '#ffffff', 18, 28, 18)));
-      }
-      assetsFolder.file('main-colon.png', canvasToZeppTga32(renderCharPng(':', dig?.color || '#ffffff', M.colonW, M.mainH, M.colonFs)));
-
-      for (const t of ['sun', 'partly', 'cloud', 'rain', 'snow']) {
-        assetsFolder.file(`w-${t}.png`, canvasToZeppTga32(renderVectorIconPng(t, M.wIcon)));
-      }
-      for (const [ic, sz] of [['steps', M.icSteps], ['heart', M.icHeart], ['vo2', M.icVo2], ['bat', M.icBat], ['sunrise', M.icSun], ['sunset', M.icSun]]) {
-        assetsFolder.file(`ic-${ic}.png`, canvasToZeppTga32(renderVectorIconPng(ic, sz)));
-      }
-
-      const anaS = (ana?.scale || 1) * M.S;
-      const makeHand = (len, width, color) => {
-        const c = document.createElement('canvas');
-        c.width = 80; c.height = targetSize;
-        const ctx = c.getContext('2d');
-        const cy = targetSize / 2;
-        const scaledLen = Math.round(len * anaS);
-        const scaledW = Math.max(2, Math.round(width * (ana?.scale || 1)));
-        ctx.fillStyle = color;
-        ctx.beginPath();
-        ctx.roundRect(40 - scaledW / 2, cy - scaledLen, scaledW, scaledLen + Math.round(20 * anaS), scaledW / 2);
-        ctx.fill();
-        return c;
-      };
-      assetsFolder.file('h01.png', canvasToZeppTga32(makeHand(114, 11, ana?.color || '#ffffff')));
-      assetsFolder.file('m01.png', canvasToZeppTga32(makeHand(162, 8, '#e2e8f0')));
-      assetsFolder.file('s01.png', canvasToZeppTga32(makeHand(180, 3, '#fb7185')));
-
-      const appId = 1090000 + Math.floor(Math.random() * 90000);
-      const appJson = {
-        configVersion: 'v3',
-        app: {
-          appId,
-          appName: STATE.watchName || 'MyWatchface',
-          appType: 'watchface',
-          version: { code: 1, name: '1.0.0' },
-          icon: 'preview.png',
-          vender: 'EasyWatchfaceMaker',
-          description: `Custom Watchface for ${dev.displayName}`
-        },
-        permissions: ['data:user.hd.heart_rate', 'data:user.hd.step', 'data:user.hd.calorie'],
-        runtime: { apiVersion: { compatible: '3.0.0', target: '3.0.0', minVersion: '2.0.0' } },
-        targets: {
-          [dev.targetKey]: {
-            module: { watchface: { path: 'watchface/index', main: 1, editable: 0, lockscreen: 1 } },
-            platforms: dev.platforms,
-            designWidth: dev.designWidth
-          }
-        },
-        i18n: { 'en-US': { appName: STATE.watchName || 'MyWatchface' } },
-        defaultLanguage: 'en-US'
-      };
-      deviceZip.file('app.json', JSON.stringify(appJson, null, 2));
-      deviceZip.file('app.js', `App({ globalData: {}, onCreate() {}, onDestroy() {} });\n`);
-      deviceZip.folder('watchface').file('index.js', buildWatchfaceIndexJs(dev));
-
-      const deviceZipBuf = await deviceZip.generateAsync({ type: 'uint8array', compression: 'STORE' });
-      const zpkZip = new JSZip();
-      zpkZip.file('device.zip', deviceZipBuf);
-      const zpkBlob = await zpkZip.generateAsync({ type: 'blob', compression: 'DEFLATE' });
-      return { zpkBlob, dev };
-    }
-
-    // QR 코드 렌더링 (watchface:// 또는 zpkd1:// 프로토콜 전환 지원)
-    function renderDirectQrCode(rawUrl) {
-      CURRENT_DIRECT_URL = rawUrl;
-      const box = document.getElementById('directQrCanvasBox');
-      const resultBox = document.getElementById('directQrResultBox');
-      const fallbackBox = document.getElementById('directQrFallbackBox');
-      const badge = document.getElementById('qrProtocolBadge');
-      const switchBtn = document.getElementById('btnSwitchQrProtocol');
-      if (!box || !resultBox) return;
-
-      const cleanUrl = rawUrl.replace(/^(watchface|zpkd1):\/\//i, '');
-      const qrText = CURRENT_QR_PROTOCOL === 'watchface'
-        ? `watchface://${cleanUrl}`
-        : `zpkd1://${cleanUrl}`;
-
-      box.innerHTML = '';
-      if (typeof QRCode !== 'undefined') {
-        new QRCode(box, {
-          text: qrText,
-          width: 200,
-          height: 200,
-          colorDark: '#000000',
-          colorLight: '#ffffff',
-          correctLevel: QRCode.CorrectLevel.M
-        });
-      }
-      if (badge) {
-        badge.textContent = CURRENT_QR_PROTOCOL === 'watchface'
-          ? 'watchface:// (최신 Zepp 10.8+)'
-          : 'zpkd1:// (구버전 Zepp 호환)';
-      }
-      if (switchBtn) {
-        switchBtn.textContent = CURRENT_QR_PROTOCOL === 'watchface'
-          ? '🔄 링크 형식 바꾸기 (zpkd1://)'
-          : '🔄 링크 형식 바꾸기 (watchface://)';
-      }
-      resultBox.classList.remove('hidden');
-      if (fallbackBox) fallbackBox.classList.add('hidden');
-    }
-
-    // 앱 내 원클릭 TGA 변환 -> 임시 업로드 -> 즉시 QR 생성 흐름
-    async function generateDirectQrFlow() {
-      const btn = document.getElementById('btnGenerateDirectQr');
-      const oldHtml = btn.innerHTML;
-      btn.disabled = true;
-      btn.innerHTML = '<span>⏳</span><span>전용 TGA 변환 및 QR 만드는 중...</span>';
-
+    async function downloadBackground() {
+      const button = document.getElementById("btnDownloadBackground");
+      button.disabled = true;
       try {
-        const { zpkBlob, dev } = await buildDirectZpkBlob();
-        const safeName = (STATE.watchName || 'MyWatchface').replace(/[\\/:*?"<>|\s]+/g, '_');
-        const fileName = `${safeName}_${dev.targetKey}.zpk`;
-
-        // 임시 파일 호스팅(tmpfiles.org) 자동 업로드 시도
-        let directUrl = '';
-        try {
-          const formData = new FormData();
-          formData.append('file', zpkBlob, fileName);
-          const res = await fetch('https://tmpfiles.org/api/v1/upload', {
-            method: 'POST',
-            body: formData
-          });
-          if (res.ok) {
-            const json = await res.json();
-            if (json && json.data && json.data.url) {
-              directUrl = json.data.url.replace('tmpfiles.org/', 'tmpfiles.org/dl/');
-            }
-          }
-        } catch (uploadErr) {
-          console.warn('자동 업로드 차단 또는 실패:', uploadErr);
-        }
-
-        if (directUrl) {
-          renderDirectQrCode(directUrl);
-          showToast('QR 코드 완성! Zepp 개발자 모드에서 스캔해 보세요 🎉');
-        } else {
-          // CORS/네트워크 차단 시 .zpk 파일 자동 저장 + 수동 링크 입력 안내
-          triggerBlobDownload(zpkBlob, fileName);
-          const fallbackBox = document.getElementById('directQrFallbackBox');
-          if (fallbackBox) fallbackBox.classList.remove('hidden');
-          showToast('보안 정책으로 자동 업로드가 막혀 .zpk 파일을 먼저 저장했어요!');
-        }
-      } catch (err) {
-        console.error(err);
-        showToast('QR 코드 생성 중 오류가 발생했어요.');
+        const dev = DEVICE_PROFILES[STATE.deviceKey];
+        const canvas = document.createElement("canvas");
+        canvas.width = canvas.height = dev.designWidth;
+        const ctx = canvas.getContext("2d");
+        ctx.fillStyle = STATE.bgOuter;
+        ctx.fillRect(0, 0, dev.designWidth, dev.designWidth);
+        drawBackground(ctx, dev.designWidth, false);
+        const blob = await canvasToBlob(canvas);
+        if (!blob) throw new Error("PNG export failed");
+        triggerBlobDownload(blob, dev.targetKey + "-background.png");
+        showToast("배경 PNG가 준비됐어요.");
+      } catch (error) {
+        console.error(error);
+        showToast("배경 이미지를 만들 수 없어요. 다시 시도해 주세요.");
       } finally {
-        btn.disabled = false;
-        btn.innerHTML = oldHtml;
+        button.disabled = false;
       }
     }
 
@@ -3387,22 +2267,15 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
         try { URL.revokeObjectURL(LAST_DOWNLOAD_URL); } catch (e) {}
       }
       const mime = /\.zip$/i.test(filename) ? 'application/zip'
-        : /\.zpk$/i.test(filename) ? 'application/octet-stream'
         : (blob.type || 'application/octet-stream');
       const typedBlob = blob.type === mime ? blob : new Blob([blob], { type: mime });
       const url = URL.createObjectURL(typedBlob);
       LAST_DOWNLOAD_URL = url;
-      LAST_DOWNLOAD_BLOB = typedBlob;
-      LAST_DOWNLOAD_NAME = filename;
       try {
         LAST_DOWNLOAD_FILE = new File([typedBlob], filename, { type: mime });
       } catch (e) {
         LAST_DOWNLOAD_FILE = null;
       }
-
-      // 이전 클라우드 링크 결과 초기화
-      const cloudRes = document.getElementById('cloudDownloadResult');
-      if (cloudRes) cloudRes.classList.add('hidden');
 
       // 1) 자동 다운로드 시도
       const a = document.createElement('a');
@@ -3431,120 +2304,6 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
       }
     }
 
-    // 미리보기 창(iframe) 다운로드 차단 시 임시 클라우드 링크 + QR 생성으로 우회 다운로드
-    async function createCloudDownloadFallback() {
-      if (!LAST_DOWNLOAD_BLOB) {
-        showToast('먼저 저장할 파일을 만들어 주세요!');
-        return;
-      }
-      const btn = document.getElementById('btnCloudDownloadFallback');
-      const oldTxt = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = '⏳ 다운로드 링크 만드는 중...';
-      try {
-        const formData = new FormData();
-        formData.append('file', LAST_DOWNLOAD_BLOB, LAST_DOWNLOAD_NAME);
-        const res = await fetch('https://tmpfiles.org/api/v1/upload', {
-          method: 'POST',
-          body: formData
-        });
-        if (!res.ok) throw new Error('upload failed');
-        const json = await res.json();
-        const rawUrl = json?.data?.url;
-        if (!rawUrl) throw new Error('invalid response');
-        const directUrl = rawUrl.replace('tmpfiles.org/', 'tmpfiles.org/dl/');
-
-        const resBox = document.getElementById('cloudDownloadResult');
-        const urlInput = document.getElementById('cloudDownloadUrlInput');
-        const openLink = document.getElementById('cloudOpenNewTabLink');
-        const qrBox = document.getElementById('cloudDownloadQrBox');
-        urlInput.value = directUrl;
-        openLink.href = directUrl;
-        qrBox.innerHTML = '';
-        if (typeof QRCode !== 'undefined') {
-          new QRCode(qrBox, { text: directUrl, width: 130, height: 130, colorDark: '#000000', colorLight: '#ffffff' });
-        }
-        resBox.classList.remove('hidden');
-        showToast('다운로드 링크 완성! 새 창으로 열거나 복사해 브라우저에 붙여넣으세요 🎉');
-      } catch (err) {
-        console.error(err);
-        showToast('임시 링크 생성에 실패했어요. [index.html 코드 복사]를 이용해 보세요.');
-      } finally {
-        btn.disabled = false;
-        btn.textContent = oldTxt;
-      }
-    }
-
-    // 현재 앱의 클린 index.html 코드를 클립보드로 바로 복사 (ZIP 차단 시 최후의 100% 확실한 대안)
-    function copyCleanIndexHtml() {
-      try {
-        const clone = document.documentElement.cloneNode(true);
-        const modal = clone.querySelector('#phoneAppModal');
-        if (modal) modal.classList.add('hidden');
-        const dlBar = clone.querySelector('#downloadReadyBar');
-        if (dlBar) dlBar.classList.add('hidden');
-        const toast = clone.querySelector('#toastBox');
-        if (toast) toast.innerHTML = '';
-        const htmlContent = '<!DOCTYPE html>\n' + clone.outerHTML;
-
-        const ta = document.createElement('textarea');
-        ta.value = htmlContent;
-        ta.style.position = 'fixed';
-        ta.style.opacity = '0';
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand('copy');
-        ta.remove();
-        showToast('index.html 코드를 복사했어요! 메모장에 붙여넣고 index.html로 저장하세요 📋');
-      } catch (e) {
-        showToast('코드 복사에 실패했어요.');
-      }
-    }
-
-    async function downloadZpkOnly() {
-      const btn = document.getElementById('btnDownloadZpkOnly');
-      const oldTxt = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = '⏳ 변환 중...';
-      try {
-        const { zpkBlob, dev } = await buildDirectZpkBlob();
-        const safeName = (STATE.watchName || 'MyWatchface').replace(/[\\/:*?"<>|\s]+/g, '_');
-        triggerBlobDownload(zpkBlob, `${safeName}_${dev.targetKey}.zpk`);
-        showToast('전용 TGA-32가 적용된 .zpk 파일을 저장했어요! 📦');
-      } catch (err) {
-        console.error(err);
-        showToast('.zpk 생성 중 오류가 발생했어요.');
-      } finally {
-        btn.disabled = false;
-        btn.textContent = oldTxt;
-      }
-    }
-
-    function saveQrCodeAsPng() {
-      const box = document.getElementById('directQrCanvasBox');
-      const qrCanvas = box.querySelector('canvas');
-      const qrImg = box.querySelector('img');
-      const out = document.createElement('canvas');
-      out.width = 280; out.height = 280;
-      const ctx = out.getContext('2d');
-      ctx.fillStyle = '#ffffff';
-      ctx.fillRect(0, 0, 280, 280);
-      if (qrCanvas) {
-        ctx.drawImage(qrCanvas, 30, 30, 220, 220);
-      } else if (qrImg) {
-        ctx.drawImage(qrImg, 30, 30, 220, 220);
-      } else {
-        showToast('먼저 QR 코드를 만들어 주세요!');
-        return;
-      }
-      out.toBlob(blob => {
-        if (blob) {
-          triggerBlobDownload(blob, `${(STATE.watchName || 'Watchface').replace(/\s+/g, '_')}_QR.png`);
-          showToast('QR 사진을 저장했어요! Zepp 개발자 모드 → 스캔 → 앨범에서 고르세요 📷');
-        }
-      }, 'image/png');
-    }
-
     async function downloadAssetsOnlyZip() {
       if (typeof JSZip === 'undefined') {
         showToast('ZIP 라이브러리가 로드되지 않았어요. 잠시 후 새로고침해 주세요.');
@@ -3556,7 +2315,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
       btn.innerHTML = '<span>⏳</span><span>그림 파일 만드는 중...</span>';
 
       try {
-        const dev = DEVICE_PROFILES[STATE.deviceKey] || DEVICE_PROFILES.trex3pro48;
+        const dev = DEVICE_PROFILES[STATE.deviceKey];
         const safeName = (STATE.watchName || 'MyWatchface').replace(/[\\/:*?"<>|\s]+/g, '_');
         const zip = new JSZip();
         await populateAssetPngs(zip, dev.designWidth);
@@ -3572,190 +2331,121 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
       }
     }
 
-    async function downloadWatchfaceZip() {
+    const MOBILE_PREVIEW_ZIP = 'watchface-preview.zip';
+    const MOBILE_ZEUS = 'npx --yes --package=@zeppos/zeus-cli@1.10.2 zeus';
+    const MOBILE_ZEUS_LOGIN = MOBILE_ZEUS + ' login --no-browser';
+    const MOBILE_ZEUS_PREVIEW = '(build_dir=$(mktemp -d) && unzip -q ' + MOBILE_PREVIEW_ZIP
+      + ' -d "$build_dir" && cd "$build_dir" && ' + MOBILE_ZEUS + ' preview)';
+
+    async function copyZeusCommand(command) {
+      try {
+        await navigator.clipboard.writeText(command);
+        showToast('명령을 복사했어요. Codespaces 터미널에 붙여넣으세요.');
+      } catch {
+        window.prompt('아래 명령을 복사하세요.', command);
+      }
+    }
+
+    async function buildWatchfaceProject(dev) {
+      const zip = new JSZip();
+
+      // 1. app.json 및 센서 권한
+      const appJson = {
+        configVersion: 'v3',
+        app: {
+          appId: 1090000 + Math.floor(Math.random() * 90000),
+          appName: STATE.watchName || 'MyWatchface',
+          appType: 'watchface',
+          version: { code: 1, name: '1.0.0' },
+          icon: 'preview.png',
+          vender: 'EasyWatchfaceMaker',
+          description: `Custom Watchface for ${dev.displayName}`
+        },
+        permissions: [
+          'data:user.hd.heart_rate',
+          'data:user.hd.step',
+          'data:user.hd.calorie'
+        ],
+        runtime: {
+          apiVersion: { compatible: '2.0.0', target: '2.0.0', minVersion: '2.0.0' }
+        },
+        targets: {
+          [dev.targetKey]: {
+            module: {
+              watchface: { path: 'watchface/index', main: 1, editable: 0, lockscreen: 1 }
+            },
+            platforms: dev.platforms,
+            designWidth: dev.designWidth
+          }
+        },
+        i18n: { 'en-US': { appName: STATE.watchName || 'MyWatchface' } },
+        defaultLanguage: 'en-US'
+      };
+      zip.file('app.json', JSON.stringify(appJson, null, 2));
+
+      // 2. app.js
+      zip.file('app.js', `App({\n  globalData: {},\n  onCreate() {},\n  onDestroy() {}\n});\n`);
+
+      // 3. watchface/index.js (Zepp OS 2.0/3.0/4.0 정식 @zos/ui · @zos/sensor 모듈 방식)
+      zip.folder('watchface').file('index.js', buildWatchfaceIndexJs(dev));
+
+      // 4. assets/<targetKey>/ PNG 생성 (Zeus CLI가 TGA로 자동 컴파일)
+      const assetsTarget = zip.folder('assets').folder(dev.targetKey);
+      await populateAssetPngs(assetsTarget, dev.designWidth);
+
+      zip.file("설치방법.txt", [
+        dev.displayName + " 워치페이스 미리보기",
+        "",
+        "1. 압축을 풀고 app.json이 있는 폴더를 터미널에서 엽니다.",
+        "2. Node.js와 Zeus CLI를 설치합니다. npm install -g @zeppos/zeus-cli",
+        "3. zeus login을 실행하고 휴대폰 Zepp 앱과 같은 계정으로 로그인합니다.",
+        "4. zeus preview를 실행하고 앱에서 선택했던 모델의 빌드 대상을 고릅니다.",
+        "5. Zepp에서 해당 기기의 개발자 모드 스캔으로 QR을 읽고 설치합니다.",
+        "",
+        "폰에서 Codespaces로 발급하는 방법",
+        "1. Explorer에서 프로젝트 ZIP을 업로드하고 파일 이름을 " + MOBILE_PREVIEW_ZIP + "으로 맞춥니다.",
+        "2. 해당 폴더에서 터미널을 열고, 최초 로그인은 " + MOBILE_ZEUS_LOGIN,
+        "3. QR 발급: " + MOBILE_ZEUS_PREVIEW,
+        "4. QR을 캡처한 다음 Zepp 개발자 모드의 스캔 화면에서 열기 또는 선택을 눌러 앨범에서 고릅니다.",
+        "",
+        "Zeus CLI: https://docs.zepp.com/docs/guides/tools/cli/",
+        "개발자 모드: https://docs.zepp.com/docs/guides/tools/zepp-app/"
+      ].join("\n"));
+
+      return zip.generateAsync({ type: "blob", compression: "DEFLATE" });
+    }
+
+    async function downloadWatchfaceZip(button, forMobile) {
       if (typeof JSZip === 'undefined') {
         showToast('ZIP 라이브러리가 로드되지 않았어요. 잠시 후 새로고침해 주세요.');
         return;
       }
-      const btn = document.getElementById('btnMainDownload');
+      const btn = button;
       const oldHtml = btn.innerHTML;
       btn.disabled = true;
-      btn.innerHTML = '<span>⏳ 원클릭 QR 패키지 만드는 중...</span>';
+      btn.setAttribute('aria-busy', 'true');
+      updateInstallDevice();
+      btn.innerHTML = '<span>⏳ Zeus 프로젝트 만드는 중...</span>';
 
       try {
-        const dev = DEVICE_PROFILES[STATE.deviceKey] || DEVICE_PROFILES.trex3pro48;
+        const dev = DEVICE_PROFILES[STATE.deviceKey];
+        if (dev.photoOnly) return;
         const safeName = (STATE.watchName || 'MyWatchface').replace(/[\\/:*?"<>|\s]+/g, '_');
-        const zip = new JSZip();
-
-        // 1. app.json (Zepp OS 3.0/4.0 호환 configVersion v3 + 센서 권한 포함)
-        const appJson = {
-          configVersion: 'v3',
-          app: {
-            appId: 1090000 + Math.floor(Math.random() * 90000),
-            appName: STATE.watchName || 'MyWatchface',
-            appType: 'watchface',
-            version: { code: 1, name: '1.0.0' },
-            icon: 'preview.png',
-            vender: 'EasyWatchfaceMaker',
-            description: `Custom Watchface for ${dev.displayName}`
-          },
-          permissions: [
-            'data:user.hd.heart_rate',
-            'data:user.hd.step',
-            'data:user.hd.calorie'
-          ],
-          runtime: {
-            apiVersion: { compatible: '3.0.0', target: '3.0.0', minVersion: '2.0.0' }
-          },
-          targets: {
-            [dev.targetKey]: {
-              module: {
-                watchface: { path: 'watchface/index', main: 1, editable: 0, lockscreen: 1 }
-              },
-              platforms: dev.platforms,
-              designWidth: dev.designWidth
-            }
-          },
-          i18n: { 'en-US': { appName: STATE.watchName || 'MyWatchface' } },
-          defaultLanguage: 'en-US'
-        };
-        zip.file('app.json', JSON.stringify(appJson, null, 2));
-
-        // 2. app.js
-        zip.file('app.js', `App({\n  globalData: {},\n  onCreate() {},\n  onDestroy() {}\n});\n`);
-
-        // 3. watchface/index.js (Zepp OS 2.0/3.0/4.0 정식 @zos/ui · @zos/sensor 모듈 방식)
-        zip.folder('watchface').file('index.js', buildWatchfaceIndexJs(dev));
-
-        // 4. assets/<targetKey>/ PNG 생성 (Zeus CLI가 TGA로 자동 컴파일)
-        const assetsTarget = zip.folder('assets').folder(dev.targetKey);
-        await populateAssetPngs(assetsTarget, dev.designWidth);
-
-        // 5. 초간단 원클릭 QR 생성기 스크립트 (Windows .bat / macOS .command)
-        const winBatScript = [
-          '@echo off',
-          'chcp 65001 >nul',
-          'title Amazfit 원클릭 QR 워치페이스 설치기',
-          'cd /d "%~dp0"',
-          'echo ======================================================',
-          `echo   ${dev.displayName} 원클릭 QR 코드 생성기`,
-          'echo ======================================================',
-          'echo.',
-          'where node >nul 2>nul',
-          'if %errorlevel% neq 0 (',
-          '  echo [안내] 먼저 Node.js 설치가 필요해요! 공식 설치 페이지를 열어드릴게요.',
-          '  echo 설치가 끝나면 이 파일을 다시 더블클릭해 주세요.',
-          '  start https://nodejs.org/ko/download',
-          '  pause',
-          '  exit /b',
-          ')',
-          'where zeus >nul 2>nul',
-          'if %errorlevel% neq 0 (',
-          '  echo [1/3] Zeus 도구를 자동으로 설치하는 중입니다... (최초 1회, 약 30초 소요)',
-          '  call npm install -g @zeppos/zeus-cli',
-          ')',
-          'echo [2/3] Zepp 계정 로그인 상태를 확인합니다...',
-          'call zeus status >nul 2>nul',
-          'if %errorlevel% neq 0 (',
-          '  echo 브라우저가 열리면 사용 중인 Zepp 계정으로 로그인해 주세요!',
-          '  call zeus login',
-          ')',
-          'echo.',
-          `echo [3/3] ${dev.displayName}용 QR 코드를 만들고 있습니다...`,
-          'echo 아래에 기기 선택이 뜨면 엔터(Enter)를 눌러주세요!',
-          'echo QR 코드가 뜨면 Zepp 앱 [개발자 모드 - 스캔]으로 찍어주세요!',
-          'echo.',
-          `call zeus preview --target "${dev.displayName}"`,
-          'echo.',
-          'pause'
-        ].join('\r\n');
-        zip.file('▶_QR코드_만들기_윈도우.bat', winBatScript);
-
-        const macCmdScript = [
-          '#!/bin/bash',
-          'cd "$(dirname "$0")"',
-          'echo "======================================================"',
-          `echo "  ${dev.displayName} 원클릭 QR 코드 생성기"`,
-          'echo "======================================================"',
-          'if ! command -v node >/dev/null 2>&1; then',
-          '  echo "[안내] 먼저 Node.js 설치가 필요해요! 공식 설치 페이지를 열어드릴게요."',
-          '  open "https://nodejs.org/ko/download"',
-          '  read -p "엔터를 누르면 닫힙니다..."',
-          '  exit 1',
-          'fi',
-          'if ! command -v zeus >/dev/null 2>&1; then',
-          '  echo "[1/3] Zeus 도구를 자동으로 설치하는 중입니다... (최초 1회)"',
-          '  npm install -g @zeppos/zeus-cli',
-          'fi',
-          'echo "[2/3] Zepp 계정 로그인 상태를 확인합니다..."',
-          'if ! zeus status >/dev/null 2>&1; then',
-          '  echo "브라우저가 열리면 사용 중인 Zepp 계정으로 로그인해 주세요!"',
-          '  zeus login',
-          'fi',
-          `echo "[3/3] ${dev.displayName}용 QR 코드를 만들고 있습니다..."`,
-          `zeus preview --target "${dev.displayName}"`,
-          'read -p "완료되었습니다. 엔터를 누르면 창이 닫힙니다..."'
-        ].join('\n');
-        zip.file('▶_QR코드_만들기_맥.command', macCmdScript);
-
-        // 안드로이드 Termux 전용 PC 없는 원클릭 QR 스크립트
-        const termuxScript = [
-          '#!/data/data/com.termux/files/usr/bin/bash',
-          'cd "$(dirname "$0")"',
-          'echo "======================================================"',
-          `echo "  ${dev.displayName} 안드로이드(Termux) QR 생성기"`,
-          'echo "======================================================"',
-          'if ! command -v node >/dev/null 2>&1; then',
-          '  echo "[1/3] Node.js 설치 중..."',
-          '  pkg update -y && pkg install -y nodejs',
-          'fi',
-          'if ! command -v zeus >/dev/null 2>&1; then',
-          '  echo "[2/3] Zeus CLI 설치 중..."',
-          '  npm install -g @zeppos/zeus-cli',
-          'fi',
-          'if ! zeus status >/dev/null 2>&1; then',
-          '  echo "Zepp 계정 로그인을 진행해 주세요!"',
-          '  zeus login',
-          'fi',
-          `echo "[3/3] ${dev.displayName} QR 코드 생성 중..."`,
-          'echo "QR이 뜨면 스크린샷 찍고 -> Zepp 개발자 모드 -> 앨범에서 선택!"',
-          `zeus preview --target "${dev.displayName}"`
-        ].join('\n');
-        zip.file('▶_안드로이드_Termux_QR.sh', termuxScript);
-
-        // 6. 초간단 설치 안내 파일 포함
-        zip.file('설치방법_필독.txt', [
-          `[${dev.displayName} 초간단 QR 설치 방법]`,
-          '',
-          '=== 방법 A: PC 없이 안드로이드 폰만으로 설치 ===',
-          '1. 이 ZIP 파일의 압축을 폰의 Download 폴더에 풉니다.',
-          '2. 무료 Termux 앱을 열고 bash ▶_안드로이드_Termux_QR.sh 를 실행합니다.',
-          '3. 화면에 뜬 QR 코드를 스크린샷 찍고, Zepp 앱 [개발자 모드 -> 스캔 -> 앨범 선택]!',
-          '',
-          '=== 방법 B: 윈도우 / 맥 PC에서 더블클릭 설치 ===',
-          '1. 이 ZIP 파일의 압축을 아무 폴더에나 풀어주세요.',
-          '2. 윈도우 PC: 폴더 안의 [▶_QR코드_만들기_윈도우.bat] 파일을 더블클릭!',
-          '   맥(Mac) PC: 터미널에 sh ▶_QR코드_만들기_맥.command 입력 또는 더블클릭!',
-          '3. 자동으로 Zeus 설치 -> Zepp 로그인 -> QR 코드가 화면에 뜹니다.',
-          '4. 스마트폰 Zepp 앱 -> 프로필 -> 워치 -> 개발자 모드 -> 스캔으로 QR을 찍으면 끝!',
-          '',
-          '※ 이 ZIP 파일 자체를 바로 QR로 설치하면 일반 PNG 때문에 워치가 재부팅되니,',
-          '   꼭 위의 자동 실행 파일로 QR 코드를 만들어 스캔해 주세요!'
-        ].join('\n'));
-
-        const zipBlob = await zip.generateAsync({ type: 'blob' });
-        triggerBlobDownload(zipBlob, `${safeName}_${dev.targetKey}_원클릭QR.zip`);
-        showToast('원클릭 QR 설치용 ZIP 저장 완료! 압축 풀고 더블클릭하세요 🚀');
+        const zipBlob = await buildWatchfaceProject(dev);
+        const filename = forMobile ? MOBILE_PREVIEW_ZIP : safeName + "_" + dev.targetKey + "_zeus.zip";
+        triggerBlobDownload(zipBlob, filename);
+        showToast("Zeus 프로젝트 ZIP이 준비됐어요.");
       } catch (err) {
         console.error(err);
         showToast('ZIP 파일 생성 중 오류가 발생했어요.');
       } finally {
-        btn.disabled = false;
+        btn.removeAttribute('aria-busy');
+        updateInstallDevice();
         btn.innerHTML = oldHtml;
       }
     }
 
-    // watchface/index.js 공통 생성 함수 (Zeus CLI ZIP / 인앱 .zpk 공용)
+    // Zeus가 컴파일할 워치페이스 소스
     function buildWatchfaceIndexJs(dev) {
       const dw = STATE.widgets.find(w => w.id === 'date');
       const dig = STATE.widgets.find(w => w.id === 'digital');
@@ -3994,8 +2684,8 @@ WatchFace({
       });` : ''}
       ${sun && sun.visible ? `
       const tide = forecast && forecast.tideData && forecast.tideData.data && forecast.tideData.data[0];
-      const srTxt = tide ? (pad2(tide.sunrise.hour) + ':' + pad2(tide.sunrise.minute)) : '07:18';
-      const ssTxt = tide ? (pad2(tide.sunset.hour) + ':' + pad2(tide.sunset.minute)) : '17:21';
+      const srTxt = tide?.sunrise ? (pad2(tide.sunrise.hour) + ':' + pad2(tide.sunrise.minute)) : '--:--';
+      const ssTxt = tide?.sunset ? (pad2(tide.sunset.hour) + ':' + pad2(tide.sunset.minute)) : '--:--';
       createWidget(widget.IMG, {
         x: ${Math.max(0, sc(sun.x) - scW(90, sun))}, y: ${Math.max(0, sc(sun.y) - Math.round(M.icSun / 2))},
         w: ${M.icSun}, h: ${M.icSun}, src: 'ic-sunrise.png', show_level: NORMAL
@@ -4062,7 +2752,7 @@ WatchFace({
         x: ${Math.max(0, sc(vo2.x) - scW(24, vo2))}, y: ${Math.max(0, sc(vo2.y) - scW(14, vo2))},
         w: ${scW(90, vo2)}, h: ${scW(28, vo2)}, color: ${hexToNum(vo2.color)},
         text_size: ${Math.max(11, scW(17, vo2))}, align_h: align.LEFT, align_v: align.CENTER_V,
-        text: 'VO2 52', show_level: NORMAL
+        text: 'VO2 --', show_level: NORMAL
       });
     } catch (e) {}` : ''}
 
@@ -4096,133 +2786,133 @@ WatchFace({
 `;
     }
 
-    function copyZeusOneLiner() {
-      const dev = DEVICE_PROFILES[STATE.deviceKey] || DEVICE_PROFILES.trex3pro48;
-      const cmd = `npx -y @zeppos/zeus-cli preview --target "${dev.displayName}"`;
-      const ta = document.createElement('textarea');
-      ta.value = cmd;
-      ta.style.position = 'fixed';
-      ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.select();
-      try {
-        document.execCommand('copy');
-        showToast('한 줄 실행 명령어를 복사했어요! 📋');
-      } catch (e) {
-        showToast('복사에 실패했어요.');
-      }
-      ta.remove();
+    function updateInstallDevice() {
+      const dev = DEVICE_PROFILES[STATE.deviceKey];
+      const status = document.getElementById("installDeviceStatus");
+      const downloadButtons = [...document.querySelectorAll("#btnMainDownload, #btnMobilePreviewDownload")];
+      const building = downloadButtons.some(button => button.hasAttribute("aria-busy"));
+      downloadButtons.forEach(button => { button.disabled = !!dev.photoOnly || building; });
+      updateCloudPreviewButton();
+      status.textContent = dev.displayName + (dev.photoOnly
+        ? " · 이 프로젝트의 Zepp OS 2.0 이상 워치페이스 코드를 지원하지 않습니다."
+        : " · " + dev.designWidth + " × " + dev.designWidth);
     }
 
-    // 앱 아이콘 PNG 생성 (PWA 홈 화면 아이콘용 192 / 512px)
-    function renderPwaIconCanvas(size) {
-      const c = document.createElement('canvas');
-      c.width = size; c.height = size;
-      const ctx = c.getContext('2d');
-      const r = size * 0.22;
-      ctx.fillStyle = '#0f172a';
-      ctx.beginPath();
-      ctx.roundRect(0, 0, size, size, r);
-      ctx.fill();
+    const PREVIEW_API = '/api/watchface-preview';
+    let cloudPreviewEnabled = false;
+    let cloudPreviewAuthenticated = false;
+    let cloudPreviewBusy = false;
 
-      ctx.fillStyle = '#1e293b';
-      ctx.strokeStyle = '#38bdf8';
-      ctx.lineWidth = Math.max(6, size * 0.055);
-      ctx.beginPath();
-      ctx.arc(size / 2, size / 2, size * 0.34, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.stroke();
-
-      ctx.fillStyle = '#ffffff';
-      ctx.font = `800 ${Math.round(size * 0.22)}px sans-serif`;
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText('10:09', size / 2, size / 2 + size * 0.02);
-      return c;
-    }
-
-    // Netlify Drop 등에 폴더째 올리면 바로 설치형 스마트폰 앱(PWA)이 되는 배포 패키지 자동 생성
-    async function downloadPwaDeployBundle() {
-      if (typeof JSZip === 'undefined') {
-        showToast('ZIP 라이브러리가 로드되지 않았어요. 잠시 후 새로고침해 주세요.');
-        return;
-      }
-      const btn = document.getElementById('btnExportPwaBundle');
-      const oldTxt = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = '⏳ 폰 앱 패키지 만드는 중...';
-      try {
-        const clone = document.documentElement.cloneNode(true);
-        // 동적 런타임 요소 정리
-        const modal = clone.querySelector('#phoneAppModal');
-        if (modal) modal.classList.add('hidden');
-        const dlBar = clone.querySelector('#downloadReadyBar');
-        if (dlBar) dlBar.classList.add('hidden');
-        const toast = clone.querySelector('#toastBox');
-        if (toast) toast.innerHTML = '';
-        const qrBox = clone.querySelector('#directQrCanvasBox');
-        if (qrBox) qrBox.innerHTML = '';
-        const qrRes = clone.querySelector('#directQrResultBox');
-        if (qrRes) qrRes.classList.add('hidden');
-        const siteQrBox = clone.querySelector('#pwaSiteQrBox');
-        if (siteQrBox) siteQrBox.innerHTML = '';
-        const siteQrWrap = clone.querySelector('#pwaSiteQrWrap');
-        if (siteQrWrap) siteQrWrap.classList.add('hidden');
-
-        // 임시 blob 매니페스트 제거 후 정식 파일 매니페스트 & 서비스워커 등록
-        clone.querySelectorAll('link[rel="manifest"], link[rel="apple-touch-icon"]').forEach(el => el.remove());
-        const head = clone.querySelector('head');
-        if (head) {
-          const mLink = document.createElement('link');
-          mLink.setAttribute('rel', 'manifest');
-          mLink.setAttribute('href', './manifest.json');
-          head.appendChild(mLink);
-
-          const aLink = document.createElement('link');
-          aLink.setAttribute('rel', 'apple-touch-icon');
-          aLink.setAttribute('href', './icon-192.png');
-          head.appendChild(aLink);
-
-          const swScript = document.createElement('script');
-          swScript.textContent = `if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('./sw.js').catch(() => {}); }); }`;
-          head.appendChild(swScript);
+    function updateCloudPreviewButton() {
+      const supported = ['trex3pro44', 'trex3pro48'].includes(STATE.deviceKey);
+      document.getElementById('btnCloudPreview').disabled = !cloudPreviewEnabled || !supported || cloudPreviewBusy;
+      if (!cloudPreviewBusy && cloudPreviewEnabled) {
+        const status = document.getElementById('cloudPreviewStatus');
+        if (status.dataset.mode !== 'result') {
+          status.textContent = supported
+            ? 'GitHub 빌드가 끝나면 이 화면에 QR이 표시됩니다.'
+            : '자동 QR 발급은 T-Rex 3 Pro 44mm와 48mm에서 제공됩니다.';
         }
+      }
+    }
 
-        const htmlContent = '<!DOCTYPE html>\n' + clone.outerHTML;
-        const manifestJson = JSON.stringify({
-          name: '내 맘대로 워치페이스 만들기',
-          short_name: '워치메이커',
-          start_url: './index.html',
-          display: 'standalone',
-          background_color: '#0f172a',
-          theme_color: '#0f172a',
-          icons: [
-            { src: './icon-192.png', sizes: '192x192', type: 'image/png', purpose: 'any maskable' },
-            { src: './icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any maskable' }
-          ]
-        }, null, 2);
+    async function loadPreviewAvailability() {
+      const status = document.getElementById('cloudPreviewStatus');
+      try {
+        const response = await fetch(PREVIEW_API + '/config', { cache: 'no-store' });
+        if (response.ok) {
+          const config = await response.json();
+          cloudPreviewEnabled = config.enabled === true;
+          cloudPreviewAuthenticated = config.authenticated === true;
+        }
+      } catch {
+        cloudPreviewEnabled = false;
+      }
+      if (!cloudPreviewEnabled) status.textContent = '자동 QR 발급 서비스를 사용할 수 없습니다.';
+      updateCloudPreviewButton();
+    }
 
-        const swJs = `self.addEventListener('install', e => { self.skipWaiting(); });
-self.addEventListener('activate', e => { e.waitUntil(clients.claim()); });
-self.addEventListener('fetch', e => { e.respondWith(fetch(e.request).catch(() => caches.match(e.request))); });`;
+    async function waitForPreview(id) {
+      const deadline = Date.now() + 7 * 60 * 1000;
+      while (Date.now() < deadline) {
+        try {
+          const response = await fetch(PREVIEW_API + '/' + id, {
+            cache: 'no-store', signal: AbortSignal.timeout(15000),
+          });
+          if (response.ok) {
+            const progress = await response.json();
+            if (progress.status !== 'pending') return progress;
+          }
+        } catch {
+          // A temporary connection loss does not cancel the GitHub build.
+        }
+        await new Promise(resolve => setTimeout(resolve, 6500));
+      }
+      return { status: 'timeout' };
+    }
 
-        const zip = new JSZip();
-        const folder = zip.folder('watchmaker_app');
-        folder.file('index.html', htmlContent);
-        folder.file('manifest.json', manifestJson);
-        folder.file('sw.js', swJs);
-        folder.file('icon-192.png', canvasToBase64(renderPwaIconCanvas(192)), { base64: true });
-        folder.file('icon-512.png', canvasToBase64(renderPwaIconCanvas(512)), { base64: true });
+    async function requestCloudPreview(accessCode) {
+      if (cloudPreviewBusy || !cloudPreviewEnabled || !['trex3pro44', 'trex3pro48'].includes(STATE.deviceKey)) return;
+      const dev = DEVICE_PROFILES[STATE.deviceKey];
+      const status = document.getElementById('cloudPreviewStatus');
+      const result = document.getElementById('cloudPreviewResult');
+      const image = document.getElementById('installQrImage');
+      const save = document.getElementById('btnSaveInstallQr');
+      cloudPreviewBusy = true;
+      updateCloudPreviewButton();
+      status.dataset.mode = 'result';
+      status.textContent = '워치페이스를 서버에 보내는 중입니다.';
+      result.hidden = true;
 
-        const blob = await zip.generateAsync({ type: 'blob', compression: 'DEFLATE' });
-        triggerBlobDownload(blob, 'watchmaker_app.zip');
-        showToast('watchmaker_app.zip 준비 완료! 자동 저장이 안 되면 아래 초록 버튼을 눌러주세요 🚀');
-      } catch (err) {
-        console.error(err);
-        showToast('패키지 생성 중 오류가 발생했어요.');
+      try {
+        const archive = await buildWatchfaceProject(dev);
+        const response = await fetch(PREVIEW_API, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/zip',
+            ...(accessCode ? { Authorization: 'Bearer ' + accessCode } : {}),
+          },
+          body: archive,
+          signal: AbortSignal.timeout(25000),
+        });
+        if (response.status === 401) {
+          cloudPreviewAuthenticated = false;
+          status.textContent = '접속 코드가 맞지 않습니다. 버튼을 눌러 다시 입력하세요.';
+          return;
+        }
+        if (response.status === 413) {
+          status.textContent = '프로젝트가 너무 큽니다. 배경 이미지를 줄여 다시 시도하세요.';
+          return;
+        }
+        if (!response.ok) throw new Error('Request returned ' + response.status);
+        const { id } = await response.json();
+        if (!/^[0-9a-f]{32}$/.test(id)) throw new Error('Invalid preview job ID');
+        cloudPreviewAuthenticated = true;
+        status.textContent = 'GitHub 빌드를 기다리는 중입니다. 이 탭을 열어 두세요.';
+
+        const progress = await waitForPreview(id);
+        if (progress.status === 'ready') {
+          const qrUrl = '/p/' + id + '.png';
+          await new Promise((resolve, reject) => {
+            const timer = setTimeout(reject, 15000, new Error('QR image request timed out'));
+            image.onload = () => { clearTimeout(timer); resolve(); };
+            image.onerror = () => { clearTimeout(timer); reject(new Error('QR image unavailable')); };
+            image.src = qrUrl;
+          });
+          save.href = qrUrl;
+          result.hidden = false;
+          status.textContent = dev.displayName + '용 QR이 준비됐습니다. 이 화면에서 30분 동안 저장할 수 있습니다.';
+        } else {
+          status.textContent = progress.status === 'timeout'
+            ? '빌드 대기 시간이 길어졌습니다. GitHub Actions 상태를 확인한 뒤 다시 시도하세요.'
+            : 'Zeus에서 QR을 발급하지 못했습니다. GitHub Actions 빌드 상태를 확인하세요.';
+        }
+      } catch (error) {
+        console.warn('Watchface preview:', error.message);
+        status.textContent = 'QR을 불러오지 못했습니다. 연결 상태를 확인한 뒤 다시 시도하세요.';
       } finally {
-        btn.disabled = false;
-        btn.textContent = oldTxt;
+        cloudPreviewBusy = false;
+        updateCloudPreviewButton();
       }
     }
 
@@ -4235,73 +2925,17 @@ self.addEventListener('fetch', e => { e.respondWith(fetch(e.request).catch(() =>
         btn.addEventListener('click', () => goToStep(Number(btn.dataset.step)));
       });
 
-      // 폰 앱 설치 안내 모달
-      const phoneModal = document.getElementById('phoneAppModal');
-      document.getElementById('btnPhoneAppGuide').addEventListener('click', () => phoneModal.classList.remove('hidden'));
-      document.getElementById('btnClosePhoneModal').addEventListener('click', () => phoneModal.classList.add('hidden'));
-      document.getElementById('btnConfirmPhoneModal').addEventListener('click', () => phoneModal.classList.add('hidden'));
-      phoneModal.addEventListener('click', e => { if (e.target === phoneModal) phoneModal.classList.add('hidden'); });
-      document.getElementById('btnExportPwaBundle').addEventListener('click', downloadPwaDeployBundle);
-      document.getElementById('btnCopyIndexHtml').addEventListener('click', copyCleanIndexHtml);
-      document.getElementById('btnMakeSiteQr').addEventListener('click', () => {
-        const rawUrl = document.getElementById('pwaSiteUrlInput').value.trim();
-        if (!rawUrl) {
-          showToast('Netlify 등에서 만든 웹 주소를 입력해 주세요!');
-          return;
-        }
-        const finalUrl = /^https?:\/\//i.test(rawUrl) ? rawUrl : `https://${rawUrl}`;
-        const qrBox = document.getElementById('pwaSiteQrBox');
-        const qrWrap = document.getElementById('pwaSiteQrWrap');
-        qrBox.innerHTML = '';
-        if (typeof QRCode !== 'undefined') {
-          new QRCode(qrBox, {
-            text: finalUrl,
-            width: 160,
-            height: 160,
-            colorDark: '#000000',
-            colorLight: '#ffffff'
-          });
-        }
-        qrWrap.classList.remove('hidden');
-        showToast('폰 카메라로 찍을 수 있는 QR 코드를 만들었어요! 📱');
+      const phoneModal = document.getElementById("phoneAppModal");
+      document.getElementById("btnPhoneAppGuide").addEventListener("click", () => phoneModal.showModal());
+      document.getElementById("btnCloseDownloadBar").addEventListener("click", () => {
+        document.getElementById("downloadReadyBar").classList.add("hidden");
       });
-
-      // 직접 다운로드 백업 바 닫기 & 모바일 공유 저장 & 클라우드 우회 다운로드
-      document.getElementById('btnCloseDownloadBar').addEventListener('click', () => {
-        document.getElementById('downloadReadyBar').classList.add('hidden');
-      });
-      document.getElementById('btnCloudDownloadFallback').addEventListener('click', createCloudDownloadFallback);
-      document.getElementById('btnCopyCloudUrl').addEventListener('click', () => {
-        const inp = document.getElementById('cloudDownloadUrlInput');
-        if (!inp || !inp.value) return;
-        inp.select();
-        try {
-          document.execCommand('copy');
-          showToast('다운로드 주소를 복사했어요! 브라우저 주소창에 붙여넣으면 바로 받아져요 📋');
-        } catch (e) {
-          showToast('복사에 실패했어요.');
-        }
-      });
+      document.getElementById("btnDownloadBackground").addEventListener("click", downloadBackground);
       document.getElementById('btnShareDownloadFile').addEventListener('click', async () => {
         if (!LAST_DOWNLOAD_FILE || !navigator.share) return;
         try {
           await navigator.share({ files: [LAST_DOWNLOAD_FILE], title: LAST_DOWNLOAD_FILE.name });
         } catch (e) {}
-      });
-
-      // 4단계 인앱 즉시 QR 코드 생성기 이벤트
-      document.getElementById('btnGenerateDirectQr').addEventListener('click', generateDirectQrFlow);
-      document.getElementById('btnDownloadZpkOnly').addEventListener('click', downloadZpkOnly);
-      document.getElementById('btnSaveQrImage').addEventListener('click', saveQrCodeAsPng);
-      document.getElementById('btnSwitchQrProtocol').addEventListener('click', () => {
-        CURRENT_QR_PROTOCOL = CURRENT_QR_PROTOCOL === 'watchface' ? 'zpkd1' : 'watchface';
-        if (CURRENT_DIRECT_URL) renderDirectQrCode(CURRENT_DIRECT_URL);
-      });
-      document.getElementById('btnManualUrlToQr').addEventListener('click', () => {
-        const val = document.getElementById('manualZpkUrlInput').value.trim();
-        if (!val) { showToast('업로드한 .zpk 링크를 입력해 주세요!'); return; }
-        renderDirectQrCode(val);
-        showToast('입력한 링크로 QR 코드를 만들었어요! 📱');
       });
 
       // 1단계: 테마 / 글씨체 / 무늬 / 테두리 / 배경색 자유 선택 / 내 사진
@@ -4406,13 +3040,30 @@ self.addEventListener('fetch', e => { e.respondWith(fetch(e.request).catch(() =>
       document.getElementById('watchNameInput').addEventListener('input', e => { STATE.watchName = e.target.value; saveStateToLocal(); });
       document.getElementById('watchDeviceSelect').addEventListener('change', e => {
         STATE.deviceKey = e.target.value;
+        updateInstallDevice();
         saveStateToLocal();
         const dev = DEVICE_PROFILES[STATE.deviceKey];
         if (dev) showToast(`${dev.displayName} (${dev.designWidth}×${dev.designWidth}) 선택됨! ⌚`);
       });
       document.getElementById('btnDownloadAssetsOnly').addEventListener('click', downloadAssetsOnlyZip);
-      document.getElementById('btnMainDownload').addEventListener('click', downloadWatchfaceZip);
-      document.getElementById('btnCopyZeusCmd').addEventListener('click', copyZeusOneLiner);
+      document.getElementById('btnMainDownload').addEventListener('click', event => downloadWatchfaceZip(event.currentTarget, false));
+      document.getElementById('btnMobilePreviewDownload').addEventListener('click', event => downloadWatchfaceZip(event.currentTarget, true));
+      document.getElementById('btnCopyZeusLogin').addEventListener('click', () => copyZeusCommand(MOBILE_ZEUS_LOGIN));
+      document.getElementById('btnCopyMobilePreview').addEventListener('click', () => copyZeusCommand(MOBILE_ZEUS_PREVIEW));
+      const previewDialog = document.getElementById('previewAccessDialog');
+      const previewKeyInput = document.getElementById('previewAccessKey');
+      document.getElementById('btnCloudPreview').addEventListener('click', () => {
+        if (cloudPreviewAuthenticated) requestCloudPreview();
+        else previewDialog.showModal();
+      });
+      document.getElementById('btnCancelPreviewAccess').addEventListener('click', () => previewDialog.close());
+      document.getElementById('previewAccessForm').addEventListener('submit', event => {
+        event.preventDefault();
+        const accessCode = previewKeyInput.value.trim();
+        previewKeyInput.value = '';
+        previewDialog.close();
+        requestCloudPreview(accessCode);
+      });
       document.getElementById('btnQuickSave').addEventListener('click', () => goToStep(4));
       document.getElementById('btnClearImportedZip').addEventListener('click', () => {
         document.getElementById('importedZipSection').classList.add('hidden');
@@ -4490,8 +3141,7 @@ self.addEventListener('fetch', e => { e.respondWith(fetch(e.request).catch(() =>
     }
 
     window.addEventListener('resize', resizeCanvas);
-    window.onload = function() {
-      setupPwaManifest();
+    window.addEventListener("DOMContentLoaded", () => {
       const restored = loadStateFromLocal();
       document.getElementById('watchNameInput').value = STATE.watchName;
       document.getElementById('watchDeviceSelect').value = STATE.deviceKey;
@@ -4509,10 +3159,18 @@ self.addEventListener('fetch', e => { e.respondWith(fetch(e.request).catch(() =>
       renderWidgetToggleGrid();
       syncDateToggle();
       bindEvents();
+      updateInstallDevice();
+      loadPreviewAvailability();
       resizeCanvas();
       animate();
       if (restored) showToast('이전에 만들던 디자인을 불러왔어요! ✨');
-    };
+    });
+
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js").catch(error => console.warn("Service worker:", error));
+      });
+    }
   </script>
 
 </body></html>

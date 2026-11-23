@@ -1,0 +1,36 @@
+name: Build watchface preview
+
+on:
+  workflow_dispatch:
+    inputs:
+      job_id:
+        description: Cloudflare preview job ID
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    defaults:
+      run:
+        working-directory: preview
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: preview/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - run: node build.mjs
+        env:
+          WATCHMAKER_JOB_ID: ${{ inputs.job_id }}
+          WATCHMAKER_URL: https://watchmaker.cilaapps.workers.dev
+          WATCHMAKER_RUNNER_KEY: ${{ secrets.WATCHMAKER_RUNNER_KEY }}
+          WATCHMAKER_ZEUS_SESSION: ${{ secrets.WATCHMAKER_ZEUS_SESSION }}
