@@ -605,7 +605,7 @@
               <label for="androidQrLink" class="block text-xs font-bold text-slate-300">Zepp 설치 링크</label>
               <input id="androidQrLink" type="text" inputmode="url" autocapitalize="off" autocomplete="off" spellcheck="false" maxlength="1800" placeholder="zpkd1://…" class="w-full rounded-xl px-3 py-2 bg-slate-800 text-white border border-slate-700">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                <button id="btnAndroidMakeQr" type="button" class="py-2.5 px-3 rounded-xl text-sm font-bold bg-sky-500 text-slate-950">링크를 QR로 만들기</button>
+                <button id="btnAndroidMakeQr" type="button" class="py-2.5 px-3 rounded-xl text-sm font-bold bg-sky-500 text-slate-950">QR 만들고 갤러리에 저장</button>
                 <button id="btnAndroidImportQr" type="button" class="py-2.5 px-3 rounded-xl text-sm font-bold bg-slate-800 text-sky-200 border border-slate-700">QR 사진 불러오기</button>
               </div>
               <input id="androidQrFile" type="file" accept="image/*" hidden>
@@ -2976,8 +2976,15 @@ WatchFace({
 
       document.getElementById("btnAndroidMakeQr").addEventListener("click", () => {
         const url = androidBridge.makeInstallQr(link.value.trim());
-        if (url) showImage(url);
-        else status.textContent = "Zepp에서 발급한 zpkd1:// 또는 watchface:// 설치 링크를 입력하세요.";
+        const prefix = "data:image/png;base64,";
+        if (!url.startsWith(prefix)) {
+          status.textContent = "Zepp에서 발급한 zpkd1:// 또는 watchface:// 설치 링크를 입력하세요.";
+          return;
+        }
+        showImage(url);
+        if (!androidBridge.saveFile(url.slice(prefix.length), "zepp-install-qr.png")) {
+          status.textContent = "QR 이미지를 저장하지 못했습니다.";
+        }
       });
       document.getElementById("btnAndroidImportQr").addEventListener("click", () => file.click());
       file.addEventListener("change", () => {
