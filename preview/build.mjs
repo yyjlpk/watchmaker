@@ -184,8 +184,9 @@ function buildEnvironment() {
 
 async function compileInstallPackage(directory) {
   const cli = require.resolve('@zeppos/zeus-cli/bin/main.js');
+  const preloader = fileURLToPath(new URL('./build-preview-package.cjs', import.meta.url));
   try {
-    await promisify(execFile)(process.execPath, [cli, 'build'], {
+    await promisify(execFile)(process.execPath, ['--require', preloader, cli, 'build'], {
       cwd: directory, env: buildEnvironment(), timeout: 140000, maxBuffer: 256 * 1024,
     });
   } catch {

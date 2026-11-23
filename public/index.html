@@ -107,6 +107,10 @@
     #phoneAppModal::backdrop { background: rgb(0 0 0 / 75%); }
     html:not(.android-app) [data-android], .android-app #btnPhoneAppGuide { display: none !important; }
     .android-app [data-browser-guide] { display: none !important; }
+    .android-app main { padding-bottom: calc(var(--app-nav-height, 72px) + 1rem); }
+    @media (min-width: 1024px) {
+      .android-app main { padding-bottom: 1.5rem; }
+    }
     #androidQrPreview { width: min(100%, 19rem); height: auto; margin: .5rem auto; background: white; }
     #previewAccessDialog { width: min(28rem, calc(100% - 2rem)); border: 1px solid #334155; border-radius: 1.5rem; background: #0f172a; color: white; }
     #previewAccessDialog::backdrop { background: rgb(0 0 0 / 75%); }
@@ -647,11 +651,11 @@
                 <button id="btnMainDownload" type="button" class="w-full py-2.5 px-3 rounded-xl text-xs font-bold bg-slate-800 text-sky-200 border border-slate-700">Zeus 프로젝트 ZIP 저장</button>
               </div>
             </details>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div data-browser-guide class="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <a href="https://docs.zepp.com/docs/guides/tools/cli/" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-xl text-center text-xs font-bold bg-slate-800 text-sky-200 border border-slate-700">Zeus 설치 안내</a>
               <a href="https://docs.github.com/en/codespaces/quickstart" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-xl text-center text-xs font-bold bg-slate-800 text-sky-200 border border-slate-700">Codespaces 사용 안내</a>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div data-browser-guide class="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <button id="btnDownloadAssetsOnly" type="button" class="py-2.5 px-3 rounded-xl text-xs font-bold bg-slate-800 text-emerald-300 border border-slate-700">Watchface Maker용 PNG 모음 저장</button>
               <a href="https://watchface.zepp.com/" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-xl text-center text-xs font-bold bg-slate-800 text-sky-200 border border-slate-700">Watchface Maker 열기</a>
             </div>
@@ -681,7 +685,7 @@
   <!-- =======================================================================
        모바일 전용 하단 앱 내비게이션 바 (실제 스마트폰 앱 UX)
        ======================================================================= -->
-  <nav class="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-slate-950/95 backdrop-blur-lg border-t border-slate-800 px-2 pt-2 safe-bottom">
+  <nav id="mobileNav" class="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-slate-950/95 backdrop-blur-lg border-t border-slate-800 px-2 pt-2 safe-bottom">
     <div class="grid grid-cols-4 gap-1 max-w-md mx-auto">
       <button data-step="1" class="mobile-nav-btn py-2 rounded-2xl flex flex-col items-center justify-center gap-0.5 bg-sky-500/20 text-sky-300 font-extrabold transition-all">
         <span class="text-lg leading-none">🎨</span>
@@ -2492,7 +2496,10 @@
           status.textContent = 'Zepp에 다시 로그인해 주세요.';
           return;
         }
-        if (response.status !== 202) throw new Error('Could not submit design');
+        if (response.status !== 202) {
+          status.textContent = '빌드를 요청하지 못했습니다 (' + response.status + ').';
+          return;
+        }
         const { id, access } = await response.json();
         if (!/^[0-9a-f]{32}$/.test(id) || !/^[0-9a-f]{32}$/.test(access)) throw new Error('Invalid build ticket');
         const deadline = Date.now() + 7 * 60 * 1000;
@@ -2501,7 +2508,10 @@
           if (result.status === 200) {
             const { link } = await result.json();
             const qr = androidBridge.makeInstallQr(link);
-            if (!qr.startsWith('data:image/png;base64,')) throw new Error('Invalid Zepp installation link');
+            if (!qr.startsWith('data:image/png;base64,')) {
+              status.textContent = 'Zepp 설치 링크를 QR로 바꾸지 못했습니다.';
+              return;
+            }
             const png = await fetch(qr).then(image => image.blob());
             await showInstallImage(png);
             status.textContent = '';
@@ -2511,7 +2521,15 @@
             status.textContent = 'Zepp에 다시 로그인해 주세요.';
             return;
           }
-          if (result.status !== 204 && result.status !== 404) throw new Error('Could not build watchface');
+          if (result.status !== 204 && result.status !== 404) {
+            const error = await result.json().catch(() => ({}));
+            const diagnostic = typeof error.code === 'string' && /^ZEPP-(?:[0-9]{3}|NETWORK|RESPONSE)$/.test(error.code)
+              ? error.code : null;
+            if (diagnostic) status.textContent = 'Zepp 발급에 실패했습니다 (' + diagnostic + ').';
+            else if (result.status === 422) status.textContent = '워치페이스 빌드에 실패했습니다.';
+            else status.textContent = '설치 패키지를 받지 못했습니다 (' + result.status + ').';
+            return;
+          }
           await new Promise(resolve => setTimeout(resolve, 6500));
         } while (Date.now() < deadline);
         status.textContent = '발급 시간이 길어졌습니다. 다시 시도해 주세요.';
@@ -2969,7 +2987,13 @@
       bindEvents();
       updateInstallDevice();
       updatePersonalPreviewGuide();
-      if (androidBridge) bindAndroidQr();
+      if (androidBridge) {
+        bindAndroidQr();
+        const nav = document.getElementById('mobileNav');
+        new ResizeObserver(() => {
+          document.documentElement.style.setProperty('--app-nav-height', nav.offsetHeight + 'px');
+        }).observe(nav);
+      }
       loadPreviewAvailability();
       resizeCanvas();
       animate();

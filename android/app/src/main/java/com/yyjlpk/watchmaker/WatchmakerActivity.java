@@ -23,6 +23,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import androidx.webkit.WebViewAssetLoader;
@@ -77,14 +78,20 @@ public final class WatchmakerActivity extends Activity {
         editor.addJavascriptInterface(new EditorBridge(), "WatchmakerAndroid");
         editor.setWebViewClient(new LocalEditorClient());
         editor.setWebChromeClient(new EditorChromeClient());
-        editor.setOnApplyWindowInsetsListener((view, insets) -> {
-            if (Build.VERSION.SDK_INT >= 30) {
-                Insets safe = insets.getInsets(WindowInsets.Type.systemBars() | WindowInsets.Type.displayCutout());
+        FrameLayout viewport = new FrameLayout(this);
+        viewport.setBackgroundColor(Color.rgb(15, 23, 42));
+        viewport.addView(editor, new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
+        if (Build.VERSION.SDK_INT >= 30) {
+            viewport.setOnApplyWindowInsetsListener((view, insets) -> {
+                Insets safe = insets.getInsets(WindowInsets.Type.systemBars() | WindowInsets.Type.displayCutout()
+                        | WindowInsets.Type.ime());
                 view.setPadding(safe.left, safe.top, safe.right, safe.bottom);
-            }
-            return insets;
-        });
-        setContentView(editor);
+                return WindowInsets.CONSUMED;
+            });
+        }
+        setContentView(viewport);
+        viewport.requestApplyInsets();
         editor.loadUrl("https://" + APP_HOST + "/assets/index.html");
     }
 
@@ -287,8 +294,10 @@ public final class WatchmakerActivity extends Activity {
                             ZeppAccount.forget(WatchmakerActivity.this);
                         }
                         result = new JSONObject(Collections.singletonMap("status", 401));
+                    } catch (ZeppAccount.PreviewFailure error) {
+                        result = previewError(error.diagnostic);
                     } catch (Exception error) {
-                        result = null;
+                        result = previewError("NETWORK");
                     }
                     String response = String.valueOf(result);
                     runOnUiThread(() -> {
@@ -370,6 +379,15 @@ public final class WatchmakerActivity extends Activity {
                 return "";
             }
         }
+    }
+
+    private static JSONObject previewError(String code) {
+        String body = new JSONObject(Collections.singletonMap("code", code)).toString();
+        Map<String, Object> response = new java.util.HashMap<>();
+        response.put("status", 502);
+        response.put("type", "application/json");
+        response.put("body", Base64.encodeToString(body.getBytes(java.nio.charset.StandardCharsets.UTF_8), Base64.NO_WRAP));
+        return new JSONObject(response);
     }
 
     private void cancelLogin() {

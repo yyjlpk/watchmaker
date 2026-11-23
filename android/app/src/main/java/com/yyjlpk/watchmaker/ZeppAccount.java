@@ -185,6 +185,7 @@ final class ZeppAccount {
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);
             connection.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
+            connection.setRequestProperty("Accept", "application/json");
             connection.setRequestProperty("apptoken", token);
             connection.setFixedLengthStreamingMode(before.length + archive.length + after.length);
             try (OutputStream output = connection.getOutputStream()) {
@@ -194,20 +195,31 @@ final class ZeppAccount {
             }
             int status = connection.getResponseCode();
             if (status == 401 || status == 403) throw new Expired();
-            if (status != 200) throw new IOException("Zepp package upload failed");
+            if (status < 200 || status >= 300) throw new PreviewFailure("ZEPP-" + status);
             try (InputStream input = connection.getInputStream()) {
                 JSONObject response = new JSONObject(new String(CloudPreviewClient.readBounded(input, 8192),
                         StandardCharsets.UTF_8));
                 String protocol = response.optString("protocol");
                 String code = response.optString("code");
                 if (!("zpkd1".equals(protocol) || "watchface".equals(protocol))
-                        || !code.matches("[A-Za-z0-9_.~%-]{1,512}")) throw new IOException("Invalid Zepp response");
+                        || !code.matches("[A-Za-z0-9_.~%/+=-]{1,1200}")) throw new PreviewFailure("ZEPP-RESPONSE");
                 return protocol + "://" + host + "/custom/tools/app-dial/download/" + code;
             }
+        } catch (Expired | PreviewFailure error) {
+            throw error;
+        } catch (IOException | org.json.JSONException error) {
+            throw new PreviewFailure(error instanceof IOException ? "ZEPP-NETWORK" : "ZEPP-RESPONSE");
         } finally {
             connection.disconnect();
         }
     }
 
     static final class Expired extends IOException {}
+    static final class PreviewFailure extends IOException {
+        final String diagnostic;
+
+        PreviewFailure(String diagnostic) {
+            this.diagnostic = diagnostic;
+        }
+    }
 }
