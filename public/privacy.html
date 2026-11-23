@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CiLA Apps가 운영하는 Android 앱 워치메이커의 개인정보처리방침입니다.">
+  <title>워치메이커 개인정보처리방침</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, "Malgun Gothic", sans-serif; }
+    body { margin: 0; color: #17263a; background: #f5f8fc; line-height: 1.75; }
+    main { max-width: 44rem; margin: auto; padding: 3rem 1.25rem; overflow-wrap: anywhere; }
+    h1, h2 { line-height: 1.4; }
+    h1 { margin: 0 0 .4rem; font-size: clamp(1.6rem, 5vw, 2.3rem); }
+    h2 { margin-top: 2rem; font-size: 1.15rem; }
+    p, ul { margin: .6rem 0; }
+    li + li { margin-top: .5rem; }
+    a { color: #07519a; }
+    .date { color: #44556c; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>워치메이커 개인정보처리방침</h1>
+    <p class="date">시행일 2026년 11월 24일</p>
+    <p>CiLA Apps는 Android 앱 워치메이커(com.yyjlpk.watchmaker)를 제공합니다. 이 방침은 워치페이스 편집과 Zepp 설치 QR 발급에 적용됩니다.</p>
+
+    <h2>처리하는 정보와 목적</h2>
+    <ul>
+      <li><strong>워치페이스 편집.</strong> 선택한 모델, 디자인 이름, 위젯 배치와 표시 설정을 기기에 저장해 다음 실행 때 불러옵니다. 사용자가 Android 사진 선택기로 선택한 이미지와 가져온 파일은 디자인 편집에 사용합니다.</li>
+      <li><strong>설치 QR 발급.</strong> QR 만들기를 요청하면 선택한 모델, 디자인 이름, 위젯 설정과 이미지 파일을 빌드 서비스로 전송합니다. 배경으로 선택한 사진은 이 이미지에 포함될 수 있습니다. 빌드 서비스는 이 정보로 설치 패키지를 만듭니다. 앱은 완성된 패키지를 Zepp에 올려 설치 링크를 받고 QR 이미지로 표시합니다.</li>
+      <li><strong>Zepp 연결.</strong> 로그인 화면은 Zepp가 제공합니다. 워치메이커는 Zepp 계정 비밀번호를 받지 않습니다. 로그인 후 반환된 Zepp 사용자 ID, 세션 토큰과 서비스 지역 정보는 앱이 설치 패키지를 해당 Zepp 계정으로 전송하는 데 사용합니다.</li>
+      <li><strong>서비스 보호.</strong> QR 발급 서버는 접속 IP 주소를 기준으로 요청 횟수를 제한합니다. 빌드 상태와 오류 정보는 발급 실패를 진단하는 데 사용합니다.</li>
+    </ul>
+    <p>디자인 편집과 배경 PNG 저장은 Zepp 연결 없이 사용할 수 있습니다. 설치된 워치페이스가 심박수나 걸음 수를 표시할 경우 해당 수치는 워치에서 읽으며, Android 편집기와 워치메이커 빌드 서버로 전송하지 않습니다.</p>
+
+    <h2>처리 서비스와 국외 처리</h2>
+    <ul>
+      <li><strong>Cloudflare Workers 및 Workers KV.</strong> QR 요청을 받고 디자인과 빌드 결과를 임시 보관합니다. Cloudflare의 글로벌 인프라를 사용하므로 정보가 한국 외 지역에서 보관 또는 캐시될 수 있습니다.</li>
+      <li><strong>GitHub Actions.</strong> QR을 요청하면 GitHub의 호스팅 실행 환경에서 해당 디자인을 빌드합니다. 디자인과 배경 이미지는 이 작업을 위해 전송되며, 공개 저장소에 커밋하거나 공개 빌드 산출물로 게시하지 않습니다. 실행 위치는 호스팅 인프라의 할당에 따라 달라질 수 있습니다.</li>
+      <li><strong>Zepp.</strong> 사용자가 로그인하고 QR을 요청하면 앱은 Zepp 사용자 ID, 세션 토큰, 완성된 설치 패키지를 해당 계정의 Zepp 서버로 HTTPS 전송합니다. Zepp 계정과 Zepp 서버에 올린 패키지의 처리 및 권리 행사는 <a href="https://www.zepp.com/privacy-support">Zepp 개인정보 보호 안내</a>를 따릅니다.</li>
+    </ul>
+    <p>워치메이커 빌드 서비스에는 Zepp 사용자 ID와 세션 토큰을 보내지 않습니다. QR 발급을 선택하지 않으면 발급을 위한 디자인 업로드를 하지 않습니다.</p>
+
+    <h2>보관 기간과 삭제 방법</h2>
+    <ul>
+      <li>빌드 서비스의 원본 디자인은 요청 접수 후 최대 15분, 개인 발급용 설치 패키지는 저장 후 최대 15분 동안 조회할 수 있습니다. 서버에서 QR PNG를 생성하는 기존 발급 경로의 QR 이미지는 저장 후 최대 30분 동안 조회할 수 있습니다. 해당 기록에는 자동 만료가 적용됩니다.</li>
+      <li>Zepp 세션은 Android Keystore 키로 암호화해 기기에 보관합니다. 앱의 <strong>Zepp 연결 해제</strong>를 누르면 워치메이커에 저장된 세션이 삭제됩니다. Zepp 서비스의 계정은 Zepp에서 관리할 수 있습니다.</li>
+      <li>기기에 저장된 편집 설정은 Android 설정에서 워치메이커의 저장공간을 지우면 삭제됩니다. 갤러리나 다운로드 폴더에 저장한 QR, PNG, ZIP 파일은 해당 폴더에서 직접 삭제할 수 있습니다.</li>
+    </ul>
+
+    <h2>보호 조치와 문의</h2>
+    <p>기기 밖의 빌드 서버와 Zepp 서버에는 HTTPS로 연결합니다. 개인 설치 패키지는 임시 접근 키로 조회를 제한합니다.</p>
+    <p>개인정보에 대한 열람, 정정, 삭제, 처리정지 또는 국외 처리에 관한 문의는 운영자 CiLA Apps의 <a href="mailto:cilaapps.studio@gmail.com">cilaapps.studio@gmail.com</a>으로 보내주세요. 문의에 비밀번호나 Zepp 세션 토큰을 첨부하지 마세요.</p>
+  </main>
+</body>
+</html>
