@@ -2,6 +2,7 @@ const WORKFLOW = 'watchface-preview.yml';
 const REPOSITORY = 'yyjlpk/watchmaker';
 const INPUT_LIMIT = 3 * 1024 * 1024;
 const OUTPUT_LIMIT = 256 * 1024;
+const INSTALL_LIMIT = 8 * 1024 * 1024;
 const BUILD_TTL = 15 * 60;
 const PACKAGE_TTL = 30 * 60;
 const SESSION_TTL = 30 * 24 * 60 * 60;
@@ -76,19 +77,21 @@ function configured(env) {
     && env.WATCHMAKER_ACCESS_KEY?.length >= 24 && env.WATCHMAKER_RUNNER_KEY?.length >= 24);
 }
 
-async function enqueue(request, env) {
-  const origin = request.headers.get('Origin');
-  if (origin && origin !== new URL(request.url).origin) return error('access', 403);
-  const firstLogin = authorized(request, env.WATCHMAKER_ACCESS_KEY);
-  if (!firstLogin && !await hasSession(request, env)) return error('access', 401);
-  const source = await readBounded(request, INPUT_LIMIT);
-  if (!source) return error('size', 413);
-  if (source[0] !== 80 || source[1] !== 75 || source[2] !== 3 || source[3] !== 4) {
-    return error('project', 400);
-  }
+function personalConfigured(env) {
+  return env.PREVIEW_PERSONAL_ENABLED === 'true' && env.PERSONAL_BUILD_LIMIT && env.PERSONAL_CAPACITY
+    && env.PREVIEW_JOBS && env.GITHUB_ACTIONS_TOKEN && env.WATCHMAKER_RUNNER_KEY?.length >= 24;
+}
 
-  const id = crypto.randomUUID().replaceAll('-', '');
-  await env.PREVIEW_JOBS.put('source/' + id, source, { expirationTtl: BUILD_TTL });
+function sameOrigin(request) {
+  const origin = request.headers.get('Origin');
+  return !origin || origin === new URL(request.url).origin;
+}
+
+function zip(bytes) {
+  return bytes[0] === 80 && bytes[1] === 75 && bytes[2] === 3 && bytes[3] === 4;
+}
+
+async function dispatchBuild(env, id) {
   try {
     const dispatch = await fetch('https://api.github.com/repos/' + REPOSITORY
       + '/actions/workflows/' + WORKFLOW + '/dispatches', {
@@ -103,33 +106,92 @@ async function enqueue(request, env) {
       body: JSON.stringify({ ref: env.PREVIEW_ACTIONS_REF || 'main', inputs: { job_id: id } }),
       signal: AbortSignal.timeout(15000),
     });
-    if (dispatch.ok) {
-      const response = json({ id }, 202);
-      if (firstLogin) {
-        const expires = Math.floor(Date.now() / 1000) + SESSION_TTL;
-        const value = await sessionValue(env.WATCHMAKER_ACCESS_KEY, expires);
-        response.headers.set('Set-Cookie', ACCESS_COOKIE + '=' + value
-          + '; Path=/; Secure; HttpOnly; SameSite=Strict; Max-Age=' + SESSION_TTL);
-      }
-      return response;
-    }
+    if (dispatch.ok) return true;
     console.error('GitHub dispatch returned', dispatch.status);
   } catch (cause) {
     console.error('GitHub dispatch failed', cause.name);
   }
   await env.PREVIEW_JOBS.delete('source/' + id);
-  return error('dispatch', 502);
+  return false;
+}
+
+async function enqueue(request, env) {
+  if (!sameOrigin(request)) return error('access', 403);
+  const firstLogin = authorized(request, env.WATCHMAKER_ACCESS_KEY);
+  if (!firstLogin && !await hasSession(request, env)) return error('access', 401);
+  const source = await readBounded(request, INPUT_LIMIT);
+  if (!source) return error('size', 413);
+  if (!zip(source)) return error('project', 400);
+
+  const id = crypto.randomUUID().replaceAll('-', '');
+  await env.PREVIEW_JOBS.put('source/' + id, source, { expirationTtl: BUILD_TTL });
+  if (!await dispatchBuild(env, id)) return error('dispatch', 502);
+  const response = json({ id }, 202);
+  if (firstLogin) {
+    const expires = Math.floor(Date.now() / 1000) + SESSION_TTL;
+    const value = await sessionValue(env.WATCHMAKER_ACCESS_KEY, expires);
+    response.headers.set('Set-Cookie', ACCESS_COOKIE + '=' + value
+      + '; Path=/; Secure; HttpOnly; SameSite=Strict; Max-Age=' + SESSION_TTL);
+  }
+  return response;
+}
+
+async function enqueuePersonal(request, env) {
+  if (!sameOrigin(request)) return error('access', 403);
+  const address = request.headers.get('CF-Connecting-IP') || 'unknown';
+  const limit = await env.PERSONAL_BUILD_LIMIT.limit({ key: 'ip:' + address });
+  const capacity = await env.PERSONAL_CAPACITY.limit({ key: 'builds' });
+  if (!limit.success || !capacity.success) return error('rate', 429);
+  const source = await readBounded(request, INPUT_LIMIT);
+  if (!source) return error('size', 413);
+  if (!zip(source)) return error('project', 400);
+
+  const id = crypto.randomUUID().replaceAll('-', '');
+  const access = crypto.randomUUID().replaceAll('-', '');
+  const expiresAt = Date.now() + BUILD_TTL * 1000;
+  await env.PREVIEW_JOBS.put('source/' + id, source, {
+    expirationTtl: BUILD_TTL, metadata: { access, expiresAt },
+  });
+  if (!await dispatchBuild(env, id)) return error('dispatch', 502);
+  return json({ id, access }, 202);
+}
+
+async function personalResult(request, kv, id) {
+  const { value: source, metadata } = await kv.getWithMetadata('source/' + id, 'stream');
+  await source?.cancel?.();
+  if (!authorized(request, metadata?.access)) return error('missing', 404);
+  if (Date.now() >= metadata.expiresAt) return error('expired', 410);
+  const { value, metadata: result } = await kv.getWithMetadata('install/' + id, 'stream');
+  if (!value) return new Response(null, { status: 204, headers });
+  if (result?.failed) return error('build', 422);
+  return new Response(value, { headers: { ...headers, 'Content-Type': 'application/zip' } });
 }
 
 async function runner(request, env, id) {
   if (!authorized(request, env.WATCHMAKER_RUNNER_KEY)) return error('access', 401);
   const kv = env.PREVIEW_JOBS;
+  const { value: source, metadata } = await kv.getWithMetadata('source/' + id, 'stream');
   if (request.method === 'GET') {
-    const source = await kv.get('source/' + id, 'stream');
-    return source ? new Response(source, { headers: { ...headers, 'Content-Type': 'application/zip' } })
+    return source ? new Response(source, {
+      headers: { ...headers, 'Content-Type': 'application/zip', ...(metadata?.access ? { 'X-Watchmaker-Mode': 'personal' } : {}) },
+    })
       : error('missing', 404);
   }
   if (request.method !== 'PUT') return error('method', 405);
+  await source?.cancel?.();
+
+  if (metadata?.access) {
+    const failed = request.headers.get('Content-Type') === 'application/json';
+    const bytes = await readBounded(request, failed ? 512 : INSTALL_LIMIT);
+    if (!bytes) return error('size', 413);
+    if (!failed && (request.headers.get('Content-Type') !== 'application/zip' || !zip(bytes))) {
+      return error('result', 400);
+    }
+    await kv.put('install/' + id, bytes, {
+      expirationTtl: BUILD_TTL, metadata: { failed },
+    });
+    return new Response(null, { status: 204, headers });
+  }
 
   const key = 'result/' + id;
   if (request.headers.get('Content-Type') === 'application/json') {
@@ -159,13 +221,24 @@ export default {
     const { pathname } = new URL(request.url);
     if (pathname === '/api/watchface-preview/config' && request.method === 'GET') {
       const enabled = configured(env);
-      return json({ enabled, authenticated: enabled && await hasSession(request, env) });
+      return json({
+        enabled, authenticated: enabled && await hasSession(request, env),
+        personal: Boolean(personalConfigured(env)),
+      });
     }
     if (!pathname.startsWith('/api/watchface-preview') && !pathname.startsWith('/p/')) {
       return env.ASSETS.fetch(request);
     }
     if (!env.PREVIEW_JOBS) return error('unavailable', 503);
     try {
+      if (pathname === '/api/watchface-preview/personal' && request.method === 'POST') {
+        if (!personalConfigured(env)) return error('unavailable', 503);
+        return await enqueuePersonal(request, env);
+      }
+      const personalJob = new RegExp('^/api/watchface-preview/personal/(' + ID + ')$').exec(pathname);
+      if (personalJob && request.method === 'GET') {
+        return await personalResult(request, env.PREVIEW_JOBS, personalJob[1]);
+      }
       if (pathname === '/api/watchface-preview' && request.method === 'POST') {
         if (!configured(env)) return error('unavailable', 503);
         return await enqueue(request, env);

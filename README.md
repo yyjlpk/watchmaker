@@ -15,3 +15,9 @@ Cloudflare의 기존 `watchmaker` Worker는 이 저장소의 기본 브랜치를
 | GitHub Actions Repository Secret | `WATCHMAKER_ZEUS_SESSION` | 같은 Zepp 계정으로 로그인한 Zeus CLI의 `~/.zepp/.zeus` 파일을 Base64로 인코딩한 값 |
 
 GitHub Actions Linux 표준 러너와 Workers Free의 KV를 사용합니다. 소스 프로젝트는 KV에 최대 15분, QR PNG는 최대 30분 저장됩니다. 워치페이스 설치 패키지는 Zeus가 Zepp에 업로드합니다. 워크플로가 Zepp 로그인 오류를 반환하면 CLI에서 로그인 세션을 갱신하고 GitHub Secret을 교체하세요.
+
+## Android 개인 계정 발급
+
+Android 1.2 이상은 사용자의 Zepp 계정으로 기기에서 설치 QR을 발급할 수 있습니다. Worker는 디자인과 설치 패키지만 처리합니다. 앱은 로그인 토큰을 Android Keystore로 암호화해 저장하고 Zepp에 직접 업로드합니다. 지원 모델과 이용 방법은 [Android 안내](android/README.md)를 참고하세요.
+
+Worker와 GitHub 러너를 같은 버전으로 올린 뒤 Worker의 `PREVIEW_PERSONAL_ENABLED` 값을 `true`로 설정합니다. 개인 작업은 기존 비공개 발급 키와 구분되며 Cloudflare의 개인 작업 요청 수 제한을 적용합니다. 장시간 오류가 발생하면 플래그를 끄면 앱의 개인 발급 버튼이 비활성화됩니다.

@@ -1,7 +1,7 @@
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { createRequire } from 'node:module';
-import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { homedir, tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -9,16 +9,20 @@ import { pipeline } from 'node:stream/promises';
 import { createWriteStream } from 'node:fs';
 import QRCode from 'qrcode';
 import yauzl from 'yauzl';
+import '../public/watchface-project.js';
 
 const require = createRequire(import.meta.url);
 const models = new Map([
   ['t-rex-3-pro-44mm', { size: 466, ids: [10682624, 10682625, 10682627] }],
   ['t-rex-3-pro-48mm', { size: 480, ids: [10551552, 10551553, 10551555] }],
 ]);
-const assetPath = /^assets\/(t-rex-3-pro-(?:44|48)mm)\/[\w-]{1,40}\.png$/;
+const { profiles, buildWatchfaceIndexJs } = globalThis.WatchmakerProject;
+const personalModels = new Map(Object.values(profiles).filter(dev => !dev.photoOnly).map(dev => [dev.targetKey, dev]));
+const assetPath = /^assets\/([a-z0-9-]{1,40})\/[\w-]{1,40}\.png$/;
 const sources = new Set(['app.json', 'watchface/index.js']);
+const widgetIds = new Set(['digital', 'analog', 'date', 'weekWeather', 'weather', 'sunTimes', 'steps', 'heart', 'vo2max', 'battery', 'bt']);
 
-function unzipProject(bytes, targetDirectory) {
+function unzipProject(bytes, targetDirectory, personal) {
   return new Promise((resolve, reject) => {
     yauzl.fromBuffer(bytes, { lazyEntries: true, strictFileNames: true }, (error, zip) => {
       if (error) return reject(error);
@@ -28,12 +32,16 @@ function unzipProject(bytes, targetDirectory) {
       zip.on('end', resolve);
       zip.on('entry', entry => {
         const name = entry.fileName;
-        if (!sources.has(name) && !assetPath.test(name)) {
+        const target = assetPath.exec(name)?.[1];
+        const valid = personal ? name === 'design.json' || personalModels.has(target)
+          : sources.has(name) || models.has(target);
+        if (!valid) {
           zip.readEntry();
           return;
         }
         uncompressed += entry.uncompressedSize;
-        if (seen.has(name) || seen.size >= 85 || uncompressed > 12 * 1024 * 1024) {
+        if (seen.has(name) || seen.size >= 85 || uncompressed > 12 * 1024 * 1024
+          || (name === 'design.json' && entry.uncompressedSize > 8192)) {
           zip.close();
           reject(new Error('Invalid files in the watchface project'));
           return;
@@ -96,15 +104,106 @@ async function prepareConfig(directory) {
   return target;
 }
 
+function qualifiedNumber(value, minimum, maximum, fallback) {
+  return Number.isFinite(value) ? Math.min(maximum, Math.max(minimum, value)) : fallback;
+}
+
+async function preparePersonalConfig(directory) {
+  const design = JSON.parse(await readFile(join(directory, 'design.json'), 'utf8'));
+  const model = personalModels.get(design.target);
+  if (design.version !== 1 || !model || !Array.isArray(design.widgets) || design.widgets.length > widgetIds.size) {
+    throw new Error('Invalid watchface design');
+  }
+  const widgets = new Map();
+  for (const value of design.widgets) {
+    if (!widgetIds.has(value?.id) || widgets.has(value.id)) throw new Error('Invalid watchface widget');
+    widgets.set(value.id, {
+      id: value.id, visible: value.visible === true,
+      x: qualifiedNumber(value.x, 0, 480, 240), y: qualifiedNumber(value.y, 0, 480, 240),
+      scale: qualifiedNumber(value.scale, 0.1, 4, 1),
+      color: typeof value.color === 'string' && /^#[0-9a-f]{6}$/i.test(value.color) ? value.color : '#ffffff',
+    });
+  }
+  const date = design.dateOpt || {};
+  const state = {
+    widgets: [...widgets.values()], showSeconds: design.showSeconds === true,
+    dateOpt: {
+      style: ['dot_kr', 'full_kr', 'en_iso', 'two_line'].includes(date.style) ? date.style : 'dot_kr',
+      boxStyle: date.boxStyle === 'pill' ? 'pill' : 'plain',
+      fontSize: qualifiedNumber(date.fontSize, 8, 48, 16),
+      showWeekday: date.showWeekday === true, showYear: date.showYear === true, weekendColor: date.weekendColor === true,
+    },
+  };
+  const assets = join(directory, 'assets', model.targetKey);
+  const required = new Set(['preview.png', 'background.png', 'aod-background.png']);
+  for (const name of await readdir(assets)) {
+    const image = await readFile(join(assets, name));
+    if (image.length < 33 || !image.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]))
+      || image.subarray(12, 16).toString() !== 'IHDR') throw new Error('Invalid image');
+    const width = image.readUInt32BE(16);
+    const height = image.readUInt32BE(20);
+    if (!width || !height || width > 720 || height > 720
+      || (required.has(name) && (width !== model.designWidth || height !== (model.designHeight ?? model.designWidth)))) {
+      throw new Error('Invalid image size');
+    }
+    required.delete(name);
+  }
+  if (required.size) throw new Error('Missing screen images');
+  const appId = 1090000 + Math.floor(Math.random() * 90000);
+  const appName = String(design.name || '').replace(/[^\p{L}\p{N} _.()-]/gu, '').trim().slice(0, 48) || 'MyWatchface';
+  const config = {
+    configVersion: 'v3',
+    app: {
+      appId, appName, appType: 'watchface',
+      version: { code: 1, name: '1.0.0' },
+      icon: 'preview.png', vender: 'Watchmaker', description: appName,
+    },
+    permissions: ['data:user.hd.heart_rate', 'data:user.hd.step', 'data:user.hd.calorie'],
+    runtime: { apiVersion: { compatible: '2.0.0', target: '2.0.0', minVersion: '2.0.0' } },
+    targets: {
+      [model.targetKey]: {
+        module: { watchface: { path: 'watchface/index', main: 1, editable: 0, lockscreen: 1 } },
+        platforms: model.platforms, designWidth: model.designWidth,
+      },
+    },
+    i18n: { 'en-US': { appName } },
+    defaultLanguage: 'en-US',
+  };
+  await mkdir(join(directory, 'watchface'));
+  await writeFile(join(directory, 'app.json'), JSON.stringify(config));
+  await writeFile(join(directory, 'app.js'), 'App({ onCreate() {}, onDestroy() {} });\n');
+  await writeFile(join(directory, 'watchface', 'index.js'), buildWatchfaceIndexJs(model, state));
+}
+
+function buildEnvironment() {
+  const environment = { ...process.env, NO_COLOR: '1', CI: '1' };
+  delete environment.WATCHMAKER_RUNNER_KEY;
+  delete environment.WATCHMAKER_ZEUS_SESSION;
+  return environment;
+}
+
+async function compileInstallPackage(directory) {
+  const cli = require.resolve('@zeppos/zeus-cli/bin/main.js');
+  try {
+    await promisify(execFile)(process.execPath, [cli, 'build'], {
+      cwd: directory, env: buildEnvironment(), timeout: 140000, maxBuffer: 256 * 1024,
+    });
+  } catch {
+    throw new Error('Zeus failed to compile the personal watchface');
+  }
+  const dist = join(directory, 'dist');
+  const files = (await readdir(dist)).filter(name => name.endsWith('.zab'));
+  if (files.length !== 1) throw new Error('Zeus did not create an install package');
+  return readFile(join(dist, files[0]));
+}
+
 async function compilePreview(directory, target) {
   const cli = require.resolve('@zeppos/zeus-cli/bin/main.js');
   const preloader = fileURLToPath(new URL('./capture-zeus-qr.cjs', import.meta.url));
   const qrPath = join(directory, 'preview-qr.txt');
   const size = target.includes('44mm') ? '44mm' : '48mm';
   const device = 'Amazfit T-Rex 3 Pro (' + size + ')';
-  const environment = { ...process.env, NO_COLOR: '1', CI: '1', WATCHMAKER_QR_PATH: qrPath };
-  delete environment.WATCHMAKER_RUNNER_KEY;
-  delete environment.WATCHMAKER_ZEUS_SESSION;
+  const environment = { ...buildEnvironment(), WATCHMAKER_QR_PATH: qrPath };
   try {
     const { stdout, stderr } = await promisify(execFile)(process.execPath, ['--require', preloader, cli, 'preview', '--target', device], {
       cwd: directory, env: environment, timeout: 140000, maxBuffer: 256 * 1024,
@@ -127,7 +226,10 @@ async function getProject(endpoint, headers) {
   // A newly written KV value can take time to appear at the runner's edge location.
   for (let attempt = 0; attempt < 14; attempt++) {
     const response = await fetch(endpoint, { headers, signal: AbortSignal.timeout(12000) });
-    if (response.ok) return Buffer.from(await response.arrayBuffer());
+    if (response.ok) return {
+      bytes: Buffer.from(await response.arrayBuffer()),
+      personal: response.headers.get('X-Watchmaker-Mode') === 'personal',
+    };
     if (response.status !== 404) throw new Error('Project download returned ' + response.status);
     await new Promise(resolve => setTimeout(resolve, 5000));
   }
@@ -144,7 +246,18 @@ async function publish(jobId, siteUrl, runnerKey) {
   const headers = { Authorization: 'Bearer ' + runnerKey };
   const directory = await mkdtemp(join(tmpdir(), 'watchface-'));
   try {
-    await unzipProject(await getProject(endpoint, headers), directory);
+    const project = await getProject(endpoint, headers);
+    await unzipProject(project.bytes, directory, project.personal);
+    if (project.personal) {
+      await preparePersonalConfig(directory);
+      const packageBytes = await compileInstallPackage(directory);
+      const response = await fetch(endpoint, {
+        method: 'PUT', headers: { ...headers, 'Content-Type': 'application/zip' },
+        body: packageBytes, signal: AbortSignal.timeout(25000),
+      });
+      if (!response.ok) throw new Error('Install package upload returned ' + response.status);
+      return;
+    }
     const target = await prepareConfig(directory);
     const session = process.env.WATCHMAKER_ZEUS_SESSION;
     if (!session) throw new Error('WATCHMAKER_ZEUS_SESSION is missing');

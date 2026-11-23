@@ -1,7 +1,8 @@
 const cachePrefix = 'watchmaker:' + self.registration.scope + ':';
-const cacheName = cachePrefix + '3';
+const cacheName = cachePrefix + '5';
 const appShell = [
   './index.html',
+  './watchface-project.js',
   './manifest.json',
   './icon-192.png',
   './icon-512.png',

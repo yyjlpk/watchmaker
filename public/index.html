@@ -11,6 +11,7 @@
   <link rel="manifest" href="./manifest.json">
   <link rel="apple-touch-icon" href="./icon-192.png">
   <script defer src="./vendor/jszip.min.js"></script>
+  <script src="./watchface-project.js"></script>
   <!-- 친근하고 가독성 좋은 Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -104,7 +105,8 @@
     }
     #phoneAppModal { width: min(28rem, calc(100% - 2rem)); border: 1px solid #334155; border-radius: 1.5rem; background: #0f172a; }
     #phoneAppModal::backdrop { background: rgb(0 0 0 / 75%); }
-    html:not(.android-app) [data-android], .android-app [data-web], .android-app #btnPhoneAppGuide { display: none !important; }
+    html:not(.android-app) [data-android], .android-app #btnPhoneAppGuide { display: none !important; }
+    .android-app [data-browser-guide] { display: none !important; }
     #androidQrPreview { width: min(100%, 19rem); height: auto; margin: .5rem auto; background: white; }
     #previewAccessDialog { width: min(28rem, calc(100% - 2rem)); border: 1px solid #334155; border-radius: 1.5rem; background: #0f172a; color: white; }
     #previewAccessDialog::backdrop { background: rgb(0 0 0 / 75%); }
@@ -128,7 +130,7 @@
         </div>
         <div>
           <h1 class="text-base sm:text-xl font-extrabold tracking-tight text-white">내 맘대로 워치페이스</h1>
-          <p class="text-[11px] sm:text-xs text-slate-400">어메이즈핏 전 모델 · 폰/PC 겸용 앱</p>
+          <p class="text-[11px] sm:text-xs text-slate-400">어메이즈핏 원형·사각형 모델 지원</p>
         </div>
       </div>
 
@@ -146,8 +148,8 @@
           <span class="sm:hidden">ZIP</span>
         </button>
         <button id="btnQuickSave" class="px-3 sm:px-4 py-2 rounded-2xl text-xs sm:text-sm font-bold bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-400 hover:to-indigo-400 text-white shadow-lg shadow-sky-500/25 transition-all cursor-pointer flex items-center gap-1">
-          <span>💾</span>
-          <span>저장</span>
+          <span data-browser-guide>저장</span>
+          <span data-android>설치 QR</span>
         </button>
       </div>
     </div>
@@ -247,8 +249,7 @@
         <div id="step-panel-1" class="step-panel space-y-6">
           <!-- 테마 4종 카드 -->
           <div>
-            <h2 class="text-base font-extrabold text-white mb-1">어떤 스타일의 시계를 만들까요?</h2>
-            <p class="text-xs text-slate-400 mb-3">마음에 드는 모양을 하나 골라보세요!</p>
+              <h2 class="text-base font-extrabold text-white mb-1">워치페이스 스타일</h2>
             <div class="grid grid-cols-2 gap-3">
               <button data-theme="smart" class="theme-card p-4 rounded-2xl border-2 border-sky-400 bg-sky-500/15 text-left transition-all hover:scale-[1.01]">
                 <div class="text-2xl mb-1">🌤️</div>
@@ -360,8 +361,7 @@
         <div id="step-panel-2" class="step-panel hidden space-y-5">
           <div class="flex items-center justify-between">
             <div>
-              <h2 class="text-base font-extrabold text-white">📅 날짜와 요일을 어떻게 보여줄까요?</h2>
-              <p class="text-xs text-slate-400 mt-0.5">년 · 월 · 일 · 요일까지 모두 자유롭게 표시할 수 있어요!</p>
+              <h2 class="text-base font-extrabold text-white">날짜 · 요일</h2>
             </div>
             <label class="flex items-center gap-2 cursor-pointer bg-slate-800 px-3.5 py-2 rounded-2xl border border-slate-700">
               <input type="checkbox" id="dateEnableToggle" checked="" class="w-4 h-4 accent-sky-400">
@@ -432,8 +432,7 @@
              =============================================================== -->
         <div id="step-panel-3" class="step-panel hidden space-y-5">
           <div>
-            <h2 class="text-base font-extrabold text-white mb-1">🧩 시계에 무엇을 띄울까요?</h2>
-            <p class="text-xs text-slate-400">버튼을 눌러 켜고 끌 수 있어요! 켠 다음 시계 화면에서 드래그해 옮겨보세요.</p>
+              <h2 class="text-base font-extrabold text-white mb-1">위젯</h2>
           </div>
 
           <!-- 큰 토글 버튼 그리드 -->
@@ -509,7 +508,6 @@
           <div class="p-4 rounded-2xl bg-slate-800/50 border border-slate-700/70 flex flex-wrap items-center justify-between gap-3">
             <div>
               <p class="text-sm font-extrabold text-white">⏰ 시간 표시 방법</p>
-              <p class="text-xs text-slate-400">24시간/오전·오후와 초(00~59) 표시를 바꿀 수 있어요</p>
             </div>
             <div class="flex items-center gap-2">
               <button id="btnToggleSec" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-sky-500 text-slate-950 hover:bg-sky-400 transition-colors">
@@ -532,8 +530,7 @@
              =============================================================== -->
         <div id="step-panel-4" class="step-panel hidden space-y-5">
           <div>
-            <h2 class="text-base font-extrabold text-white mb-1">워치페이스 저장 및 설치</h2>
-            <p class="text-xs text-slate-400">연결된 워치 모델을 선택한 뒤 적용 방법을 고르세요.</p>
+            <h2 class="text-base font-extrabold text-white mb-1">설치 QR</h2>
           </div>
 
           <!-- 워치페이스 이름 입력 -->
@@ -545,19 +542,19 @@
             <div>
               <label for="watchDeviceSelect" class="block text-xs font-bold text-slate-300 mb-1.5">어메이즈핏 모델</label>
               <select id="watchDeviceSelect" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm font-bold text-sky-200 focus:outline-none focus:border-sky-400">
-                <optgroup label="🏔️ T-Rex 시리즈">
+                <optgroup id="trexModels" label="T-Rex 시리즈">
                   <option value="trex3pro48" selected="">Amazfit T-Rex 3 Pro 48mm (480×480)</option>
                   <option value="trex3pro44">Amazfit T-Rex 3 Pro 44mm (466×466)</option>
                   <option value="trex3">Amazfit T-Rex 3 (480×480)</option>
                   <option value="trexultra">Amazfit T-Rex Ultra (454×454)</option>
                   <option value="trex2">Amazfit T-Rex 2 (454×454)</option>
                 </optgroup>
-                <optgroup label="✨ Balance / Active 시리즈">
+                <optgroup id="balanceActiveModels" label="Balance / Active 시리즈">
                   <option value="balance2">Amazfit Balance 2 (480×480)</option>
                   <option value="balance">Amazfit Balance (480×480)</option>
                   <option value="active2">Amazfit Active 2 Round (466×466)</option>
                 </optgroup>
-                <optgroup label="⌚ GTR / Cheetah / Falcon 시리즈">
+                <optgroup id="otherRoundModels" label="GTR / Cheetah / Falcon 시리즈">
                   <option value="gtr4">Amazfit GTR 4 (466×466)</option>
                   <option value="gtr3pro">Amazfit GTR 3 Pro (480×480)</option>
                   <option value="gtr3">Amazfit GTR 3 (454×454)</option>
@@ -566,6 +563,7 @@
                   <option value="cheetah">Amazfit Cheetah Round (454×454)</option>
                   <option value="falcon">Amazfit Falcon (416×416)</option>
                 </optgroup>
+                <optgroup id="squareModels" label="사각형 모델"></optgroup>
               </select>
             </div>
           </div>
@@ -584,24 +582,31 @@
 
           <div class="p-4 sm:p-5 rounded-3xl bg-slate-800/60 border border-slate-700 space-y-3">
             <h3 class="text-base font-extrabold text-white">배경만 바꾸기</h3>
-            <p class="text-xs text-slate-300 leading-relaxed">배경 PNG에는 사진, 색상, 무늬와 테두리가 들어갑니다. 시간과 위젯은 Zepp에서 선택한 스타일을 따릅니다.</p>
             <button id="btnDownloadBackground" type="button" class="w-full py-3 px-4 rounded-2xl text-sm font-extrabold bg-emerald-500 hover:bg-emerald-400 text-slate-950">배경 PNG 저장</button>
-            <p class="text-xs text-slate-300 leading-relaxed">Zepp에서 연결된 기기의 <b>워치페이스 → 사진 워치페이스</b> 또는 <b>배경 사용자 지정</b>을 열고, 저장한 PNG를 앨범에서 골라 동기화하세요. PNG가 파일 앱에 저장됐다면 공유 메뉴에서 사진에 추가하세요. 메뉴 이름과 지원 여부는 기기에 따라 다릅니다.</p>
+            <p data-browser-guide class="text-xs text-slate-300 leading-relaxed">Zepp의 사진 워치페이스에서 저장한 PNG를 선택하세요.</p>
           </div>
 
           <div class="p-4 sm:p-5 rounded-3xl bg-slate-800/60 border border-slate-700 space-y-3">
-            <h3 class="text-base font-extrabold text-white">위젯까지 바꾸기 · Zepp 개발자 모드</h3>
+            <h3 class="text-base font-extrabold text-white">Zepp 설치</h3>
             <p id="installDeviceStatus" class="text-xs text-sky-300" role="status"></p>
-            <button data-web id="btnCloudPreview" type="button" disabled class="w-full py-3 px-4 rounded-2xl text-sm font-extrabold bg-emerald-500 hover:bg-emerald-400 text-slate-950">Zepp 설치 QR 만들기</button>
-            <p data-web id="cloudPreviewStatus" class="text-xs text-slate-300 leading-relaxed" role="status">QR 발급 서비스 확인 중</p>
-            <div data-web id="cloudPreviewResult" hidden class="p-3 rounded-2xl bg-slate-900 border border-slate-700 space-y-2">
+            <div data-android id="personalInstall" class="space-y-2">
+              <button id="btnPersonalPreview" type="button" disabled class="w-full py-3 px-4 rounded-2xl text-sm font-extrabold bg-emerald-500 text-slate-950">Zepp 설치 QR 만들기</button>
+              <p id="personalPreviewStatus" class="text-xs text-slate-300" role="status"></p>
+              <button id="btnCancelZeppLogin" type="button" hidden class="text-xs text-sky-200">로그인 취소</button>
+              <button id="btnClearZeppAccount" type="button" hidden class="text-xs text-sky-200">Zepp 연결 해제</button>
+            </div>
+            <div id="legacyPreviewControls" class="space-y-2">
+              <button id="btnCloudPreview" type="button" disabled class="w-full py-3 px-4 rounded-2xl text-sm font-extrabold bg-emerald-500 hover:bg-emerald-400 text-slate-950">Zepp 설치 QR 만들기</button>
+              <p id="cloudPreviewStatus" class="text-xs text-slate-300" role="status"></p>
+            </div>
+            <div id="cloudPreviewResult" hidden class="p-3 rounded-2xl bg-slate-900 border border-slate-700 space-y-2">
               <img id="installQrImage" alt="Zepp 설치 QR">
               <a id="btnSaveInstallQr" download="zepp-install.png" class="block w-full py-3 px-4 rounded-2xl text-center text-sm font-extrabold bg-sky-500 text-slate-950">QR 이미지 저장</a>
-              <p class="text-xs text-slate-300 leading-relaxed">Zepp → 기기 → 일반 → 개발자 모드 → + → 스캔 → 열기 / 선택에서 저장한 이미지를 고르세요. 갤러리에 바로 안 보이면 다운로드 폴더나 화면 캡처를 이용하세요.</p>
+              <button data-android id="btnCloudOpenZepp" type="button" class="w-full py-2.5 px-3 rounded-xl text-sm font-bold bg-slate-800 text-sky-200 border border-slate-700">Zepp 앱 열기</button>
+              <p class="text-xs text-slate-300">Zepp 개발자 모드 → 스캔 → 저장한 QR</p>
             </div>
-            <section data-android class="p-3 rounded-2xl bg-slate-900 border border-slate-700 space-y-3">
-              <h4 class="text-sm font-bold text-white">Zepp에서 받은 설치 QR 저장</h4>
-              <p class="text-xs text-slate-300 leading-relaxed">본인의 Zepp 계정으로 발급받은 설치 링크를 붙여넣거나 QR 사진을 불러오세요. 디자인을 발급하려면 아래에서 Zeus 프로젝트를 저장하거나 공식 Watchface Maker를 여세요.</p>
+            <details data-android class="p-3 rounded-2xl bg-slate-900 border border-slate-700 space-y-3">
+              <summary class="text-sm font-bold text-white">기존 QR 불러오기</summary>
               <label for="androidQrLink" class="block text-xs font-bold text-slate-300">Zepp 설치 링크</label>
               <input id="androidQrLink" type="text" inputmode="url" autocapitalize="off" autocomplete="off" spellcheck="false" maxlength="1800" placeholder="zpkd1://…" class="w-full rounded-xl px-3 py-2 bg-slate-800 text-white border border-slate-700">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -613,19 +618,18 @@
               <div id="androidQrResult" hidden class="space-y-2">
                 <img id="androidQrPreview" alt="Zepp 설치 QR">
                 <button id="btnAndroidSaveQr" type="button" class="w-full py-2.5 px-3 rounded-xl text-sm font-bold bg-emerald-500 text-slate-950">갤러리에 QR 저장</button>
-                <p class="text-xs text-slate-300 leading-relaxed">Zepp에서 기기 → 일반 → 개발자 모드 → + → 스캔 → 열기 / 선택으로 들어가 Watchmaker 앨범의 QR을 고르세요.</p>
               </div>
               <button id="btnAndroidOpenZepp" type="button" class="w-full py-2.5 px-3 rounded-xl text-sm font-bold bg-slate-800 text-sky-200 border border-slate-700">Zepp 앱 열기</button>
-            </section>
-            <details class="p-3 rounded-2xl bg-slate-900 border border-slate-700">
-              <summary class="cursor-pointer text-sm font-bold text-white">폰에서 QR 발급하기 · GitHub Codespaces</summary>
+            </details>
+            <details data-browser-guide id="personalPreviewGuide" class="p-3 rounded-2xl bg-slate-900 border border-slate-700">
+              <summary class="cursor-pointer text-sm font-bold text-white">내 Zepp 계정으로 설치 QR 발급</summary>
               <div class="pt-2 space-y-3">
-                <p class="text-xs text-slate-300 leading-relaxed">편집한 시간 배치와 위젯을 ZIP으로 저장하고, 폰 브라우저에서 연 Codespaces 터미널에서 공식 Zeus CLI로 QR을 발급합니다.</p>
-                <button id="btnMobilePreviewDownload" type="button" class="w-full py-3 px-4 rounded-2xl text-sm font-extrabold bg-sky-500 hover:bg-sky-400 text-slate-950">모바일 QR 발급용 프로젝트 저장</button>
+                <p class="text-xs text-slate-300 leading-relaxed">워치메이커 접속 코드 없이 사용할 수 있습니다. 아래에서 프로젝트를 저장한 다음 Codespaces에서 Zeus를 실행하고, 워치와 연결된 Zepp 계정으로 로그인하세요.</p>
+                <button id="btnMobilePreviewDownload" type="button" class="w-full py-3 px-4 rounded-2xl text-sm font-extrabold bg-sky-500 hover:bg-sky-400 text-slate-950">내 Zepp 계정용 프로젝트 ZIP 저장</button>
                 <ol class="text-xs text-slate-300 leading-relaxed space-y-2">
-                  <li>1. GitHub Codespaces를 브라우저에서 열고, Explorer의 작업 폴더 메뉴에서 <b>Upload…</b>로 <code>watchface-preview.zip</code>을 올립니다. 다운로드 이름에 <code>(1)</code>이 붙었다면 파일 이름을 맞춰 주세요.</li>
-                  <li>2. 터미널을 해당 폴더에서 열고 아래 명령을 실행합니다. 처음이라면 로그인 명령부터 실행하고, CLI 안내에 따라 폰의 Zepp 앱과 같은 계정으로 로그인하세요.</li>
-                  <li>3. QR 발급 명령을 실행하고 터미널에 나온 QR을 여백까지 캡처합니다. 폰의 Zepp에서 <b>기기 → 일반 → 개발자 모드 → + → 스캔</b>을 열고 <b>열기 / 선택</b>이 보이면 앨범에서 캡처를 고릅니다.</li>
+                  <li>GitHub Codespaces를 브라우저에서 열고 Explorer의 <b>Upload…</b>로 <code>watchface-preview.zip</code>을 올립니다. 이름에 <code>(1)</code>이 붙었다면 파일 이름을 맞춰 주세요.</li>
+                  <li>ZIP을 올린 폴더의 터미널에서 최초 로그인 명령을 실행합니다. 터미널에 나온 링크에서 같은 Zepp 계정으로 로그인한 뒤 주소창의 최종 <code>localhost</code> 주소를 같은 터미널에 붙여넣습니다.</li>
+                  <li>QR 발급 명령을 실행하고 터미널에 나온 QR을 여백까지 캡처합니다. Zepp의 <b>기기 → 일반 → 개발자 모드 → + → 스캔</b>을 열고 앨범에서 캡처를 고릅니다.</li>
                 </ol>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   <button id="btnCopyZeusLogin" type="button" class="py-2.5 px-3 rounded-xl text-xs font-bold bg-slate-800 text-sky-200 border border-slate-700">최초 로그인 명령 복사</button>
@@ -636,7 +640,7 @@
                 <p class="text-[11px] text-slate-400 leading-relaxed">Zepp 스캔 화면의 앨범 메뉴는 앱 버전에 따라 다를 수 있습니다. QR 발급에 실패하면 터미널 메시지에서 로그인 상태와 선택한 워치 모델을 확인하세요.</p>
               </div>
             </details>
-            <details class="p-3 rounded-2xl bg-slate-900 border border-slate-700">
+            <details data-browser-guide class="p-3 rounded-2xl bg-slate-900 border border-slate-700">
               <summary class="cursor-pointer text-xs font-bold text-slate-200">PC에서 Zeus CLI 사용</summary>
               <div class="pt-2 space-y-2">
                 <p class="text-xs text-slate-300 leading-relaxed">ZIP을 풀고 터미널에서 <code>zeus preview</code>를 실행합니다.</p>
@@ -967,36 +971,45 @@
     /* =========================================================================
        3. 시계 배경 & 테두리(눈금 · 나침반 · 다이버) 렌더링
        ========================================================================= */
-    function drawBackground(ctx, size, isAod) {
-      const scale = size / RES;
-      ctx.save();
+    function clipWatchScreen(ctx, width, height) {
+      const scale = width / RES;
+      const screenHeight = height / scale;
+      const top = (RES - screenHeight) / 2;
       ctx.scale(scale, scale);
-
+      ctx.translate(0, -top);
       ctx.beginPath();
-      ctx.arc(CENTER, CENTER, CENTER, 0, Math.PI * 2);
+      if (width === height) ctx.arc(CENTER, CENTER, CENTER, 0, Math.PI * 2);
+      else ctx.rect(0, top, RES, screenHeight);
       ctx.clip();
+      return { top, screenHeight };
+    }
+
+    function drawBackground(ctx, size, isAod, height = size) {
+      ctx.save();
+      const { top, screenHeight } = clipWatchScreen(ctx, size, height);
+      const bottom = top + screenHeight;
 
       if (isAod) {
         ctx.fillStyle = '#000000';
-        ctx.fillRect(0, 0, RES, RES);
+        ctx.fillRect(0, top, RES, screenHeight);
         ctx.restore();
         return;
       }
 
       if (STATE.bgPhoto) {
         const img = STATE.bgPhoto;
-        const ratio = Math.max(RES / img.width, RES / img.height);
+        const ratio = Math.max(RES / img.width, screenHeight / img.height);
         const w = img.width * ratio;
         const h = img.height * ratio;
         ctx.drawImage(img, (RES - w) / 2, (RES - h) / 2, w, h);
         ctx.fillStyle = 'rgba(0,0,0,0.28)';
-        ctx.fillRect(0, 0, RES, RES);
+        ctx.fillRect(0, top, RES, screenHeight);
       } else {
-        const grad = ctx.createRadialGradient(CENTER, CENTER, 10, CENTER, CENTER, CENTER);
+        const grad = ctx.createRadialGradient(CENTER, CENTER, 10, CENTER, CENTER, screenHeight / 2);
         grad.addColorStop(0, STATE.bgInner);
         grad.addColorStop(1, STATE.bgOuter);
         ctx.fillStyle = grad;
-        ctx.fillRect(0, 0, RES, RES);
+        ctx.fillRect(0, top, RES, screenHeight);
       }
 
       // 배경 무늬 5종
@@ -1004,7 +1017,7 @@
       if (STATE.bgPattern === 'stars') {
         for (let i = 0; i < 42; i++) {
           const sx = ((i * 97 + 31) % 440) + 20;
-          const sy = ((i * 131 + 53) % 440) + 20;
+          const sy = top + ((i * 131 + 53) % (screenHeight - 40)) + 20;
           const r = (i % 3) * 0.7 + 0.8;
           ctx.fillStyle = i % 5 === 0 ? 'rgba(253,224,71,0.55)' : 'rgba(255,255,255,0.38)';
           ctx.beginPath();
@@ -1015,14 +1028,16 @@
         ctx.strokeStyle = 'rgba(255,255,255,0.07)';
         ctx.lineWidth = 1;
         for (let p = 24; p < RES; p += 24) {
-          ctx.beginPath(); ctx.moveTo(p, 0); ctx.lineTo(p, RES); ctx.stroke();
-          ctx.beginPath(); ctx.moveTo(0, p); ctx.lineTo(RES, p); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(p, top); ctx.lineTo(p, bottom); ctx.stroke();
+        }
+        for (let y = top + 24; y < bottom; y += 24) {
+          ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(RES, y); ctx.stroke();
         }
       } else if (STATE.bgPattern === 'carbon') {
         ctx.fillStyle = 'rgba(255,255,255,0.06)';
-        for (let y = 0; y < RES; y += 16) {
+        for (let y = top; y < bottom; y += 16) {
           for (let x = 0; x < RES; x += 16) {
-            ctx.fillRect(x + ((y / 16) % 2 ? 0 : 8), y, 7, 7);
+            ctx.fillRect(x + (((y - top) / 16) % 2 ? 0 : 8), y, 7, 7);
           }
         }
       } else if (STATE.bgPattern === 'rings') {
@@ -1033,7 +1048,7 @@
         }
       } else if (STATE.bgPattern === 'dots') {
         ctx.fillStyle = 'rgba(255,255,255,0.09)';
-        for (let y = 20; y < RES; y += 26) {
+        for (let y = top + 20; y < bottom; y += 26) {
           for (let x = 20; x < RES; x += 26) {
             ctx.beginPath(); ctx.arc(x, y, 2.2, 0, Math.PI * 2); ctx.fill();
           }
@@ -1156,19 +1171,14 @@
     function drawWatch(ctx, size, opts = {}) {
       const isAod = opts.isAod !== undefined ? opts.isAod : STATE.isAod;
       const forExport = !!opts.forExport;
+      const height = opts.height ?? size;
       const d = getSimDate();
       const pad = n => String(n).padStart(2, '0');
 
-      ctx.clearRect(0, 0, size, size);
-      drawBackground(ctx, size, isAod);
-
-      const scale = size / RES;
+      ctx.clearRect(0, 0, size, height);
+      drawBackground(ctx, size, isAod, height);
       ctx.save();
-      ctx.scale(scale, scale);
-
-      ctx.beginPath();
-      ctx.arc(CENTER, CENTER, CENTER, 0, Math.PI * 2);
-      ctx.clip();
+      clipWatchScreen(ctx, size, height);
 
       const krDaysShort = ['일', '월', '화', '수', '목', '금', '토'];
       const krDaysFull = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
@@ -1597,10 +1607,14 @@
     }
 
     function updateStep4Previews() {
-      const c1 = document.getElementById('previewNormalCanvas');
-      const c2 = document.getElementById('previewAodCanvas');
-      if (c1) drawWatch(c1.getContext('2d'), c1.width, { isAod: false, forExport: true });
-      if (c2) drawWatch(c2.getContext('2d'), c2.width, { isAod: true, forExport: true });
+      const { designWidth, designHeight = designWidth } = DEVICE_PROFILES[STATE.deviceKey];
+      for (const [id, isAod] of [['previewNormalCanvas', false], ['previewAodCanvas', true]]) {
+        const canvas = document.getElementById(id);
+        canvas.height = Math.round(canvas.width * designHeight / designWidth);
+        canvas.style.height = 'auto';
+        canvas.style.borderRadius = designHeight === designWidth ? '50%' : '18%';
+        drawWatch(canvas.getContext('2d'), canvas.width, { isAod, forExport: true, height: canvas.height });
+      }
     }
 
     /* =========================================================================
@@ -1867,157 +1881,15 @@
     /* =========================================================================
        7. 원클릭 어메이즈핏(Zepp OS) 안전 내보내기 (PNG 에셋 모음 / Zeus CLI 소스)
        ========================================================================= */
-    const DEVICE_PROFILES = {
-      trex3pro48: {
-        targetKey: 't-rex-3-pro-48mm',
-        displayName: 'Amazfit T-Rex 3 Pro (48mm)',
-        platforms: [
-          { name: 't-rex-3-pro-48mm', deviceSource: 10551552 },
-          { name: 't-rex-3-pro-48mm-wn', deviceSource: 10551553 },
-          { name: 't-rex-3-pro-48mm-w', deviceSource: 10551555 }
-        ],
-        designWidth: 480
-      },
-      trex3pro44: {
-        targetKey: 't-rex-3-pro-44mm',
-        displayName: 'Amazfit T-Rex 3 Pro (44mm)',
-        platforms: [
-          { name: 't-rex-3-pro-44mm', deviceSource: 10682624 },
-          { name: 't-rex-3-pro-44mm-wn', deviceSource: 10682625 },
-          { name: 't-rex-3-pro-44mm-w', deviceSource: 10682627 }
-        ],
-        designWidth: 466
-      },
-      trex3: {
-        targetKey: 't-rex-3',
-        displayName: 'Amazfit T-Rex 3',
-        platforms: [
-          { name: "t-rex-3-8716544", deviceSource: 8716544 },
-          { name: "t-rex-3-8716545", deviceSource: 8716545 },
-          { name: "t-rex-3-8716547", deviceSource: 8716547 }
-        ],
-        designWidth: 480
-      },
-      trexultra: {
-        targetKey: 't-rex-ultra',
-        displayName: 'Amazfit T-Rex Ultra',
-        platforms: [
-          { name: "t-rex-ultra-6553856", deviceSource: 6553856 },
-          { name: "t-rex-ultra-6553857", deviceSource: 6553857 }
-        ],
-        designWidth: 454
-      },
-      trex2: {
-        targetKey: 't-rex-2',
-        displayName: 'Amazfit T-Rex 2',
-        platforms: [
-          { name: 't-rex-2', deviceSource: 418 },
-          { name: 't-rex-2-w', deviceSource: 419 }
-        ],
-        designWidth: 454
-      },
-      balance2: {
-        targetKey: 'balance-2',
-        displayName: 'Amazfit Balance 2',
-        platforms: [
-          { name: "balance-2-9568512", deviceSource: 9568512 },
-          { name: "balance-2-9568513", deviceSource: 9568513 },
-          { name: "balance-2-9568515", deviceSource: 9568515 }
-        ],
-        designWidth: 480
-      },
-      balance: {
-        targetKey: 'balance',
-        displayName: 'Amazfit Balance',
-        platforms: [
-          { name: "balance-8519936", deviceSource: 8519936 },
-          { name: "balance-8519937", deviceSource: 8519937 },
-          { name: "balance-8519939", deviceSource: 8519939 }
-        ],
-        designWidth: 480
-      },
-      active2: {
-        targetKey: 'active-2-round',
-        displayName: 'Amazfit Active 2 (Round)',
-        platforms: [
-          { name: "active-2-round-8913152", deviceSource: 8913152 },
-          { name: "active-2-round-8913153", deviceSource: 8913153 },
-          { name: "active-2-round-8913155", deviceSource: 8913155 },
-          { name: "active-2-round-8913159", deviceSource: 8913159 },
-          { name: "active-2-round-10092800", deviceSource: 10092800 },
-          { name: "active-2-round-10092801", deviceSource: 10092801 },
-          { name: "active-2-round-10092803", deviceSource: 10092803 },
-          { name: "active-2-round-10092807", deviceSource: 10092807 }
-        ],
-        designWidth: 466
-      },
-      gtr4: {
-        targetKey: 'gtr-4',
-        displayName: 'Amazfit GTR 4',
-        platforms: [
-          { name: "gtr-4-7930112", deviceSource: 7930112 },
-          { name: "gtr-4-7930113", deviceSource: 7930113 },
-          { name: "gtr-4-7864577", deviceSource: 7864577 }
-        ],
-        designWidth: 466
-      },
-      gtr3pro: {
-        photoOnly: true,
-        targetKey: 'gtr-3-pro',
-        displayName: 'Amazfit GTR 3 Pro',
-        platforms: [
-          { name: 'gtr-3-pro', deviceSource: 229 },
-          { name: 'gtr-3-pro-w', deviceSource: 230 }
-        ],
-        designWidth: 480
-      },
-      gtr3: {
-        photoOnly: true,
-        targetKey: 'gtr-3',
-        displayName: 'Amazfit GTR 3',
-        platforms: [
-          { name: 'gtr-3', deviceSource: 226 },
-          { name: 'gtr-3-w', deviceSource: 227 }
-        ],
-        designWidth: 454
-      },
-      gtrmini: {
-        targetKey: 'gtr-mini',
-        displayName: 'Amazfit GTR Mini',
-        platforms: [
-          { name: "gtr-mini-250", deviceSource: 250 },
-          { name: "gtr-mini-251", deviceSource: 251 }
-        ],
-        designWidth: 416
-      },
-      cheetahpro: {
-        targetKey: 'cheetah-pro',
-        displayName: 'Amazfit Cheetah Pro',
-        platforms: [
-          { name: "cheetah-pro-8126720", deviceSource: 8126720 },
-          { name: "cheetah-pro-8126721", deviceSource: 8126721 }
-        ],
-        designWidth: 480
-      },
-      cheetah: {
-        targetKey: 'cheetah-round',
-        displayName: 'Amazfit Cheetah (Round)',
-        platforms: [
-          { name: "cheetah-round-8192256", deviceSource: 8192256 },
-          { name: "cheetah-round-8192257", deviceSource: 8192257 }
-        ],
-        designWidth: 454
-      },
-      falcon: {
-        targetKey: 'falcon',
-        displayName: 'Amazfit Falcon',
-        platforms: [
-          { name: 'falcon', deviceSource: 414 },
-          { name: 'falcon-w', deviceSource: 415 }
-        ],
-        designWidth: 416
+    const { profiles: DEVICE_PROFILES, additionalModels, getExportMetrics: exportMetrics,
+      buildWatchfaceIndexJs: generateWatchfaceSource } = WatchmakerProject;
+    for (const [group, models] of Object.entries(additionalModels)) {
+      const options = document.getElementById(group);
+      for (const [key] of models) {
+        const { displayName, designWidth, designHeight } = DEVICE_PROFILES[key];
+        options.append(new Option(displayName + ' (' + designWidth + '×' + designHeight + ')', key));
       }
-    };
+    }
 
     function canvasToBlob(c) {
       return new Promise(res => c.toBlob(b => res(b), 'image/png'));
@@ -2156,51 +2028,22 @@
     }
 
     // 위젯별 사용자가 조절한 크기(scale)와 기기 해상도를 통합 계산하는 헬퍼
-    function getExportMetrics(targetSize = 480) {
-      const S = targetSize / 480;
-      const getScale = (id) => {
-        const w = STATE.widgets.find(item => item.id === id);
-        return w && w.scale ? w.scale : 1;
-      };
-      const digS = getScale('digital') * S;
-      const wkS = getScale('weekWeather');
-      const curS = getScale('weather');
-      const weatherIconBase = (STATE.widgets.find(w => w.id === 'weekWeather')?.visible ? wkS : curS) * S;
+    const getExportMetrics = targetSize => exportMetrics(STATE, targetSize);
 
-      return {
-        S,
-        digS,
-        mainW: Math.max(18, Math.round(36 * digS)),
-        mainH: Math.max(32, Math.round(66 * digS)),
-        mainFs: Math.max(24, Math.round(56 * digS)),
-        colonW: Math.max(8, Math.round(16 * digS)),
-        colonFs: Math.max(22, Math.round(52 * digS)),
-        secW: Math.max(10, Math.round(16 * digS)),
-        secH: Math.max(16, Math.round(30 * digS)),
-        secFs: Math.max(12, Math.round(24 * digS)),
-        wIcon: Math.max(12, Math.round(22 * weatherIconBase)),
-        icSteps: Math.max(12, Math.round(20 * getScale('steps') * S)),
-        icHeart: Math.max(12, Math.round(20 * getScale('heart') * S)),
-        icVo2: Math.max(12, Math.round(20 * getScale('vo2max') * S)),
-        icBat: Math.max(12, Math.round(20 * getScale('battery') * S)),
-        icSun: Math.max(12, Math.round(20 * getScale('sunTimes') * S))
-      };
-    }
-
-    async function populateAssetPngs(folder, targetSize = 480) {
+    async function populateAssetPngs(folder, targetSize, targetHeight = targetSize) {
       const dw = STATE.widgets.find(w => w.id === 'date');
       const dig = STATE.widgets.find(w => w.id === 'digital');
       const M = getExportMetrics(targetSize);
       const makeSized = (fn) => {
         const c = document.createElement('canvas');
-        c.width = targetSize; c.height = targetSize;
+        c.width = targetSize; c.height = targetHeight;
         fn(c.getContext('2d'));
         return c;
       };
 
-      folder.file('preview.png', canvasToBase64(makeSized(ctx => drawWatch(ctx, targetSize, { isAod: false, forExport: true }))), { base64: true });
-      folder.file('background.png', canvasToBase64(makeSized(ctx => drawBackground(ctx, targetSize, false))), { base64: true });
-      folder.file('aod-background.png', canvasToBase64(makeSized(ctx => drawBackground(ctx, targetSize, true))), { base64: true });
+      folder.file('preview.png', canvasToBase64(makeSized(ctx => drawWatch(ctx, targetSize, { isAod: false, forExport: true, height: targetHeight }))), { base64: true });
+      folder.file('background.png', canvasToBase64(makeSized(ctx => drawBackground(ctx, targetSize, false, targetHeight))), { base64: true });
+      folder.file('aod-background.png', canvasToBase64(makeSized(ctx => drawBackground(ctx, targetSize, true, targetHeight))), { base64: true });
 
       // 사용자가 조절한 디지털 시계 크기(scale)에 맞춰 숫자/콜론/초 PNG 생성
       for (let i = 0; i < 10; i++) {
@@ -2266,11 +2109,12 @@
       try {
         const dev = DEVICE_PROFILES[STATE.deviceKey];
         const canvas = document.createElement("canvas");
-        canvas.width = canvas.height = dev.designWidth;
+        canvas.width = dev.designWidth;
+        canvas.height = dev.designHeight ?? dev.designWidth;
         const ctx = canvas.getContext("2d");
         ctx.fillStyle = STATE.bgOuter;
-        ctx.fillRect(0, 0, dev.designWidth, dev.designWidth);
-        drawBackground(ctx, dev.designWidth, false);
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        drawBackground(ctx, canvas.width, false, canvas.height);
         const blob = await canvasToBlob(canvas);
         if (!blob) throw new Error("PNG export failed");
         triggerBlobDownload(blob, dev.targetKey + "-background.png");
@@ -2350,7 +2194,7 @@
         const dev = DEVICE_PROFILES[STATE.deviceKey];
         const safeName = (STATE.watchName || 'MyWatchface').replace(/[\\/:*?"<>|\s]+/g, '_');
         const zip = new JSZip();
-        await populateAssetPngs(zip, dev.designWidth);
+        await populateAssetPngs(zip, dev.designWidth, dev.designHeight);
         const zipBlob = await zip.generateAsync({ type: 'blob' });
         triggerBlobDownload(zipBlob, `${safeName}_${dev.targetKey}_그림모음.zip`);
         showToast('에디터용 그림 파일 모음을 저장했어요! 🖼️');
@@ -2371,15 +2215,26 @@
 
     async function copyZeusCommand(command) {
       try {
-        await navigator.clipboard.writeText(command);
+        if (androidBridge) androidBridge.copyZeusCommand(command);
+        else await navigator.clipboard.writeText(command);
         showToast('명령을 복사했어요. Codespaces 터미널에 붙여넣으세요.');
       } catch {
         window.prompt('아래 명령을 복사하세요.', command);
       }
     }
 
-    async function buildWatchfaceProject(dev) {
+    async function buildWatchfaceProject(dev, personal = false) {
       const zip = new JSZip();
+      const assetsTarget = zip.folder('assets').folder(dev.targetKey);
+      await populateAssetPngs(assetsTarget, dev.designWidth, dev.designHeight);
+      if (personal) {
+        zip.file('design.json', JSON.stringify({
+          version: 1, target: dev.targetKey, name: (STATE.watchName || '').slice(0, 48),
+          widgets: STATE.widgets.map(({id, x, y, scale, color, visible}) => ({id, x, y, scale, color, visible})),
+          dateOpt: STATE.dateOpt, showSeconds: STATE.showSeconds,
+        }));
+        return zip.generateAsync({ type: 'blob', compression: 'DEFLATE' });
+      }
 
       // 1. app.json 및 센서 권한
       const appJson = {
@@ -2419,12 +2274,9 @@
       zip.file('app.js', `App({\n  globalData: {},\n  onCreate() {},\n  onDestroy() {}\n});\n`);
 
       // 3. watchface/index.js (Zepp OS 2.0/3.0/4.0 정식 @zos/ui · @zos/sensor 모듈 방식)
-      zip.folder('watchface').file('index.js', buildWatchfaceIndexJs(dev));
+      zip.folder('watchface').file('index.js', generateWatchfaceSource(dev, STATE));
 
       // 4. assets/<targetKey>/ PNG 생성 (Zeus CLI가 TGA로 자동 컴파일)
-      const assetsTarget = zip.folder('assets').folder(dev.targetKey);
-      await populateAssetPngs(assetsTarget, dev.designWidth);
-
       zip.file("설치방법.txt", [
         dev.displayName + " 워치페이스 미리보기",
         "",
@@ -2478,372 +2330,106 @@
     }
 
     // Zeus가 컴파일할 워치페이스 소스
-    function buildWatchfaceIndexJs(dev) {
-      const dw = STATE.widgets.find(w => w.id === 'date');
-      const dig = STATE.widgets.find(w => w.id === 'digital');
-      const ana = STATE.widgets.find(w => w.id === 'analog');
-      const wkW = STATE.widgets.find(w => w.id === 'weekWeather');
-      const curW = STATE.widgets.find(w => w.id === 'weather');
-      const sun = STATE.widgets.find(w => w.id === 'sunTimes');
-      const steps = STATE.widgets.find(w => w.id === 'steps');
-      const heart = STATE.widgets.find(w => w.id === 'heart');
-      const vo2 = STATE.widgets.find(w => w.id === 'vo2max');
-      const bat = STATE.widgets.find(w => w.id === 'battery');
-      const M = getExportMetrics(dev.designWidth);
-      const S = M.S;
-      const sc = (v) => Math.round(v * S);
-      const scW = (v, w) => Math.round(v * (w?.scale || 1) * S);
-      const hexToNum = (hex) => '0x' + (hex || '#ffffff').replace('#', '');
-
-      return `// Zepp OS 3.0 / 4.0+ 정식 모듈 기반 Watchface (${dev.displayName})
-import { createWidget, widget, align, prop, show_level } from '@zos/ui';
-import { Time, Step, HeartRate, Battery, Weather } from '@zos/sensor';
-
-const DIGIT_ARR = [${Array.from({ length: 10 }, (_, i) => `'main-${i}.png'`).join(', ')}];
-const SEC_ARR   = [${Array.from({ length: 10 }, (_, i) => `'sec-${i}.png'`).join(', ')}];
-const NORMAL = show_level.ONLY_NORMAL;
-const AOD = show_level.ONAL_AOD || show_level.ONLY_AOD || 2;
-const BOTH = NORMAL | AOD;
-
-// Zepp OS 날씨 코드 -> 아이콘 파일명 매핑
-function getWeatherIcon(idx) {
-  if (idx === 0 || idx === 22) return 'w-sun.png';
-  if (idx === 1 || idx === 2) return 'w-partly.png';
-  if (idx === 3 || idx === 4 || idx === 19 || idx === 20 || idx === 21) return 'w-cloud.png';
-  if ((idx >= 5 && idx <= 11) || idx === 23) return 'w-rain.png';
-  if (idx >= 12 && idx <= 18) return 'w-snow.png';
-  return 'w-partly.png';
-}
-
-WatchFace({
-  build() {
-    // 1. 일반 / 절전(AOD) 배경
-    try {
-      createWidget(widget.IMG, {
-        x: 0, y: 0, w: ${dev.designWidth}, h: ${dev.designWidth}, src: 'background.png',
-        show_level: NORMAL
-      });
-      createWidget(widget.IMG, {
-        x: 0, y: 0, w: ${dev.designWidth}, h: ${dev.designWidth}, src: 'aod-background.png',
-        show_level: AOD
-      });
-    } catch (e) {}
-
-    // 2. 큰 디지털 시계 (사용자가 조절한 크기 scale + 콜론 + 하늘색 초 표시)
-    ${dig && dig.visible ? `try {
-      const centerX = ${sc(dig.x)} - ${STATE.showSeconds ? scW(18, dig) : 0};
-      const baseY = ${Math.max(0, sc(dig.y) - Math.round(M.mainH / 2))};
-      const colonX = centerX - ${Math.round(M.colonW / 2)};
-      const hourX = colonX - ${M.mainW * 2} - ${Math.max(1, Math.round(2 * M.digS))};
-      const minX = colonX + ${M.colonW} + ${Math.max(1, Math.round(2 * M.digS))};
-      createWidget(widget.IMG_TIME, {
-        hour_startX: hourX,
-        hour_startY: baseY,
-        hour_array: DIGIT_ARR,
-        hour_zero: 1,
-        minute_startX: minX,
-        minute_startY: baseY,
-        minute_array: DIGIT_ARR,
-        minute_zero: 1,
-        show_level: BOTH
-      });
-      createWidget(widget.IMG, {
-        x: colonX,
-        y: baseY,
-        src: 'main-colon.png',
-        show_level: BOTH
-      });
-      ${STATE.showSeconds ? `
-      createWidget(widget.IMG_TIME, {
-        second_startX: minX + ${M.mainW * 2} + ${Math.max(4, Math.round(8 * M.digS))},
-        second_startY: baseY + ${Math.max(0, M.mainH - M.secH - Math.round(4 * M.digS))},
-        second_array: SEC_ARR,
-        second_zero: 1,
-        show_level: NORMAL
-      });` : ''}
-    } catch (e) {}` : ''}
-
-    // 3. 아날로그 바늘
-    ${ana && ana.visible ? `try {
-      createWidget(widget.TIME_POINTER, {
-        hour_centerX: ${sc(ana.x)}, hour_centerY: ${sc(ana.y)}, hour_posX: 40, hour_posY: ${Math.round(dev.designWidth / 2)}, hour_path: 'h01.png',
-        minute_centerX: ${sc(ana.x)}, minute_centerY: ${sc(ana.y)}, minute_posX: 40, minute_posY: ${Math.round(dev.designWidth / 2)}, minute_path: 'm01.png',
-        second_centerX: ${sc(ana.x)}, second_centerY: ${sc(ana.y)}, second_posX: 40, second_posY: ${Math.round(dev.designWidth / 2)}, second_path: 's01.png',
-        show_level: NORMAL
-      });
-    } catch (e) {}` : ''}
-
-    // 4. 풀 날짜 (둥근 박스 + 크기 scale 반영 + 요일만 주말 색깔 분리)
-    ${dw && dw.visible ? `try {
-      this.timeSensor = new Time();
-      const pad = (n) => (n < 10 ? '0' + n : '' + n);
-      const weeks = ${STATE.dateOpt.style === 'en_iso'
-        ? `['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']`
-        : STATE.dateOpt.style === 'full_kr' || STATE.dateOpt.style === 'two_line'
-          ? `['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']`
-          : `['(일)', '(월)', '(화)', '(수)', '(목)', '(금)', '(토)']`};
-      const isTwoLine = ${STATE.dateOpt.style === 'two_line'};
-      const boxW = ${scW(STATE.dateOpt.style === 'full_kr' ? 256 : 210, dw)};
-      const boxH = ${scW(STATE.dateOpt.style === 'two_line' ? 50 : 36, dw)};
-      const boxX = ${sc(dw.x)} - Math.round(boxW / 2);
-      const boxY = ${sc(dw.y)} - Math.round(boxH / 2);
-
-      ${STATE.dateOpt.boxStyle === 'pill' ? `
-      createWidget(widget.FILL_RECT, {
-        x: boxX, y: boxY, w: boxW, h: boxH,
-        radius: Math.round(boxH / 2),
-        color: 0x0f172a, alpha: 165,
-        show_level: NORMAL
-      });
-      createWidget(widget.STROKE_RECT, {
-        x: boxX, y: boxY, w: boxW, h: boxH,
-        radius: Math.round(boxH / 2),
-        line_width: 2,
-        color: 0x475569,
-        show_level: NORMAL
-      });` : ''}
-
-      const fs = ${Math.max(12, scW(STATE.dateOpt.fontSize + 1, dw))};
-      const mainRatio = ${STATE.dateOpt.style === 'full_kr' ? 0.65 : 0.64};
-      const dateMainWidget = createWidget(widget.TEXT, {
-        x: isTwoLine ? boxX : (boxX + 4),
-        y: isTwoLine ? (boxY + 2) : boxY,
-        w: isTwoLine ? boxW : (${STATE.dateOpt.showWeekday ? 'Math.round(boxW * mainRatio)' : 'boxW - 8'}),
-        h: isTwoLine ? Math.round(boxH / 2) : boxH,
-        color: ${hexToNum(dw.color)},
-        text_size: fs,
-        align_h: (isTwoLine || !${STATE.dateOpt.showWeekday}) ? align.CENTER_H : align.RIGHT,
-        align_v: align.CENTER_V,
-        text: '',
-        show_level: BOTH
-      });
-      ${STATE.dateOpt.showWeekday ? `
-      const dateWeekWidget = createWidget(widget.TEXT, {
-        x: isTwoLine ? boxX : (boxX + 10 + Math.round(boxW * mainRatio)),
-        y: isTwoLine ? (boxY + Math.round(boxH / 2) - 2) : boxY,
-        w: isTwoLine ? boxW : Math.round(boxW * (1 - mainRatio) - 10),
-        h: isTwoLine ? Math.round(boxH / 2) : boxH,
-        color: ${hexToNum(dw.color)},
-        text_size: isTwoLine ? Math.max(11, fs - 1) : fs,
-        align_h: isTwoLine ? align.CENTER_H : align.LEFT,
-        align_v: align.CENTER_V,
-        text: '',
-        show_level: BOTH
-      });` : ''}
-
-      this.updateDate = () => {
-        const y = this.timeSensor.getFullYear();
-        const m = this.timeSensor.getMonth();
-        const d = this.timeSensor.getDate();
-        const wIdx = this.timeSensor.getDay() % 7;
-        const yPart = ${STATE.dateOpt.showYear ? (STATE.dateOpt.style === 'full_kr' ? `y + '년 '` : STATE.dateOpt.style === 'en_iso' ? `y + '-'` : `y + '.'`) : `''`};
-        const mdPart = ${STATE.dateOpt.style === 'full_kr' ? `m + '월 ' + d + '일'` : STATE.dateOpt.style === 'en_iso' ? `pad(m) + '-' + pad(d)` : `pad(m) + '.' + pad(d)`};
-        dateMainWidget.setProperty(prop.TEXT, yPart + mdPart);
-        ${STATE.dateOpt.showWeekday ? `
-        dateWeekWidget.setProperty(prop.TEXT, weeks[wIdx]);
-        ${STATE.dateOpt.weekendColor ? `
-        const col = wIdx === 0 ? 0xfb7185 : (wIdx === 6 ? 0x38bdf8 : ${hexToNum(dw.color)});
-        dateWeekWidget.setProperty(prop.COLOR, col);` : ''}` : ''}
-      };
-      this.updateDate();
-      this.timeSensor.onPerMinute(this.updateDate);
-    } catch (e) {}` : ''}
-
-    // 5. 날씨 (1주일 요일별 카드 + 오늘 날씨 + 일출·일몰 크기 scale 반영)
-    ${(wkW && wkW.visible) || (curW && curW.visible) || (sun && sun.visible) ? `try {
-      const weatherSensor = new Weather();
-      const forecast = weatherSensor.getForecast();
-      const pad2 = (n) => (n < 10 ? '0' + n : '' + n);
-      ${wkW && wkW.visible ? `
-      const tNow = new Time();
-      const baseDow = tNow.getDay() % 7;
-      const dNames = ['일', '월', '화', '수', '목', '금', '토'];
-      const fList = (forecast && forecast.forecastData && forecast.forecastData.data) || [];
-      const cardW = ${Math.max(26, scW(44, wkW))};
-      const gap = ${Math.max(2, scW(4, wkW))};
-      const totalW = cardW * 7 + gap * 6;
-      const startX = ${sc(wkW.x)} - Math.round(totalW / 2);
-      const cardH = ${Math.max(38, scW(62, wkW))};
-      const cardY = ${Math.max(0, sc(wkW.y) - Math.round(Math.max(38, scW(62, wkW)) / 2))};
-      for (let i = 0; i < 7; i++) {
-        const cx = startX + i * (cardW + gap);
-        const dIdx = (baseDow + i) % 7;
-        const item = fList[i];
-        const tempStr = item && typeof item.high === 'number' ? (item.high + '°') : '--°';
-        const iconSrc = getWeatherIcon(item && typeof item.index === 'number' ? item.index : 1);
-
-        createWidget(widget.FILL_RECT, {
-          x: cx, y: cardY, w: cardW, h: cardH, radius: ${Math.max(6, scW(10, wkW))},
-          color: i === 0 ? 0x0284c7 : 0x0f172a,
-          alpha: i === 0 ? 95 : 155,
-          show_level: NORMAL
-        });
-        createWidget(widget.STROKE_RECT, {
-          x: cx, y: cardY, w: cardW, h: cardH, radius: ${Math.max(6, scW(10, wkW))},
-          line_width: 1,
-          color: i === 0 ? 0x38bdf8 : 0x334155,
-          show_level: NORMAL
-        });
-        createWidget(widget.TEXT, {
-          x: cx, y: cardY + 2, w: cardW, h: ${Math.max(12, scW(18, wkW))},
-          color: dIdx === 0 ? 0xfb7185 : (dIdx === 6 ? 0x38bdf8 : 0xcbd5e1),
-          text_size: ${Math.max(10, scW(13, wkW))}, align_h: align.CENTER_H,
-          text: dNames[dIdx], show_level: NORMAL
-        });
-        createWidget(widget.IMG, {
-          x: cx + Math.round((cardW - ${M.wIcon}) / 2), y: cardY + Math.round((cardH - ${M.wIcon}) / 2),
-          w: ${M.wIcon}, h: ${M.wIcon}, src: iconSrc, show_level: NORMAL
-        });
-        createWidget(widget.TEXT, {
-          x: cx, y: cardY + cardH - ${Math.max(13, scW(20, wkW))}, w: cardW, h: ${Math.max(12, scW(18, wkW))},
-          color: ${hexToNum(wkW.color)},
-          text_size: ${Math.max(10, scW(13, wkW))}, align_h: align.CENTER_H,
-          text: tempStr, show_level: NORMAL
-        });
-      }` : ''}
-      ${curW && curW.visible ? `
-      const f0 = forecast && forecast.forecastData && forecast.forecastData.data && forecast.forecastData.data[0];
-      const curStr = f0 ? (f0.high + '° / ' + f0.low + '°') : '--°C';
-      createWidget(widget.IMG, {
-        x: ${Math.max(0, sc(curW.x) - scW(62, curW))}, y: ${Math.max(0, sc(curW.y) - Math.round(M.wIcon / 2))},
-        w: ${M.wIcon}, h: ${M.wIcon}, src: getWeatherIcon(f0 ? f0.index : 0), show_level: NORMAL
-      });
-      createWidget(widget.TEXT, {
-        x: ${Math.max(0, sc(curW.x) - scW(36, curW))}, y: ${Math.max(0, sc(curW.y) - scW(14, curW))},
-        w: ${scW(116, curW)}, h: ${scW(28, curW)}, color: ${hexToNum(curW.color)},
-        text_size: ${Math.max(12, scW(19, curW))}, align_h: align.LEFT, align_v: align.CENTER_V,
-        text: curStr, show_level: NORMAL
-      });` : ''}
-      ${sun && sun.visible ? `
-      const tide = forecast && forecast.tideData && forecast.tideData.data && forecast.tideData.data[0];
-      const srTxt = tide?.sunrise ? (pad2(tide.sunrise.hour) + ':' + pad2(tide.sunrise.minute)) : '--:--';
-      const ssTxt = tide?.sunset ? (pad2(tide.sunset.hour) + ':' + pad2(tide.sunset.minute)) : '--:--';
-      createWidget(widget.IMG, {
-        x: ${Math.max(0, sc(sun.x) - scW(90, sun))}, y: ${Math.max(0, sc(sun.y) - Math.round(M.icSun / 2))},
-        w: ${M.icSun}, h: ${M.icSun}, src: 'ic-sunrise.png', show_level: NORMAL
-      });
-      createWidget(widget.TEXT, {
-        x: ${Math.max(0, sc(sun.x) - scW(66, sun))}, y: ${Math.max(0, sc(sun.y) - scW(14, sun))},
-        w: ${scW(68, sun)}, h: ${scW(28, sun)}, color: ${hexToNum(sun.color)},
-        text_size: ${Math.max(11, scW(17, sun))}, align_h: align.LEFT, align_v: align.CENTER_V,
-        text: srTxt, show_level: NORMAL
-      });
-      createWidget(widget.IMG, {
-        x: ${Math.max(0, sc(sun.x) + scW(12, sun))}, y: ${Math.max(0, sc(sun.y) - Math.round(M.icSun / 2))},
-        w: ${M.icSun}, h: ${M.icSun}, src: 'ic-sunset.png', show_level: NORMAL
-      });
-      createWidget(widget.TEXT, {
-        x: ${Math.max(0, sc(sun.x) + scW(36, sun))}, y: ${Math.max(0, sc(sun.y) - scW(14, sun))},
-        w: ${scW(68, sun)}, h: ${scW(28, sun)}, color: ${hexToNum(sun.color)},
-        text_size: ${Math.max(11, scW(17, sun))}, align_h: align.LEFT, align_v: align.CENTER_V,
-        text: ssTxt, show_level: NORMAL
-      });` : ''}
-    } catch (e) {}` : ''}
-
-    // 6. 걸음 수 (아이콘 + 숫자 크기 scale 반영)
-    ${steps && steps.visible ? `try {
-      this.stepSensor = new Step();
-      createWidget(widget.IMG, {
-        x: ${Math.max(0, sc(steps.x) - scW(44, steps))}, y: ${Math.max(0, sc(steps.y) - Math.round(M.icSteps / 2))},
-        w: ${M.icSteps}, h: ${M.icSteps}, src: 'ic-steps.png', show_level: NORMAL
-      });
-      const stepText = createWidget(widget.TEXT, {
-        x: ${Math.max(0, sc(steps.x) - scW(20, steps))}, y: ${Math.max(0, sc(steps.y) - scW(14, steps))},
-        w: ${scW(88, steps)}, h: ${scW(28, steps)}, color: ${hexToNum(steps.color)},
-        text_size: ${Math.max(12, scW(19, steps))}, align_h: align.LEFT, align_v: align.CENTER_V,
-        text: String(this.stepSensor.getCurrent() || 0), show_level: NORMAL
-      });
-      this.onStepChange = () => stepText.setProperty(prop.TEXT, String(this.stepSensor.getCurrent() || 0));
-      this.stepSensor.onChange(this.onStepChange);
-    } catch (e) {}` : ''}
-
-    // 7. 심박수 (하트 아이콘 + 숫자 크기 scale 반영)
-    ${heart && heart.visible ? `try {
-      this.hrSensor = new HeartRate();
-      createWidget(widget.IMG, {
-        x: ${Math.max(0, sc(heart.x) - scW(32, heart))}, y: ${Math.max(0, sc(heart.y) - Math.round(M.icHeart / 2))},
-        w: ${M.icHeart}, h: ${M.icHeart}, src: 'ic-heart.png', show_level: NORMAL
-      });
-      const hrText = createWidget(widget.TEXT, {
-        x: ${Math.max(0, sc(heart.x) - scW(8, heart))}, y: ${Math.max(0, sc(heart.y) - scW(14, heart))},
-        w: ${scW(62, heart)}, h: ${scW(28, heart)}, color: ${hexToNum(heart.color)},
-        text_size: ${Math.max(12, scW(19, heart))}, align_h: align.LEFT, align_v: align.CENTER_V,
-        text: String(this.hrSensor.getLast() || this.hrSensor.getCurrent() || '--'), show_level: NORMAL
-      });
-      this.onHrChange = () => hrText.setProperty(prop.TEXT, String(this.hrSensor.getCurrent() || this.hrSensor.getLast() || '--'));
-      this.hrSensor.onCurrentChange(this.onHrChange);
-    } catch (e) {}` : ''}
-
-    // 8. VO2max (아이콘 + 수치 크기 scale 반영)
-    ${vo2 && vo2.visible ? `try {
-      createWidget(widget.IMG, {
-        x: ${Math.max(0, sc(vo2.x) - scW(48, vo2))}, y: ${Math.max(0, sc(vo2.y) - Math.round(M.icVo2 / 2))},
-        w: ${M.icVo2}, h: ${M.icVo2}, src: 'ic-vo2.png', show_level: NORMAL
-      });
-      createWidget(widget.TEXT, {
-        x: ${Math.max(0, sc(vo2.x) - scW(24, vo2))}, y: ${Math.max(0, sc(vo2.y) - scW(14, vo2))},
-        w: ${scW(90, vo2)}, h: ${scW(28, vo2)}, color: ${hexToNum(vo2.color)},
-        text_size: ${Math.max(11, scW(17, vo2))}, align_h: align.LEFT, align_v: align.CENTER_V,
-        text: 'VO2 --', show_level: NORMAL
-      });
-    } catch (e) {}` : ''}
-
-    // 9. 배터리 (배터리 아이콘 + % 크기 scale 반영)
-    ${bat && bat.visible ? `try {
-      this.batSensor = new Battery();
-      createWidget(widget.IMG, {
-        x: ${Math.max(0, sc(bat.x) - scW(38, bat))}, y: ${Math.max(0, sc(bat.y) - Math.round(M.icBat / 2))},
-        w: ${M.icBat}, h: ${M.icBat}, src: 'ic-bat.png', show_level: NORMAL
-      });
-      const batText = createWidget(widget.TEXT, {
-        x: ${Math.max(0, sc(bat.x) - scW(14, bat))}, y: ${Math.max(0, sc(bat.y) - scW(14, bat))},
-        w: ${scW(68, bat)}, h: ${scW(28, bat)}, color: ${hexToNum(bat.color)},
-        text_size: ${Math.max(12, scW(19, bat))}, align_h: align.LEFT, align_v: align.CENTER_V,
-        text: (this.batSensor.getCurrent() || 0) + '%', show_level: NORMAL
-      });
-      this.onBatChange = () => batText.setProperty(prop.TEXT, (this.batSensor.getCurrent() || 0) + '%');
-      this.batSensor.onChange(this.onBatChange);
-    } catch (e) {}` : ''}
-  },
-
-  onDestroy() {
-    try {
-      if (this.timeSensor && this.updateDate) this.timeSensor.offPerMinute(this.updateDate);
-      if (this.stepSensor && this.onStepChange) this.stepSensor.offChange(this.onStepChange);
-      if (this.hrSensor && this.onHrChange) this.hrSensor.offCurrentChange(this.onHrChange);
-      if (this.batSensor && this.onBatChange) this.batSensor.offChange(this.onBatChange);
-    } catch (e) {}
-  }
-});
-`;
-    }
-
     function updateInstallDevice() {
       const dev = DEVICE_PROFILES[STATE.deviceKey];
       const status = document.getElementById("installDeviceStatus");
       const downloadButtons = [...document.querySelectorAll("#btnMainDownload, #btnMobilePreviewDownload")];
       const building = downloadButtons.some(button => button.hasAttribute("aria-busy"));
       downloadButtons.forEach(button => { button.disabled = !!dev.photoOnly || building; });
+      document.getElementById('personalPreviewGuide').hidden = !!dev.photoOnly;
       updateCloudPreviewButton();
-      status.textContent = dev.displayName + (dev.photoOnly
-        ? " · 이 프로젝트의 Zepp OS 2.0 이상 워치페이스 코드를 지원하지 않습니다."
-        : " · " + dev.designWidth + " × " + dev.designWidth);
+      status.textContent = dev.displayName + ' · ' + dev.designWidth + ' × ' + (dev.designHeight ?? dev.designWidth)
+        + (dev.photoOnly ? ' · 배경 PNG 지원' : '');
+    }
+
+    function updatePersonalPreviewGuide() {
+      const dev = DEVICE_PROFILES[STATE.deviceKey];
+      document.getElementById('personalPreviewGuide').open = !dev.photoOnly && !cloudModelSupported();
     }
 
     const PREVIEW_API = '/api/watchface-preview';
+    const PERSONAL_PREVIEW_API = PREVIEW_API + '/personal';
+    const cloudModelSupported = () => ['trex3pro44', 'trex3pro48'].includes(STATE.deviceKey);
     let cloudPreviewEnabled = false;
     let cloudPreviewAuthenticated = false;
     let cloudPreviewBusy = false;
+    let personalPreviewAvailable = false;
+    let personalLoginDevice = null;
+    let cloudPreviewImage = null;
+    let cloudPreviewImageUrl = '';
+
+    const androidPreviewReplies = new Map();
+    let androidPreviewRequestId = 0;
+
+    if (androidBridge) {
+      window.receiveAndroidPreview = (id, reply) => androidPreviewReplies.get(id)?.(reply);
+    }
+
+    async function previewRequest(path, { body, accessCode = '' } = {}) {
+      if (!androidBridge) {
+        return fetch(path, {
+          method: body ? 'POST' : 'GET',
+          headers: body ? {
+            'Content-Type': 'application/zip',
+            ...(accessCode ? { Authorization: 'Bearer ' + accessCode } : {}),
+          } : undefined,
+          body,
+          cache: 'no-store',
+          signal: AbortSignal.timeout(body ? 25000 : 15000),
+        });
+      }
+
+      const archive = body ? await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(String(reader.result).split(',', 2)[1]);
+        reader.onerror = () => reject(reader.error);
+        reader.readAsDataURL(body);
+      }) : '';
+      const id = ++androidPreviewRequestId;
+      const reply = await new Promise((resolve, reject) => {
+        const finish = value => {
+          clearTimeout(timer);
+          androidPreviewReplies.delete(id);
+          if (value) resolve(value);
+          else reject(new Error('Android preview request failed'));
+        };
+        const timer = setTimeout(() => finish(null), path.startsWith(PERSONAL_PREVIEW_API + '/') ? 90000 : 40000);
+        androidPreviewReplies.set(id, finish);
+        try {
+          if (!androidBridge.requestPreview(id, path, archive, accessCode)) finish(null);
+        } catch {
+          finish(null);
+        }
+      });
+      const bytes = reply.body ? Uint8Array.from(atob(reply.body), char => char.charCodeAt(0)) : null;
+      return new Response(bytes, {
+        status: reply.status,
+        headers: reply.type ? { 'Content-Type': reply.type } : undefined,
+      });
+    }
 
     function updateCloudPreviewButton() {
-      const supported = ['trex3pro44', 'trex3pro48'].includes(STATE.deviceKey);
+      const supported = cloudModelSupported();
       document.getElementById('btnCloudPreview').disabled = !cloudPreviewEnabled || !supported || cloudPreviewBusy;
+      if (androidBridge) {
+        const model = DEVICE_PROFILES[STATE.deviceKey];
+        const showLegacy = supported && cloudPreviewEnabled && !personalPreviewAvailable;
+        document.getElementById('legacyPreviewControls').hidden = !showLegacy;
+        document.getElementById('personalInstall').hidden = model.photoOnly || showLegacy;
+        document.getElementById('btnPersonalPreview').disabled = model.photoOnly || !personalPreviewAvailable
+          || cloudPreviewBusy || Boolean(personalLoginDevice);
+        document.getElementById('btnCancelZeppLogin').hidden = !personalLoginDevice;
+        document.getElementById('btnClearZeppAccount').hidden = !personalPreviewAvailable
+          || cloudPreviewBusy || Boolean(personalLoginDevice) || !androidBridge.hasZeppAccount();
+      }
       if (!cloudPreviewBusy && cloudPreviewEnabled) {
         const status = document.getElementById('cloudPreviewStatus');
         if (status.dataset.mode !== 'result') {
           status.textContent = supported
-            ? 'GitHub 빌드가 끝나면 이 화면에 QR이 표시됩니다.'
-            : '자동 QR 발급은 T-Rex 3 Pro 44mm와 48mm에서 제공됩니다.';
+            ? '워치메이커 발급 계정을 사용하는 경우 이 화면에서 QR을 만들 수 있습니다. 다른 Zepp 계정은 아래 안내를 이용하세요.'
+            : (DEVICE_PROFILES[STATE.deviceKey].photoOnly
+              ? '이 모델에는 위의 배경 PNG를 사용하세요.'
+              : '아래에서 내 Zepp 계정으로 설치 QR을 발급할 수 있습니다.');
         }
       }
     }
@@ -2851,26 +2437,132 @@ WatchFace({
     async function loadPreviewAvailability() {
       const status = document.getElementById('cloudPreviewStatus');
       try {
-        const response = await fetch(PREVIEW_API + '/config', { cache: 'no-store' });
+        const response = await previewRequest(PREVIEW_API + '/config');
         if (response.ok) {
           const config = await response.json();
           cloudPreviewEnabled = config.enabled === true;
           cloudPreviewAuthenticated = config.authenticated === true;
+          personalPreviewAvailable = config.personal === true;
         }
       } catch {
         cloudPreviewEnabled = false;
       }
       if (!cloudPreviewEnabled) status.textContent = '자동 QR 발급 서비스를 사용할 수 없습니다.';
+      if (androidBridge && !personalPreviewAvailable) {
+        document.getElementById('personalPreviewStatus').textContent = '앱 QR 발급 서버에 연결할 수 없습니다.';
+      }
       updateCloudPreviewButton();
+    }
+
+    function clearInstallImage() {
+      document.getElementById('cloudPreviewResult').hidden = true;
+      cloudPreviewImage = null;
+      if (cloudPreviewImageUrl) URL.revokeObjectURL(cloudPreviewImageUrl);
+      cloudPreviewImageUrl = '';
+    }
+
+    async function showInstallImage(png) {
+      const image = document.getElementById('installQrImage');
+      cloudPreviewImageUrl = URL.createObjectURL(png);
+      image.src = cloudPreviewImageUrl;
+      await image.decode();
+      cloudPreviewImage = png;
+      document.getElementById('btnSaveInstallQr').href = cloudPreviewImageUrl;
+      document.getElementById('cloudPreviewResult').hidden = false;
+    }
+
+    async function requestPersonalPreview(dev) {
+      const status = document.getElementById('personalPreviewStatus');
+      cloudPreviewBusy = true;
+      clearInstallImage();
+      updateCloudPreviewButton();
+      try {
+        status.textContent = 'QR 만드는 중…';
+        const archive = await buildWatchfaceProject(dev, true);
+        if (archive.size > 3 * 1024 * 1024) {
+          status.textContent = '배경 사진을 줄여 다시 시도해 주세요.';
+          return;
+        }
+        const response = await previewRequest(PERSONAL_PREVIEW_API, { body: archive });
+        if (response.status === 429) {
+          status.textContent = '발급 요청이 많습니다. 잠시 뒤 다시 시도해 주세요.';
+          return;
+        }
+        if (response.status === 401) {
+          status.textContent = 'Zepp에 다시 로그인해 주세요.';
+          return;
+        }
+        if (response.status !== 202) throw new Error('Could not submit design');
+        const { id, access } = await response.json();
+        if (!/^[0-9a-f]{32}$/.test(id) || !/^[0-9a-f]{32}$/.test(access)) throw new Error('Invalid build ticket');
+        const deadline = Date.now() + 7 * 60 * 1000;
+        do {
+          const result = await previewRequest(PERSONAL_PREVIEW_API + '/' + id, { accessCode: access });
+          if (result.status === 200) {
+            const { link } = await result.json();
+            const qr = androidBridge.makeInstallQr(link);
+            if (!qr.startsWith('data:image/png;base64,')) throw new Error('Invalid Zepp installation link');
+            const png = await fetch(qr).then(image => image.blob());
+            await showInstallImage(png);
+            status.textContent = '';
+            return;
+          }
+          if (result.status === 401) {
+            status.textContent = 'Zepp에 다시 로그인해 주세요.';
+            return;
+          }
+          if (result.status !== 204 && result.status !== 404) throw new Error('Could not build watchface');
+          await new Promise(resolve => setTimeout(resolve, 6500));
+        } while (Date.now() < deadline);
+        status.textContent = '발급 시간이 길어졌습니다. 다시 시도해 주세요.';
+      } catch {
+        status.textContent = 'QR을 만들 수 없습니다. 다시 시도해 주세요.';
+      } finally {
+        cloudPreviewBusy = false;
+        updateCloudPreviewButton();
+      }
+    }
+
+    function bindPersonalPreview() {
+      const status = document.getElementById('personalPreviewStatus');
+      window.onZeppLogin = success => {
+        const dev = personalLoginDevice;
+        personalLoginDevice = null;
+        updateCloudPreviewButton();
+        if (success && dev) requestPersonalPreview(dev);
+        else if (dev) status.textContent = 'Zepp 로그인을 완료하지 못했습니다.';
+      };
+      document.getElementById('btnPersonalPreview').addEventListener('click', () => {
+        const dev = DEVICE_PROFILES[STATE.deviceKey];
+        if (!personalPreviewAvailable || dev.photoOnly || cloudPreviewBusy || personalLoginDevice) return;
+        if (androidBridge.hasZeppAccount()) {
+          requestPersonalPreview(dev);
+          return;
+        }
+        personalLoginDevice = dev;
+        status.textContent = '워치에 연결한 Zepp 계정으로 로그인하세요.';
+        updateCloudPreviewButton();
+        androidBridge.startZeppLogin();
+      });
+      document.getElementById('btnCancelZeppLogin').addEventListener('click', () => {
+        androidBridge.cancelZeppLogin();
+        personalLoginDevice = null;
+        status.textContent = '';
+        updateCloudPreviewButton();
+      });
+      document.getElementById('btnClearZeppAccount').addEventListener('click', () => {
+        androidBridge.clearZeppAccount();
+        clearInstallImage();
+        status.textContent = '';
+        updateCloudPreviewButton();
+      });
     }
 
     async function waitForPreview(id) {
       const deadline = Date.now() + 7 * 60 * 1000;
       while (Date.now() < deadline) {
         try {
-          const response = await fetch(PREVIEW_API + '/' + id, {
-            cache: 'no-store', signal: AbortSignal.timeout(15000),
-          });
+          const response = await previewRequest(PREVIEW_API + '/' + id);
           if (response.ok) {
             const progress = await response.json();
             if (progress.status !== 'pending') return progress;
@@ -2883,33 +2575,45 @@ WatchFace({
       return { status: 'timeout' };
     }
 
+    async function loadPreviewImage(id) {
+      const deadline = Date.now() + 75000;
+      do {
+        const response = await previewRequest('/p/' + id + '.png').catch(() => null);
+        if (response?.ok && response.headers.get('Content-Type')?.split(';')[0] === 'image/png') {
+          const blob = await response.blob();
+          if (blob.size) return blob;
+        }
+        if (response && response.status !== 404 && response.status < 500) break;
+        if (Date.now() >= deadline) break;
+        await new Promise(resolve => setTimeout(resolve, 3000));
+      } while (Date.now() < deadline);
+      throw new Error('QR image unavailable');
+    }
+
     async function requestCloudPreview(accessCode) {
-      if (cloudPreviewBusy || !cloudPreviewEnabled || !['trex3pro44', 'trex3pro48'].includes(STATE.deviceKey)) return;
+      if (cloudPreviewBusy || !cloudPreviewEnabled || !cloudModelSupported()) return;
       const dev = DEVICE_PROFILES[STATE.deviceKey];
       const status = document.getElementById('cloudPreviewStatus');
-      const result = document.getElementById('cloudPreviewResult');
-      const image = document.getElementById('installQrImage');
-      const save = document.getElementById('btnSaveInstallQr');
       cloudPreviewBusy = true;
       updateCloudPreviewButton();
       status.dataset.mode = 'result';
       status.textContent = '워치페이스를 서버에 보내는 중입니다.';
-      result.hidden = true;
+      clearInstallImage();
 
       try {
         const archive = await buildWatchfaceProject(dev);
-        const response = await fetch(PREVIEW_API, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/zip',
-            ...(accessCode ? { Authorization: 'Bearer ' + accessCode } : {}),
-          },
-          body: archive,
-          signal: AbortSignal.timeout(25000),
-        });
+        if (archive.size > 3 * 1024 * 1024) {
+          status.textContent = '프로젝트가 너무 큽니다. 배경 이미지를 줄여 다시 시도하세요.';
+          return;
+        }
+        const response = await previewRequest(PREVIEW_API, { body: archive, accessCode });
         if (response.status === 401) {
           cloudPreviewAuthenticated = false;
           status.textContent = '접속 코드가 맞지 않습니다. 버튼을 눌러 다시 입력하세요.';
+          return;
+        }
+        if (response.status === 502 || response.status === 503) {
+          status.textContent = 'QR 빌드 서비스에 작업을 보낼 수 없습니다. 잠시 후 다시 시도하세요.';
           return;
         }
         if (response.status === 413) {
@@ -2920,19 +2624,13 @@ WatchFace({
         const { id } = await response.json();
         if (!/^[0-9a-f]{32}$/.test(id)) throw new Error('Invalid preview job ID');
         cloudPreviewAuthenticated = true;
-        status.textContent = 'GitHub 빌드를 기다리는 중입니다. 이 탭을 열어 두세요.';
+        status.textContent = 'Zepp 설치 QR을 발급하는 중입니다. 이 화면을 열어 두세요.';
 
         const progress = await waitForPreview(id);
         if (progress.status === 'ready') {
-          const qrUrl = '/p/' + id + '.png';
-          await new Promise((resolve, reject) => {
-            const timer = setTimeout(reject, 15000, new Error('QR image request timed out'));
-            image.onload = () => { clearTimeout(timer); resolve(); };
-            image.onerror = () => { clearTimeout(timer); reject(new Error('QR image unavailable')); };
-            image.src = qrUrl;
-          });
-          save.href = qrUrl;
-          result.hidden = false;
+          status.textContent = '발급한 QR 이미지를 불러오는 중입니다.';
+          const png = await loadPreviewImage(id);
+          await showInstallImage(png);
           status.textContent = dev.displayName + '용 QR이 준비됐습니다. 이 화면에서 30분 동안 저장할 수 있습니다.';
         } else {
           status.textContent = progress.status === 'timeout'
@@ -3139,9 +2837,11 @@ WatchFace({
       document.getElementById('watchDeviceSelect').addEventListener('change', e => {
         STATE.deviceKey = e.target.value;
         updateInstallDevice();
+        updatePersonalPreviewGuide();
+        updateStep4Previews();
         saveStateToLocal();
         const dev = DEVICE_PROFILES[STATE.deviceKey];
-        if (dev) showToast(`${dev.displayName} (${dev.designWidth}×${dev.designWidth}) 선택됨! ⌚`);
+        if (dev) showToast(`${dev.displayName} (${dev.designWidth}×${dev.designHeight ?? dev.designWidth}) 선택됨! ⌚`);
       });
       document.getElementById('btnDownloadAssetsOnly').addEventListener('click', downloadAssetsOnlyZip);
       document.getElementById('btnMainDownload').addEventListener('click', event => downloadWatchfaceZip(event.currentTarget, false));
@@ -3150,6 +2850,16 @@ WatchFace({
       document.getElementById('btnCopyMobilePreview').addEventListener('click', () => copyZeusCommand(MOBILE_ZEUS_PREVIEW));
       const previewDialog = document.getElementById('previewAccessDialog');
       const previewKeyInput = document.getElementById('previewAccessKey');
+      if (androidBridge) {
+        bindPersonalPreview();
+        const saveQr = document.getElementById('btnSaveInstallQr');
+        saveQr.textContent = '갤러리에 QR 저장';
+        saveQr.addEventListener('click', event => {
+          event.preventDefault();
+          if (cloudPreviewImage) triggerBlobDownload(cloudPreviewImage, 'zepp-install-qr.png');
+        });
+        document.getElementById('btnCloudOpenZepp').addEventListener('click', () => androidBridge.openZepp());
+      }
       document.getElementById('btnCloudPreview').addEventListener('click', () => {
         if (cloudPreviewAuthenticated) requestCloudPreview();
         else previewDialog.showModal();
@@ -3258,8 +2968,9 @@ WatchFace({
       syncDateToggle();
       bindEvents();
       updateInstallDevice();
+      updatePersonalPreviewGuide();
       if (androidBridge) bindAndroidQr();
-      else loadPreviewAvailability();
+      loadPreviewAvailability();
       resizeCanvas();
       animate();
       if (restored) showToast('이전에 만들던 디자인을 불러왔어요! ✨');

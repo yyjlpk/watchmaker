@@ -2,6 +2,8 @@ package com.yyjlpk.watchmaker;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -32,6 +34,8 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
+import org.json.JSONObject;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -42,6 +46,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.RejectedExecutionException;
 
 public final class WatchmakerActivity extends Activity {
     private static final String APP_HOST = "appassets.androidplatform.net";
@@ -51,12 +56,17 @@ public final class WatchmakerActivity extends Activity {
     private static final int QR_SIZE = 480;
 
     private final ExecutorService fileWriter = Executors.newSingleThreadExecutor();
+    private final ExecutorService previewRequests = Executors.newSingleThreadExecutor();
+    private final ExecutorService loginRequests = Executors.newSingleThreadExecutor();
+    private ZeppAccount.Login zeppLogin;
+    private volatile ZeppAccount zeppAccount;
     private ValueCallback<Uri[]> fileCallback;
     private WebView editor;
 
     @Override
     protected void onCreate(Bundle state) {
         super.onCreate(state);
+        zeppAccount = ZeppAccount.restore(this);
         if (Build.VERSION.SDK_INT >= 30) getWindow().setDecorFitsSystemWindows(false);
         editor = new WebView(this);
         editor.setBackgroundColor(Color.rgb(15, 23, 42));
@@ -206,6 +216,95 @@ public final class WatchmakerActivity extends Activity {
 
     private final class EditorBridge {
         @JavascriptInterface
+        public boolean hasZeppAccount() {
+            return zeppAccount != null;
+        }
+        @JavascriptInterface
+        public void clearZeppAccount() {
+            zeppAccount = null;
+            ZeppAccount.forget(WatchmakerActivity.this);
+        }
+
+        @JavascriptInterface
+        public void startZeppLogin() {
+            runOnUiThread(() -> {
+                if (editor == null || zeppLogin != null) return;
+                try {
+                    ZeppAccount.Login login = new ZeppAccount.Login();
+                    zeppLogin = login;
+                    startActivity(new Intent(Intent.ACTION_VIEW, login.url()).addCategory(Intent.CATEGORY_BROWSABLE));
+                    loginRequests.execute(() -> {
+                        ZeppAccount account = null;
+                        try (ZeppAccount.Login current = login) {
+                            account = current.waitForAccount();
+                        } catch (IOException ignored) {
+                            // The login may have been cancelled while the browser was open.
+                        }
+                        ZeppAccount result = account;
+                        runOnUiThread(() -> {
+                            if (zeppLogin != login) return;
+                            zeppLogin = null;
+                            zeppAccount = result;
+                            if (result != null) result.remember(WatchmakerActivity.this);
+                            if (editor != null) editor.evaluateJavascript("window.onZeppLogin(" + (result != null) + ")", null);
+                        });
+                    });
+                } catch (IOException | ActivityNotFoundException error) {
+                    cancelLogin();
+                    editor.evaluateJavascript("window.onZeppLogin(false)", null);
+                }
+            });
+        }
+
+        @JavascriptInterface
+        public void cancelZeppLogin() {
+            runOnUiThread(() -> cancelLogin());
+        }
+
+        @JavascriptInterface
+        public void copyZeusCommand(String command) {
+            if (command == null || command.length() > 512) return;
+            runOnUiThread(() -> {
+                ClipboardManager clipboard = getSystemService(ClipboardManager.class);
+                clipboard.setPrimaryClip(ClipData.newPlainText("Zeus CLI", command));
+            });
+        }
+
+        @JavascriptInterface
+        public boolean requestPreview(int requestId, String path, String archive, String accessCode) {
+            if (!CloudPreviewClient.accepts(path, archive, accessCode)) return false;
+            try {
+                previewRequests.execute(() -> {
+                    JSONObject result;
+                    ZeppAccount account = zeppAccount;
+                    try {
+                        result = CloudPreviewClient.isPersonal(path) && account == null
+                                ? new JSONObject().put("status", 401)
+                                : CloudPreviewClient.request(path, archive, accessCode, account);
+                    } catch (ZeppAccount.Expired error) {
+                        if (zeppAccount == account) {
+                            zeppAccount = null;
+                            ZeppAccount.forget(WatchmakerActivity.this);
+                        }
+                        result = new JSONObject(Collections.singletonMap("status", 401));
+                    } catch (Exception error) {
+                        result = null;
+                    }
+                    String response = String.valueOf(result);
+                    runOnUiThread(() -> {
+                        if (editor != null) {
+                            editor.evaluateJavascript("window.receiveAndroidPreview(" + requestId
+                                    + "," + response + ")", null);
+                        }
+                    });
+                });
+                return true;
+            } catch (RejectedExecutionException error) {
+                return false;
+            }
+        }
+
+        @JavascriptInterface
         public void openZepp() {
             runOnUiThread(() -> {
                 Intent zepp = getPackageManager().getLaunchIntentForPackage(ZEPP_PACKAGE);
@@ -273,12 +372,26 @@ public final class WatchmakerActivity extends Activity {
         }
     }
 
+    private void cancelLogin() {
+        if (zeppLogin == null) return;
+        try {
+            zeppLogin.close();
+        } catch (IOException ignored) {
+        }
+        zeppLogin = null;
+    }
+
     @Override
     protected void onDestroy() {
         if (fileCallback != null) fileCallback.onReceiveValue(null);
         fileWriter.shutdown();
+        previewRequests.shutdownNow();
+        cancelLogin();
+        loginRequests.shutdownNow();
+        zeppAccount = null;
         editor.removeJavascriptInterface("WatchmakerAndroid");
         editor.destroy();
+        editor = null;
         super.onDestroy();
     }
 }
