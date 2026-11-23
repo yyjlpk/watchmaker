@@ -164,9 +164,10 @@ export default {
     if (!pathname.startsWith('/api/watchface-preview') && !pathname.startsWith('/p/')) {
       return env.ASSETS.fetch(request);
     }
-    if (!configured(env)) return error('unavailable', 503);
+    if (!env.PREVIEW_JOBS) return error('unavailable', 503);
     try {
       if (pathname === '/api/watchface-preview' && request.method === 'POST') {
+        if (!configured(env)) return error('unavailable', 503);
         return await enqueue(request, env);
       }
       const job = new RegExp('^/api/watchface-preview/(' + ID + ')$').exec(pathname);
