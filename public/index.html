@@ -104,6 +104,8 @@
     }
     #phoneAppModal { width: min(28rem, calc(100% - 2rem)); border: 1px solid #334155; border-radius: 1.5rem; background: #0f172a; }
     #phoneAppModal::backdrop { background: rgb(0 0 0 / 75%); }
+    html:not(.android-app) [data-android], .android-app [data-web], .android-app #btnPhoneAppGuide { display: none !important; }
+    #androidQrPreview { width: min(100%, 19rem); height: auto; margin: .5rem auto; background: white; }
     #previewAccessDialog { width: min(28rem, calc(100% - 2rem)); border: 1px solid #334155; border-radius: 1.5rem; background: #0f172a; color: white; }
     #previewAccessDialog::backdrop { background: rgb(0 0 0 / 75%); }
     #installQrImage { width: min(100%, 19rem); height: auto; margin: .5rem auto; background: white; }
@@ -590,13 +592,31 @@
           <div class="p-4 sm:p-5 rounded-3xl bg-slate-800/60 border border-slate-700 space-y-3">
             <h3 class="text-base font-extrabold text-white">위젯까지 바꾸기 · Zepp 개발자 모드</h3>
             <p id="installDeviceStatus" class="text-xs text-sky-300" role="status"></p>
-            <button id="btnCloudPreview" type="button" disabled class="w-full py-3 px-4 rounded-2xl text-sm font-extrabold bg-emerald-500 hover:bg-emerald-400 text-slate-950">Zepp 설치 QR 만들기</button>
-            <p id="cloudPreviewStatus" class="text-xs text-slate-300 leading-relaxed" role="status">QR 발급 서비스 확인 중</p>
-            <div id="cloudPreviewResult" hidden class="p-3 rounded-2xl bg-slate-900 border border-slate-700 space-y-2">
+            <button data-web id="btnCloudPreview" type="button" disabled class="w-full py-3 px-4 rounded-2xl text-sm font-extrabold bg-emerald-500 hover:bg-emerald-400 text-slate-950">Zepp 설치 QR 만들기</button>
+            <p data-web id="cloudPreviewStatus" class="text-xs text-slate-300 leading-relaxed" role="status">QR 발급 서비스 확인 중</p>
+            <div data-web id="cloudPreviewResult" hidden class="p-3 rounded-2xl bg-slate-900 border border-slate-700 space-y-2">
               <img id="installQrImage" alt="Zepp 설치 QR">
               <a id="btnSaveInstallQr" download="zepp-install.png" class="block w-full py-3 px-4 rounded-2xl text-center text-sm font-extrabold bg-sky-500 text-slate-950">QR 이미지 저장</a>
               <p class="text-xs text-slate-300 leading-relaxed">Zepp → 기기 → 일반 → 개발자 모드 → + → 스캔 → 열기 / 선택에서 저장한 이미지를 고르세요. 갤러리에 바로 안 보이면 다운로드 폴더나 화면 캡처를 이용하세요.</p>
             </div>
+            <section data-android class="p-3 rounded-2xl bg-slate-900 border border-slate-700 space-y-3">
+              <h4 class="text-sm font-bold text-white">Zepp에서 받은 설치 QR 저장</h4>
+              <p class="text-xs text-slate-300 leading-relaxed">본인의 Zepp 계정으로 발급받은 설치 링크를 붙여넣거나 QR 사진을 불러오세요. 디자인을 발급하려면 아래에서 Zeus 프로젝트를 저장하거나 공식 Watchface Maker를 여세요.</p>
+              <label for="androidQrLink" class="block text-xs font-bold text-slate-300">Zepp 설치 링크</label>
+              <input id="androidQrLink" type="text" inputmode="url" autocapitalize="off" autocomplete="off" spellcheck="false" maxlength="1800" placeholder="zpkd1://…" class="w-full rounded-xl px-3 py-2 bg-slate-800 text-white border border-slate-700">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <button id="btnAndroidMakeQr" type="button" class="py-2.5 px-3 rounded-xl text-sm font-bold bg-sky-500 text-slate-950">링크를 QR로 만들기</button>
+                <button id="btnAndroidImportQr" type="button" class="py-2.5 px-3 rounded-xl text-sm font-bold bg-slate-800 text-sky-200 border border-slate-700">QR 사진 불러오기</button>
+              </div>
+              <input id="androidQrFile" type="file" accept="image/*" hidden>
+              <p id="androidQrStatus" class="text-xs text-slate-300 leading-relaxed" role="status"></p>
+              <div id="androidQrResult" hidden class="space-y-2">
+                <img id="androidQrPreview" alt="Zepp 설치 QR">
+                <button id="btnAndroidSaveQr" type="button" class="w-full py-2.5 px-3 rounded-xl text-sm font-bold bg-emerald-500 text-slate-950">갤러리에 QR 저장</button>
+                <p class="text-xs text-slate-300 leading-relaxed">Zepp에서 기기 → 일반 → 개발자 모드 → + → 스캔 → 열기 / 선택으로 들어가 Watchmaker 앨범의 QR을 고르세요.</p>
+              </div>
+              <button id="btnAndroidOpenZepp" type="button" class="w-full py-2.5 px-3 rounded-xl text-sm font-bold bg-slate-800 text-sky-200 border border-slate-700">Zepp 앱 열기</button>
+            </section>
             <details class="p-3 rounded-2xl bg-slate-900 border border-slate-700">
               <summary class="cursor-pointer text-sm font-bold text-white">폰에서 QR 발급하기 · GitHub Codespaces</summary>
               <div class="pt-2 space-y-3">
@@ -723,6 +743,8 @@
   <div role="status" id="toastBox" class="fixed bottom-20 lg:bottom-5 right-4 left-4 sm:left-auto z-50 flex flex-col gap-2 pointer-events-none"></div>
 
   <script>
+    const androidBridge = window.WatchmakerAndroid;
+    if (androidBridge) document.documentElement.classList.add("android-app");
     /* =========================================================================
        1. 초간단 상태(STATE) 및 4가지 기본 테마
        ========================================================================= */
@@ -2262,6 +2284,16 @@
     }
 
     function triggerBlobDownload(blob, filename) {
+      if (androidBridge) {
+        const reader = new FileReader();
+        reader.onload = () => {
+          const encoded = String(reader.result).split(",", 2)[1];
+          if (!androidBridge.saveFile(encoded, filename)) showToast("저장할 수 없는 파일입니다.");
+        };
+        reader.onerror = () => showToast("파일을 준비하지 못했습니다.");
+        reader.readAsDataURL(blob);
+        return;
+      }
       // 이전 Blob URL 정리 (다운로드 중 끊기지 않도록 새 파일 생성 시에만 해제)
       if (LAST_DOWNLOAD_URL) {
         try { URL.revokeObjectURL(LAST_DOWNLOAD_URL); } catch (e) {}
@@ -2919,6 +2951,65 @@ WatchFace({
     /* =========================================================================
        8. 이벤트 연결 & 애니메이션 시작
        ========================================================================= */
+    function bindAndroidQr() {
+      const link = document.getElementById("androidQrLink");
+      const file = document.getElementById("androidQrFile");
+      const image = document.getElementById("androidQrPreview");
+      const status = document.getElementById("androidQrStatus");
+      const result = document.getElementById("androidQrResult");
+      let imageUrl = "";
+
+      image.onload = () => {
+        result.hidden = false;
+      };
+      image.onerror = () => {
+        result.hidden = true;
+        status.textContent = "QR 사진을 열지 못했습니다.";
+      };
+      function showImage(url) {
+        if (imageUrl.startsWith("blob:")) URL.revokeObjectURL(imageUrl);
+        imageUrl = url;
+        image.src = url;
+        result.hidden = true;
+        status.textContent = "";
+      }
+
+      document.getElementById("btnAndroidMakeQr").addEventListener("click", () => {
+        const url = androidBridge.makeInstallQr(link.value.trim());
+        if (url) showImage(url);
+        else status.textContent = "Zepp에서 발급한 zpkd1:// 또는 watchface:// 설치 링크를 입력하세요.";
+      });
+      document.getElementById("btnAndroidImportQr").addEventListener("click", () => file.click());
+      file.addEventListener("change", () => {
+        const selected = file.files[0];
+        if (selected && selected.size <= 8 * 1024 * 1024) showImage(URL.createObjectURL(selected));
+        else if (selected) status.textContent = "8MB 이하의 QR 사진을 골라 주세요.";
+        file.value = "";
+      });
+      document.getElementById("btnAndroidSaveQr").addEventListener("click", async (event) => {
+        const button = event.currentTarget;
+        button.disabled = true;
+        try {
+          const canvas = document.createElement("canvas");
+          const scale = Math.min(1, 1600 / Math.max(image.naturalWidth, image.naturalHeight));
+          canvas.width = Math.max(1, Math.round(image.naturalWidth * scale));
+          canvas.height = Math.max(1, Math.round(image.naturalHeight * scale));
+          const ctx = canvas.getContext("2d");
+          ctx.fillStyle = "#fff";
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+          const blob = await canvasToBlob(canvas);
+          if (!blob) throw new Error("QR encoding failed");
+          triggerBlobDownload(blob, "zepp-install-qr.png");
+        } catch {
+          status.textContent = "QR 이미지를 저장하지 못했습니다.";
+        } finally {
+          button.disabled = false;
+        }
+      });
+      document.getElementById("btnAndroidOpenZepp").addEventListener("click", () => androidBridge.openZepp());
+    }
+
     function bindEvents() {
       // 4단계 상단 탭 & 모바일 하단 앱 바 버튼
       document.querySelectorAll('.step-tab, .mobile-nav-btn').forEach(btn => {
@@ -3160,13 +3251,14 @@ WatchFace({
       syncDateToggle();
       bindEvents();
       updateInstallDevice();
-      loadPreviewAvailability();
+      if (androidBridge) bindAndroidQr();
+      else loadPreviewAvailability();
       resizeCanvas();
       animate();
       if (restored) showToast('이전에 만들던 디자인을 불러왔어요! ✨');
     });
 
-    if ("serviceWorker" in navigator) {
+    if (!androidBridge && "serviceWorker" in navigator) {
       window.addEventListener("load", () => {
         navigator.serviceWorker.register("./sw.js").catch(error => console.warn("Service worker:", error));
       });

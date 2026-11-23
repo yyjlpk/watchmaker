@@ -1,0 +1,64 @@
+plugins {
+    id 'com.android.application'
+}
+
+def editor = rootProject.layout.projectDirectory.dir('../public')
+def androidAssets = layout.buildDirectory.dir('generated/watchmaker/assets')
+def androidResources = layout.buildDirectory.dir('generated/watchmaker/res')
+
+tasks.register('prepareEditorAssets', Sync) {
+    from(editor) {
+        include 'index.html', 'vendor/jszip.min.js', 'vendor/jszip.LICENSE.markdown'
+        filesMatching('index.html') {
+            filter { String line ->
+                line.contains('fonts.googleapis.com') || line.contains('fonts.gstatic.com')
+                    || line.contains('rel="manifest"') || line.contains('rel="apple-touch-icon"') ? null
+                    : line.replace(' target="_blank"', '')
+            }
+        }
+    }
+    into(androidAssets)
+    filteringCharset = 'UTF-8'
+}
+
+tasks.register('prepareEditorIcon', Sync) {
+    from(editor.file('icon-192.png')) {
+        rename { 'watchmaker_icon.png' }
+        into 'drawable-nodpi'
+    }
+    into(androidResources)
+}
+
+android {
+    namespace 'com.yyjlpk.watchmaker'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId 'com.yyjlpk.watchmaker'
+        minSdk 29
+        targetSdk 36
+        versionCode 1
+        versionName '1.0.0'
+    }
+
+    sourceSets {
+        main {
+            assets.srcDir androidAssets
+            res.srcDir androidResources
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+tasks.named('preBuild').configure {
+    dependsOn 'prepareEditorAssets', 'prepareEditorIcon'
+}
+
+dependencies {
+    implementation 'androidx.webkit:webkit:1.14.0'
+    implementation 'com.google.zxing:core:3.5.3'
+}
