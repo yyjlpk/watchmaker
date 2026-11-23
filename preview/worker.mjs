@@ -161,7 +161,10 @@ async function personalResult(request, kv, id) {
   await source?.cancel?.();
   if (!authorized(request, metadata?.access)) return error('missing', 404);
   if (Date.now() >= metadata.expiresAt) return error('expired', 410);
-  const { value, metadata: result } = await kv.getWithMetadata('install/' + id, 'stream');
+  // Polling before the runner finishes can cache a miss at the phone's edge location.
+  const { value, metadata: result } = await kv.getWithMetadata('install/' + id, {
+    type: 'stream', cacheTtl: 30,
+  });
   if (!value) return new Response(null, { status: 204, headers });
   if (result?.failed) return error('build', 422);
   return new Response(value, { headers: { ...headers, 'Content-Type': 'application/zip' } });
